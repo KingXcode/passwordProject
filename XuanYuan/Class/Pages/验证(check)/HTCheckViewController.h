@@ -12,7 +12,5 @@
 
 @property (nonatomic,strong)UIImageView *image;
 
-@property (nonatomic,assign)BOOL isChangePassword;
-
 
 @end

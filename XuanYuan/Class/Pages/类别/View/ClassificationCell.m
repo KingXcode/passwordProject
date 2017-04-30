@@ -62,7 +62,7 @@
     _model = model;
     self.ht_title.text   = [NSString stringWithFormat:@"%@",_model.accountTitle];
     self.ht_account.text = [NSString stringWithFormat:@"%@",model.account];
-    self.ht_password.text = [NSString stringWithFormat:@"♥♥♥♥♥♥"];
+    self.ht_password.text = [NSString stringWithFormat:@"●●●●●●"];
     
     if (model.isCollect) {
         self.collectImage.hidden = NO;

@@ -12,6 +12,8 @@
 
 
 //偏好设置
+//密码
+#define kPasswordUserDefaults @"kPasswordUserDefaults"
 //是否启用密码  @YES--启用   @NO-关闭
 #define kStartPasswordUserDefaults @"kStartPasswordUserDefaults"
 //启用touchID @YES--启用   @NO-关闭
@@ -25,7 +27,7 @@
 #define kReloadCollect_Noti @"reloadClassification"
 
 
-
+#define MainConfigManager [HTConfigManager sharedconfigManager]
 
 //主基调
 #define MainRGB RGB(0, 191, 255)
@@ -43,7 +45,8 @@
 #define MainAppDelegate  (AppDelegate *)[UIApplication sharedApplication].delegate
 
 //实例化故事板的控制器
-#define instantiateStoryboardControllerWithIdentifier(identifier)    [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:identifier];
+#define instantiateStoryboardControllerWithIdentifier(identifier)\
+    [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:identifier];
 
 
 //屏幕宽度

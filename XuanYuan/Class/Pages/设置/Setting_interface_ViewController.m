@@ -10,7 +10,6 @@
 
 #import "Setting_interface_ViewController.h"
 #import "HTDataBaseManager.h"
-#import "HTCheckViewController.h"
 
 @interface Setting_interface_ViewController ()
 
@@ -82,28 +81,32 @@
 }
 
 #pragma -mark-  刷新cell
-//刷新修改密码cell  kStartPasswordUserDefaults
+//刷新修改密码cell  
 -(void)reloadStartPassWordCell
 {
-    NSNumber *isOpenPassword = [[NSUserDefaults standardUserDefaults]objectForKey:kStartPasswordUserDefaults];
-    self.touchIDCell.hidden = !isOpenPassword.boolValue;
+    NSString *password = [MainConfigManager startPassword];
     
-    self.openandclosePassWordSwitch.on = isOpenPassword.boolValue;
+    if ([HTTools ht_isBlankString:password]) {
+
+        self.openandclosePassWordSwitch.enabled = NO;
+        
+    }else
+    {
+        self.openandclosePassWordSwitch.enabled = YES;
+    }
+    
+    BOOL isOpenPassword = [MainConfigManager isOpenStartPassword];
+    self.touchIDCell.hidden = !isOpenPassword;
+    self.openandclosePassWordSwitch.on = isOpenPassword;
 }
 
-- (IBAction)isOpenPassword:(UISwitch *)sender {
-    NSNumber *isOpenPassword = [NSNumber numberWithBool:sender.on];
-    self.touchIDCell.hidden = !isOpenPassword.boolValue;
-    
-    [[NSUserDefaults standardUserDefaults] setObject:isOpenPassword forKey:kStartPasswordUserDefaults];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
+
 
 //刷新touchid cell
 -(void)reloadTouchIdcell
 {
-    NSNumber *isStartTouchID = [[NSUserDefaults standardUserDefaults]objectForKey:kStartTouchIDUserDefaults];
-    if (isStartTouchID.boolValue) {
+    BOOL isStartTouchID = [MainConfigManager isOpenTouchID];
+    if (isStartTouchID) {
         self.touchIDCell.textLabel.text = @"关闭Touch-ID";
     }else{
         self.touchIDCell.textLabel.text = @"启用Touch-ID";
@@ -112,20 +115,86 @@
 
 
 
-
-
-
 #pragma -mark-  cell点击事件
+/**
+ 是否启用启动密码
+ */
+- (IBAction)isOpenPassword:(UISwitch *)sender {
+    
+    [MainConfigManager isOpenStartPassword:sender.on];
+    self.touchIDCell.hidden = !sender.on;
+}
+
 /**
  点击修改密码
  */
 -(void)startPasswordChange
 {
-    UIImageView *imageView = [HTTools gaussianBlurWithMainRootView];
-    HTCheckViewController *vc = instantiateStoryboardControllerWithIdentifier(@"HTCheckViewController");
-    vc.image = imageView;
-    vc.isChangePassword = YES;
-    [self presentViewController:vc animated:YES completion:^{}];
+    NSString *title;
+    NSString *subTitle;
+    NSString *password = [MainConfigManager startPassword];
+    
+    if ([HTTools ht_isBlankString:password]) {
+        title = @"设置密码";
+        subTitle = @"请设置启动密码";
+    }else
+    {
+        title = @"修改密码";
+        subTitle = @"请修改启动密码";
+    }
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    
+    SCLTextView *textField1 = [alert addTextField:@"请输入密码"];
+    SCLTextView *textField2 = [alert addTextField:@"请再一次输入密码"];
+    
+    textField1.keyboardType = UIKeyboardTypeNumberPad;
+    textField1.tintColor = MainTextColor;
+    textField2.keyboardType = UIKeyboardTypeNumberPad;
+    textField2.tintColor = MainTextColor;
+
+    [alert addButton:@"确定" validationBlock:^BOOL{
+        [self reloadStartPassWordCell];
+        if ([HTTools ht_isBlankString:textField1.text]||[HTTools ht_isBlankString:textField2.text]) {
+            
+            textField1.placeholder = @"输入不能为空";
+            textField2.placeholder = @"输入不能为空";
+            [HTTools shakeAnnimation:textField1 completion:^(BOOL finished) {
+                
+            }];
+            [HTTools shakeAnnimation:textField2 completion:^(BOOL finished) {
+                
+            }];
+            [HTTools vibrate];
+            return NO;
+        }
+        else if (![textField1.text isEqualToString:textField2.text]) {
+            textField2.text = nil;
+            textField2.placeholder = @"两次密码输入不一致";
+            [HTTools shakeAnnimation:textField2 completion:^(BOOL finished) {
+                
+            }];
+            [HTTools vibrate];
+            return NO;
+        }
+        else
+        {
+            return YES;
+        }
+    } actionBlock:^{
+        
+        [MainConfigManager startPassword:textField1.text];
+        [self reloadStartPassWordCell];
+
+    }];
+    
+    [alert addButton:@"取消" actionBlock:^{
+        
+    }];
+    
+    UIImage *image = [UIImage imageNamed:@"lock-锁"];
+    alert.iconTintColor = [UIColor whiteColor];
+    [alert showCustom:self.navigationController image:image color:MainRGB title:title subTitle:subTitle closeButtonTitle:nil duration:0.0f];
 }
 
 
@@ -136,23 +205,22 @@
     NSString *buttonText;
     NSString *subTitle;
 
-    NSNumber *isStartTouchID = [[NSUserDefaults standardUserDefaults]objectForKey:kStartTouchIDUserDefaults];
-    if (isStartTouchID.boolValue) {
+    BOOL isStartTouchID = [MainConfigManager isOpenTouchID];
+    if (isStartTouchID) {
         buttonText = @"关闭";
         subTitle = @"是否关闭Touch-ID进行验证";
-        isStartTouchID = @NO;
+        isStartTouchID = NO;
     }else{
         buttonText = @"启用";
         subTitle = @"是否启用Touch-ID进行验证";
-        isStartTouchID = @YES;
+        isStartTouchID = YES;
     }
 
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     
     [alert addButton:buttonText actionBlock:^(void) {
-        [[NSUserDefaults standardUserDefaults] setObject:isStartTouchID forKey:kStartTouchIDUserDefaults];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
+
+        [MainConfigManager isOpenTouchID:isStartTouchID];
         [self reloadTouchIdcell];
 
     }];
@@ -184,9 +252,11 @@
 //清除全部账号信息
 -(void)clearAllData
 {
-    [[HTDataBaseManager sharedInstance]clearAccountList];
+
+    [MainConfigManager clearAllData];
     [[NSNotificationCenter defaultCenter]postNotificationName:kReloadClassification_Noti object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+
 }
 
 

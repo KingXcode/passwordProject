@@ -32,7 +32,7 @@
 -(NSString *)password
 {
     if (_password == nil) {
-        _password = @"123456";
+        _password= [MainConfigManager startPassword];
     }
     return _password;
 }
@@ -79,17 +79,9 @@
         }];
         
         [HTTools vibrate];
-
     }
 }
 
--(void)setIsChangePassword:(BOOL)isChangePassword
-{
-    _isChangePassword = isChangePassword;
-    self.cancelButton.hidden = NO;
-    [self.cancelButton setTitle:@"取消修改" forState:UIControlStateNormal];
-    
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,12 +95,15 @@
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
     
+    
 }
 
 -(void)appHasGoneInForeground:(NSNotification *)noti
 {
     [self enableTouchID];
 }
+
+
 
 -(void)viewDidAppear:(BOOL)animated
 {

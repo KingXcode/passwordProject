@@ -89,6 +89,8 @@
 		1C83870D1EB1C3AD006A8A71 /* DetailCopyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C83870C1EB1C3AD006A8A71 /* DetailCopyView.m */; };
 		1C8387201EB1DEA3006A8A71 /* DetailCopyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C83871F1EB1DEA3006A8A71 /* DetailCopyCell.m */; };
 		1C8387231EB1FE73006A8A71 /* DetailCopyViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8387221EB1FE73006A8A71 /* DetailCopyViewToolBar.m */; };
+		1C895EF41EB5DD5300ACBED0 /* HTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */; };
+		1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1C895EF51EB5E6D000ACBED0 /* LICENSE */; };
 		1C98DEBA1EB2DAAB00C68A96 /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */; };
 		1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71B411EADF1B80071312F /* ClassificationModel.m */; };
 		3778629A3909E5D08534993F /* libPods-XuanYuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */; };
@@ -272,6 +274,9 @@
 		1C83871F1EB1DEA3006A8A71 /* DetailCopyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCopyCell.m; sourceTree = "<group>"; };
 		1C8387211EB1FE73006A8A71 /* DetailCopyViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCopyViewToolBar.h; sourceTree = "<group>"; };
 		1C8387221EB1FE73006A8A71 /* DetailCopyViewToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCopyViewToolBar.m; sourceTree = "<group>"; };
+		1C895EF21EB5DD5300ACBED0 /* HTConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTConfigManager.h; sourceTree = "<group>"; };
+		1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTConfigManager.m; sourceTree = "<group>"; };
+		1C895EF51EB5E6D000ACBED0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		1C98DEB81EB2DAAB00C68A96 /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
 		1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
 		1CA71B401EADF1B80071312F /* ClassificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationModel.h; sourceTree = "<group>"; };
@@ -612,6 +617,15 @@
 			path = DetailCopyView;
 			sourceTree = "<group>";
 		};
+		1C895EF11EB5DD2800ACBED0 /* ConfigManager */ = {
+			isa = PBXGroup;
+			children = (
+				1C895EF21EB5DD5300ACBED0 /* HTConfigManager.h */,
+				1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */,
+			);
+			path = ConfigManager;
+			sourceTree = "<group>";
+		};
 		1CB5323C226C4EB714185F9C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +660,7 @@
 		CB78639A1EA3CD63006ED01C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				1C895EF11EB5DD2800ACBED0 /* ConfigManager */,
 				CB78639E1EA3CD92006ED01C /* Pages */,
 				CB7863A41EA3CE45006ED01C /* PagesInterFace */,
 				CB7863A81EA3CF07006ED01C /* Gloabal */,
@@ -865,6 +880,7 @@
 		CBF588E81EA3AA2800E7327B = {
 			isa = PBXGroup;
 			children = (
+				1C895EF51EB5E6D000ACBED0 /* LICENSE */,
 				CBF588F31EA3AA2900E7327B /* XuanYuan */,
 				CBF588F21EA3AA2900E7327B /* Products */,
 				1CB5323C226C4EB714185F9C /* Pods */,
@@ -971,6 +987,7 @@
 			files = (
 				1C4EB2C61EA4A665009A1B3D /* Info.plist in Resources */,
 				CB4981F91EA660A8000E0792 /* ClassificationCell.xib in Resources */,
+				1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */,
 				CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */,
 				1C8386DE1EB0816C006A8A71 /* HTEditItemsCell.xib in Resources */,
 				1C4EB2D81EA4AEB7009A1B3D /* HTAddItemsCell.xib in Resources */,
@@ -1059,6 +1076,7 @@
 				1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */,
 				1C4EB2C91EA4A665009A1B3D /* KaedeTextField.swift in Sources */,
 				CB7863AE1EA3D3B1006ED01C /* ClassificationViewController.m in Sources */,
+				1C895EF41EB5DD5300ACBED0 /* HTConfigManager.m in Sources */,
 				1C4EB2851EA455B2009A1B3D /* UIView+AddClick.m in Sources */,
 				1C8386BD1EB063DB006A8A71 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				1C4EB2C41EA4A665009A1B3D /* AkiraTextField.swift in Sources */,

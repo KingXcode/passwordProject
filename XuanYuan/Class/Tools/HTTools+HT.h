@@ -95,4 +95,10 @@
 +(void)shakeAnnimation:(UIView *)view completion:(void (^)(BOOL finished))completion;
 
 
+/**
+ 获取到当前正在展示的VC
+ */
++ (UIViewController *)getCurrentVC;
+
+
 @end

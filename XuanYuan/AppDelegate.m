@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+HT.h"
 #import "HTCheckViewController.h"
 #import "HTTabBarController.h"
 
@@ -69,7 +70,6 @@
     UIImageView *imageView = [HTTools gaussianBlurWithMainRootView];
     self.backgroundView = imageView;
     [MainKeyWindow addSubview:self.backgroundView];
-    
 }
 
 //程序被激活
@@ -83,16 +83,24 @@
 //进入验证界面
 -(void)checkController
 {
+    
+    UIViewController *currentvc = [HTTools getCurrentVC];
+    if ([currentvc isKindOfClass:[HTCheckViewController class]]) {
+        return;
+    }
+    
     [self.backgroundView removeFromSuperview];
     UIImageView *imageView = [HTTools gaussianBlurWithMainRootView];
     self.backgroundView = imageView;
     [MainKeyWindow addSubview:self.backgroundView];
-    
-    NSNumber *isOpenPassword = [[NSUserDefaults standardUserDefaults]objectForKey:kStartPasswordUserDefaults];
-    if (isOpenPassword.boolValue) {
+    BOOL isOpenPassword = [MainConfigManager isOpenStartPassword];
+
+    NSString *password = [MainConfigManager startPassword];
+
+    if (isOpenPassword &&! [HTTools ht_isBlankString:password]) {
         HTCheckViewController *vc = instantiateStoryboardControllerWithIdentifier(@"HTCheckViewController");
         vc.image = imageView;
-        [MainRootViewController presentViewController:vc animated:YES completion:^{}];
+        [currentvc presentViewController:vc animated:YES completion:^{}];
     }
 }
 
@@ -101,8 +109,10 @@
  */
 -(void)launchCheck
 {
-    NSNumber *isOpenPassword = [[NSUserDefaults standardUserDefaults]objectForKey:kStartPasswordUserDefaults];
-    if (isOpenPassword.boolValue) {
+    BOOL isOpenPassword = [MainConfigManager isOpenStartPassword];
+    NSString *password = [MainConfigManager startPassword];
+
+    if (isOpenPassword && ![HTTools ht_isBlankString:password]) {
         UIImageView *imageView = [HTTools gaussianBlurWithMainRootView];
         HTCheckViewController *vc = instantiateStoryboardControllerWithIdentifier(@"HTCheckViewController");
         vc.image = imageView;

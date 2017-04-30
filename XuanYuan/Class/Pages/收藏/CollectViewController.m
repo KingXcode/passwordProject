@@ -119,6 +119,7 @@
  */
 -(void)clickTopButton
 {
+    
 //    PopoverAction *action = [PopoverAction actionWithTitle:@"全部账号"
 //                                                   handler:^(PopoverAction *action) {
 //                                                       HTTabBarController *tab = MainRootTabbarController;
