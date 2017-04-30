@@ -1,0 +1,66 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - IQKeyboardManager (4.0.8)
+  - Masonry (1.0.2)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.0.13)
+  - MJRefresh (3.1.12)
+  - RKNotificationHub (2.0.4)
+  - RZTransitions (1.2.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SwipeBack (1.1.1)
+  - TZImagePickerController (1.7.8)
+  - YTKKeyValueStore (0.1.2):
+    - FMDB (~> 2.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.1.0)
+  - IQKeyboardManager (~> 4.0.3)
+  - Masonry
+  - MBProgressHUD (~> 1.0.0)
+  - MJExtension (~> 3.0.10)
+  - MJRefresh (~> 3.1.7)
+  - RKNotificationHub
+  - RZTransitions
+  - SDWebImage (~> 3.8.1)
+  - SwipeBack (~> 1.0)
+  - TZImagePickerController
+  - YTKKeyValueStore
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  RKNotificationHub: 3765424499139c3d3885b681bb0837f072d12ae6
+  RZTransitions: 0e0013fda6989ee84dc5e44dca79fd539e1a975a
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SwipeBack: d6759601b40da1f4161033feb30ab475d7d04322
+  TZImagePickerController: 87a138ae5d585225aaa6c8abe2cface0f0ad19dd
+  YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
+
+PODFILE CHECKSUM: a26cf75f41b6a02a8fbf11d3b18cee3b6fdeea2d
+
+COCOAPODS: 1.2.1

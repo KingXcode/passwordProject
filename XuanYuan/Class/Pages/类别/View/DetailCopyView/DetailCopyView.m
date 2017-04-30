@@ -1,0 +1,432 @@
+//
+//  DetailCopyView.m
+//  XuanYuan
+//
+//  Created by King on 2017/4/27.
+//  Copyright © 2017年 聂嗣洋. All rights reserved.
+//
+
+#import "DetailCopyView.h"
+#import "DetailCopyCell.h"
+#import "DetailCopyViewToolBar.h"
+#import "HYCollectViewAlignedLayout.h"
+
+@interface DetailCopyView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    UICollectionViewFlowLayout *_layout;
+    UICollectionViewFlowLayout *_layoutleft;
+}
+
+@property (nonatomic,weak)UILabel *titleLabel;
+
+@property (nonatomic,weak)UICollectionView *collectionView;
+
+@property (nonatomic,strong)UICollectionViewFlowLayout *layout;
+
+@property (nonatomic,strong)DetailCopyViewToolBar *toolBar;
+
+@property (nonatomic,strong)NSMutableArray *bigbangDataArray;
+@property (nonatomic,strong)NSMutableArray *dataArray;
+
+
+@property (nonatomic,assign) BOOL isBigBang;
+
+
+@end
+
+@implementation DetailCopyView
+
+-(NSMutableArray *)dataArray
+{
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+-(NSMutableArray *)bigbangDataArray
+{
+    if (_bigbangDataArray == nil) {
+        _bigbangDataArray = [NSMutableArray array];
+    }
+    return _bigbangDataArray;
+}
+
+-(UICollectionViewFlowLayout *)layout
+{
+    if (self.isBigBang) {
+        
+        if (_layout == nil) {
+            _layout = [[UICollectionViewFlowLayout alloc]init];
+        }
+        return _layout;
+        
+    }else
+    {
+        if (_layoutleft == nil) {
+            _layoutleft = [[HYCollectViewAlignedLayout alloc]initWithType:HYCollectViewAlignLeft];
+        }
+        return _layoutleft;
+    }
+}
+
+
+-(DetailCopyViewToolBar *)toolBar
+{
+    if (_toolBar == nil) {
+        
+        _toolBar = [[DetailCopyViewToolBar alloc]initWithFrame:CGRectZero];
+        [_toolBar.leftButton addTarget:self action:@selector(swipLeft) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_toolBar.rightButton addTarget:self action:@selector(swipRight) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_toolBar.newlineButton addTarget:self action:@selector(newline) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_toolBar.deleteButton addTarget:self action:@selector(deleteButton) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _toolBar;
+}
+-(void)swipLeft
+{
+    NSRange range = self.textView.selectedRange;
+    if (range.location>0) {
+        range.location -= 1;
+    }
+    self.textView.selectedRange = range;
+}
+
+-(void)swipRight
+{
+    NSRange range = self.textView.selectedRange;
+    if (range.location<self.textView.text.length) {
+        range.location += 1;
+    }
+    self.textView.selectedRange = range;
+}
+
+-(void)newline
+{
+    [self insertTextViewString:@"\n"];
+    
+    [self reloadButton];
+}
+
+-(void)deleteButton
+{
+    [self.textView deleteBackward];
+    [self reloadButton];
+
+}
+
+-(void)insertTextViewString:(NSString *)string
+{
+//    我这里写这么一大推也是醉了,要不是昨天晚上突然想到苹果应该会给我提供插入字符的API 我还真就会一直这么写
+//    NSRange range = self.textView.selectedRange;
+//    NSMutableString *text = [[NSMutableString alloc]initWithString:self.textView.text];
+//    [text insertString:string atIndex:range.location];
+//    self.textView.text = [NSString stringWithFormat:@"%@",text];
+//    range.location+=string.length;
+//    self.textView.selectedRange = range;
+    
+    [self.textView insertText:string];
+}
+
+-(void)clickbigbang
+{
+    self.isBigBang = !self.isBigBang;
+
+    
+    [self reloadData];
+    
+    [self.collectionView setCollectionViewLayout:self.layout];
+
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        [self configUI];
+
+        self.layer.cornerRadius = 10;
+        self.layer.masksToBounds = YES;
+        
+    }
+    return self;
+}
+
+-(void)configUI
+{
+    
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.font = [UIFont systemFontOfSize:16];
+    titleLabel.textColor = MainTextWhiteColor;
+    titleLabel.text = @"点击选择需要复制的文字";
+    titleLabel.backgroundColor = MainRGB;//RGBA(34, 34, 34, 0.8);
+    [self addSubview:titleLabel];
+    _titleLabel = titleLabel;
+    
+    UIImage *image = [UIImage imageNamed:@"icon_shanchu_nor"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [closeButton setImage:image forState:UIControlStateNormal];
+    closeButton.tintColor = [UIColor whiteColor];
+    [closeButton setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
+    [self addSubview:closeButton];
+    _closeButton = closeButton;
+    
+    
+    UIButton *bigbang = [UIButton buttonWithType:UIButtonTypeCustom];
+    [bigbang setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
+    [bigbang setTitle:@"分词" forState:UIControlStateNormal];
+    bigbang.titleLabel.font = [UIFont systemFontOfSize:13];
+    [bigbang setTitleColor:MainTextWhiteColor forState:UIControlStateNormal];
+    [bigbang addTarget:self action:@selector(clickbigbang) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:bigbang];
+    _bigbang = bigbang;
+    
+    
+    
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:self.layout];
+    collectionView.backgroundColor = MainTextWhiteColor;
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+    [collectionView registerClass:[DetailCopyCell class] forCellWithReuseIdentifier:@"cell"];
+    [self addSubview:collectionView];
+    _collectionView = collectionView;
+    
+    
+    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectZero];
+    textView.layer.borderWidth = 1;
+    textView.layer.cornerRadius = 5;
+    textView.layer.borderColor = MainTextColor.CGColor;
+    textView.textColor = MainTextColor;
+    textView.tintColor = MainTextColor;
+    textView.inputView = [UIView new];
+    [textView becomeFirstResponder];
+    [self addSubview:textView];
+    _textView = textView;
+    
+    
+    [self addSubview:self.toolBar];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
+    [button setTitle:@"复制" forState:UIControlStateNormal];
+    [button setTitleColor:MainTextColor forState:UIControlStateNormal];
+    [button setTitleColor:MainTextWhiteColor forState:UIControlStateHighlighted];
+    [self addSubview:button];
+    _button = button;
+    
+    
+
+    
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.mas_equalTo(0);
+        make.centerX.equalTo(self);
+        make.width.equalTo(self);
+        make.height.mas_equalTo(40);
+        
+    }];
+    
+    [closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(0);
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(40);
+        make.right.equalTo(titleLabel);
+
+    }];
+    
+    [bigbang mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(0);
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(40);
+        make.left.equalTo(titleLabel);
+        
+    }];
+    
+    
+    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(40);
+        make.centerX.equalTo(self);
+        make.width.equalTo(self);
+        make.height.mas_equalTo(195);
+        
+    }];
+    
+    [textView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(collectionView.mas_bottom).offset(8);
+        make.left.equalTo(self).offset(15);
+        make.right.equalTo(self).offset(-15);
+        make.bottom.equalTo(self).offset(-100);
+        
+    }];
+    
+    [self.toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.equalTo(textView.mas_bottom).offset(8);
+        make.left.equalTo(self).offset(15);
+        make.right.equalTo(self).offset(-15);
+        make.height.mas_equalTo(40);
+        
+    }];
+    
+    //这个按钮是复制按钮 懒得改名字了
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(self.toolBar.mas_bottom).offset(8);
+        make.left.equalTo(self).offset(15);
+        make.right.equalTo(self).offset(-15);
+        make.bottom.equalTo(self);
+        
+    }];
+    
+}
+
+-(void)setModel:(ClassificationModel *)model
+{
+    _model = model;
+    
+    {
+        [self.bigbangDataArray removeAllObjects];
+        [self.bigbangDataArray addObject:@"标题:"];
+        [self.bigbangDataArray addObject:model.accountTitle];
+        [self.bigbangDataArray addObject:@"账号:"];
+        [self.bigbangDataArray addObject:model.account];
+        [self.bigbangDataArray addObject:@"密码:"];
+        [self.bigbangDataArray addObject:model.passWord];
+        
+        for (infoPassModel *info in model.infoPassWord) {
+            [self.bigbangDataArray addObject:info.info_pass_Text];
+            [self.bigbangDataArray addObject:info.info_password];
+        }
+        
+        [self.bigbangDataArray addObject:@"备注:"];
+        NSArray *arr = [HTTools stringTokenizerWithWord:model.remarks];
+        [self.bigbangDataArray addObjectsFromArray:arr];
+        
+        [self.bigbangDataArray addObject:@","];
+        [self.bigbangDataArray addObject:@"."];
+        [self.bigbangDataArray addObject:@":"];
+        [self.bigbangDataArray addObject:@"\""];
+        [self.bigbangDataArray addObject:@"空格"];
+        [self.bigbangDataArray addObject:@";"];
+    }
+    {
+        [self.dataArray removeAllObjects];
+        
+        [self.dataArray addObject:[NSString stringWithFormat:@"标题:%@",model.accountTitle]];
+        [self.dataArray addObject:[NSString stringWithFormat:@"账号:%@",model.account]];
+        [self.dataArray addObject:[NSString stringWithFormat:@"密码:%@",model.passWord]];
+        for (infoPassModel *info in model.infoPassWord) {
+            [self.dataArray addObject:[NSString stringWithFormat:@"%@:%@",info.info_pass_Text,info.info_password]];
+        }
+        [self.dataArray addObject:[NSString stringWithFormat:@"备注:%@",model.remarks]];
+    }
+    
+}
+
+-(void)reloadData
+{
+
+    [self.collectionView reloadData];
+
+}
+
+-(void)reloadButton
+{
+    if (self.textView.text.length>0) {
+        [self.button setTitleColor:MainRGB forState:UIControlStateNormal];
+    }else{
+        [self.button setTitleColor:MainTextColor forState:UIControlStateNormal];
+    }
+}
+
+#pragma -mark-  代理数据源方法
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    if (self.isBigBang) {
+        
+        return self.bigbangDataArray.count;
+
+    }else
+    {
+        return self.dataArray.count;
+    }
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *text = self.isBigBang?self.bigbangDataArray[indexPath.item]:self.dataArray[indexPath.item];
+    
+    DetailCopyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.text = text;
+    
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailCopyCell *cell = (DetailCopyCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if ([cell.text isEqualToString:@"空格"]) {
+        [self insertTextViewString:@" "];
+    }else
+    {
+        [self insertTextViewString:cell.text];
+    }
+    [self reloadButton];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailCopyCell *cell = (DetailCopyCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = MainRGB;
+}
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailCopyCell *cell = (DetailCopyCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor whiteColor];
+}
+
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *text = self.isBigBang?self.bigbangDataArray[indexPath.item]:self.dataArray[indexPath.item];
+    CGSize size = [HTTools sizeOfString:text font:[UIFont boldSystemFontOfSize:15] width:self.frame.size.width-46];
+    if (size.width<30) {
+        size.width = 30;
+    }
+    return CGSizeMake(size.width+20, size.height+10);
+}
+
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(15, 15, 15, 15);
+}
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 4;
+}
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 4;
+}
+
+
+
+
+@end

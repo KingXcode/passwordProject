@@ -1,0 +1,93 @@
+//
+//  XuanYuanPCH.pch
+//  XuanYuan
+//
+//  Created by 聂嗣洋 on 2017/4/17.
+//  Copyright © 2017年 聂嗣洋. All rights reserved.
+//
+
+#ifndef XuanYuanPCH_pch
+#define XuanYuanPCH_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import <AFNetworking.h>
+#import <IQKeyboardManager.h>
+#import <Masonry.h>
+#import <MJRefresh.h>
+#import <MJExtension.h>
+#import <UIView+WebCacheOperation.h>
+#import <UIImageView+WebCache.h>
+#import <UINavigationController+SwipeBack.h>//解决侧滑失效
+#import <YTKKeyValueStore.h>//数据库
+#import <RZTransitions.h>   //转场动画库
+
+
+
+#import "XuanYuan-Swift.h"
+
+#import "UITableView+Extension.h"   //tableView 刷新动画
+#import "DGActivityIndicatorView.h"
+#import "SCLAlertView.h"
+#import "UIButton+EnlargeEdge.h"//点击范围放大
+#import "UIView+AddClick.h"     //添加UIView点击事件
+#import "UINavigationController+JWPageJumpTool.h"  //UINavigationController 跳转功能
+#import "UIView+ZTQuickControl.h"                  //快速添加按钮
+#import "PopoverView.h"         //弹框
+#import "ALActionSheetView.h"   //仿微信弹出框
+
+#import "HTTools.h"
+#import "HTTools+HT.h"
+#import "HTDIYRefreshHeader.h"
+#import "HTBaseViewController.h"
+#import "HTTabBarController.h"
+
+#import "XuanYuanGloabal.h"
+
+
+
+
+
+
+
+
+
+
+
+//-------------------打印日志-------------------------
+//DEBUG  模式下打印日志,当前行
+#ifdef DEBUG
+#   define HTLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define HTLog(...)
+#endif
+
+
+#if DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+
+#ifdef DEBUG
+#define ULog(fmt, ...)  \
+{\
+UIAlertController *alert = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__]\
+message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]\
+preferredStyle:UIAlertControllerStyleAlert];\
+UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK!" style:UIAlertActionStyleCancel handler:nil];\
+[alert addAction:action];\
+[self presentViewController:alert animated:YES completion:nil];\
+}
+#else
+#define ULog(...)
+#endif
+
+
+
+
+
+
+#endif /* XuanYuanPCH_pch */
