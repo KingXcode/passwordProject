@@ -45,6 +45,7 @@
 #import "HTBaseViewController.h"
 #import "HTTabBarController.h"
 #import "HTConfigManager.h"
+#import "HTPlaceHolderView.h"
 
 #import "XuanYuanGloabal.h"
 

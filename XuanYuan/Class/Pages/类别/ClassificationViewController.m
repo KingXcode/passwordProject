@@ -393,14 +393,14 @@
     HTNavigationController *nav = instantiateStoryboardControllerWithIdentifier(@"CollecHTNavigationController");
     [nav setTransitioningDelegate:[RZTransitionsManager shared]];
     
-    RZVerticalSwipeInteractionController *dismissInteractionController = [[RZVerticalSwipeInteractionController alloc] init];
-    [dismissInteractionController attachViewController:nav withAction:RZTransitionAction_Dismiss];
-    
-    [[RZTransitionsManager shared] setInteractionController:dismissInteractionController
-                                         fromViewController:[self class]
-                                           toViewController:nil
-                                                  forAction:RZTransitionAction_Dismiss];
-    
+//    RZVerticalSwipeInteractionController *dismissInteractionController = [[RZVerticalSwipeInteractionController alloc] init];
+//    [dismissInteractionController attachViewController:nav withAction:RZTransitionAction_Dismiss];
+//    
+//    [[RZTransitionsManager shared] setInteractionController:dismissInteractionController
+//                                         fromViewController:[self class]
+//                                           toViewController:nil
+//                                                  forAction:RZTransitionAction_Dismiss];
+//    
     return nav;
 }
 
@@ -414,9 +414,10 @@
 #pragma mark - PlaceHolderDelegate
 - (UIView *)makePlaceHolderView
 {
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"WebView_LoadFail_Refresh_Icon"]];
-    imageView.bounds = CGRectMake(0, 0, 100, 100);
-    return imageView;
+    UIImage *zanwei = [UIImage imageNamed:@"zanwei_Icon"];
+    HTPlaceHolderView *view = [[HTPlaceHolderView alloc]init];
+    view.bgImage = zanwei;
+    return view;
 }
 - (BOOL)enableScrollWhenPlaceHolderViewShowing
 {

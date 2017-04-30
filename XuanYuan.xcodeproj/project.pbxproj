@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0639811EB627690039FEDC /* HTPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639801EB627690039FEDC /* HTPlaceHolderView.m */; };
 		1C14FB0B1EAEDE140064DBEA /* HTTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */; };
 		1C14FB0E1EAEE8780064DBEA /* HTTools+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB0D1EAEE8780064DBEA /* HTTools+HT.m */; };
 		1C14FB111EAF606F0064DBEA /* Setting_interface_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB101EAF606F0064DBEA /* Setting_interface_ViewController.m */; };
@@ -118,6 +119,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C06397F1EB627690039FEDC /* HTPlaceHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPlaceHolderView.h; sourceTree = "<group>"; };
+		1C0639801EB627690039FEDC /* HTPlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPlaceHolderView.m; sourceTree = "<group>"; };
 		1C14FB091EAEDE140064DBEA /* HTTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTextLabel.h; sourceTree = "<group>"; };
 		1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTextLabel.m; sourceTree = "<group>"; };
 		1C14FB0C1EAEE8780064DBEA /* HTTools+HT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTools+HT.h"; sourceTree = "<group>"; };
@@ -722,6 +725,8 @@
 				1C8386D01EB07480006A8A71 /* Extension */,
 				1C8386611EB06396006A8A71 /* HTDIYRefreshHeader.h */,
 				1C8386621EB06396006A8A71 /* HTDIYRefreshHeader.m */,
+				1C06397F1EB627690039FEDC /* HTPlaceHolderView.h */,
+				1C0639801EB627690039FEDC /* HTPlaceHolderView.m */,
 				CB4981E41EA5425C000E0792 /* HTDataBaseManager.h */,
 				CB4981E51EA5425C000E0792 /* HTDataBaseManager.m */,
 				1C4EB2721EA455B2009A1B3D /* HTTools.h */,
@@ -1148,6 +1153,7 @@
 				1C8386C01EB063DB006A8A71 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				1C8386CF1EB063DB006A8A71 /* DGActivityIndicatorView.m in Sources */,
 				1C8386C61EB063DB006A8A71 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
+				1C0639811EB627690039FEDC /* HTPlaceHolderView.m in Sources */,
 				1C4EB2901EA46F96009A1B3D /* HTMainItemModel.m in Sources */,
 				1C8386CA1EB063DB006A8A71 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				CB4981EE1EA61D3F000E0792 /* PopoverAction.m in Sources */,

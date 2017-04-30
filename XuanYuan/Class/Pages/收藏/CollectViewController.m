@@ -186,6 +186,10 @@
         
     }];
     
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:(id)self sourceView:cell];
+    }
+    
     return cell;
 }
 
@@ -274,14 +278,32 @@
     }];
 }
 
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+    ClassificationCell *cell = (ClassificationCell *)previewingContext.sourceView;
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    DetailCopyViewController *detailVC = [sb instantiateViewControllerWithIdentifier:@"DetailCopyViewController"];
+    detailVC.isPeek = YES;
+    detailVC.model = cell.model;
+    return detailVC;
+}
+
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+    DetailCopyViewController *detailVC = (DetailCopyViewController *)viewControllerToCommit;
+    [self presentViewController:detailVC animated:YES completion:nil];
+}
+
+
 
 #pragma mark - PlaceHolderDelegate
 - (UIView *)makePlaceHolderView
 {
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"WebView_LoadFail_Refresh_Icon"]];
-    imageView.bounds = CGRectMake(0, 0, 100, 100);
-    return imageView;
-}
+    UIImage *zanwei = [UIImage imageNamed:@"zanwei_Icon"];
+    HTPlaceHolderView *view = [[HTPlaceHolderView alloc]init];
+    view.bgImage = zanwei;
+    return view;}
+
 - (BOOL)enableScrollWhenPlaceHolderViewShowing
 {
     return YES;
