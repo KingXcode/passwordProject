@@ -20,11 +20,11 @@
  */
 
 - (void)reloadDataWithDirectionType:(ZPReloadAnimationDirectionType)direction AnimationTimeNum:(NSTimeInterval)animationTime interval:(NSTimeInterval)interval{
-    [self reloadData];
+    [self cyl_reloadData];
     [self setContentOffset:self.contentOffset animated:NO];
     [UIView animateWithDuration:0.2 animations:^{
         self.hidden = YES;
-        [self reloadData];
+        [self cyl_reloadData];
     } completion:^(BOOL finished) {
         self.hidden = NO;
         [self visibleRowsBeginDirectionType:direction animation:animationTime interval:interval];

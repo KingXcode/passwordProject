@@ -60,10 +60,15 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [self.tableView reloadData];
+        [self reloadMyTableView];
         [_tableView.mj_header endRefreshing];
         
     });
+}
+
+-(void)reloadMyTableView
+{
+    [self.tableView cyl_reloadData];
 }
 
 - (void)viewDidLoad {
@@ -108,9 +113,6 @@
     [self.titleButton sizeToFit];
 }
 - (IBAction)goback:(UIBarButtonItem *)sender {
-//    HTTabBarController *tab = MainRootTabbarController;
-//    [tab.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"rippleEffect" direction:@"fromBottom" time:0.5] forKey:nil];
-//    tab.selectedIndex = 1;
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -136,7 +138,7 @@
 {
     [_dataArray removeAllObjects];
     [_dataArray addObjectsFromArray:[ClassificationModel getCollectModelArray]];
-    [self.tableView reloadData];
+    [self reloadMyTableView];
 }
 
 -(void)configDataNoRefresh
@@ -245,7 +247,7 @@
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"moveIn" direction:@"fromTop" time:0.4] forKey:nil];
     [self.navigationController pushViewController:vc animated:NO];
-    [self.tableView reloadData];
+    [self reloadMyTableView];
 }
 
 
@@ -270,6 +272,19 @@
     [self presentViewController:vc animated:NO completion:^{
         vc.backImageView.image = image;
     }];
+}
+
+
+#pragma mark - PlaceHolderDelegate
+- (UIView *)makePlaceHolderView
+{
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"WebView_LoadFail_Refresh_Icon"]];
+    imageView.bounds = CGRectMake(0, 0, 100, 100);
+    return imageView;
+}
+- (BOOL)enableScrollWhenPlaceHolderViewShowing
+{
+    return YES;
 }
 
 

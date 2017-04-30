@@ -84,7 +84,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
-        [self.tableView reloadData];
+        [self reloadMyTableView];
         [_tableView.mj_header endRefreshing];
         
     });
@@ -147,7 +147,7 @@
 {
     [_dataArray removeAllObjects];
     [_dataArray addObjectsFromArray:[ClassificationModel getMainModelArray]];
-    [self.tableView reloadData];
+    [self reloadMyTableView];
 }
 
 -(void)configDataNoRefresh
@@ -162,6 +162,12 @@
     
     [self setInteractionController];
 
+}
+
+
+-(void)reloadMyTableView
+{
+    [self.tableView cyl_reloadData];
 }
 
 
@@ -286,7 +292,7 @@
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"moveIn" direction:@"fromTop" time:0.4] forKey:nil];
     [self.navigationController pushViewController:vc animated:NO];
-    [self.tableView reloadData];
+    [self reloadMyTableView];
 }
 
 
@@ -296,7 +302,7 @@
 -(void)deleteAccount:(ClassificationModel *)model
 {
     [self.dataArray removeObject:model];
-    [self.tableView reloadData];
+    [self reloadMyTableView];
     
     HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
     [manager deleteAccountListByModel:model];
@@ -402,6 +408,19 @@
 - (UIViewController *)nextViewControllerForInteractor:(id<RZTransitionInteractionController>)interactor
 {
     return [self nextCollectViewController];
+}
+
+
+#pragma mark - PlaceHolderDelegate
+- (UIView *)makePlaceHolderView
+{
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"WebView_LoadFail_Refresh_Icon"]];
+    imageView.bounds = CGRectMake(0, 0, 100, 100);
+    return imageView;
+}
+- (BOOL)enableScrollWhenPlaceHolderViewShowing
+{
+    return YES;
 }
 
 

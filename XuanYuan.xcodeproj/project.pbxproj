@@ -91,6 +91,7 @@
 		1C8387231EB1FE73006A8A71 /* DetailCopyViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8387221EB1FE73006A8A71 /* DetailCopyViewToolBar.m */; };
 		1C895EF41EB5DD5300ACBED0 /* HTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */; };
 		1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1C895EF51EB5E6D000ACBED0 /* LICENSE */; };
+		1C895EFC1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */; };
 		1C98DEBA1EB2DAAB00C68A96 /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */; };
 		1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71B411EADF1B80071312F /* ClassificationModel.m */; };
 		3778629A3909E5D08534993F /* libPods-XuanYuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */; };
@@ -277,6 +278,10 @@
 		1C895EF21EB5DD5300ACBED0 /* HTConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTConfigManager.h; sourceTree = "<group>"; };
 		1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTConfigManager.m; sourceTree = "<group>"; };
 		1C895EF51EB5E6D000ACBED0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1C895EF81EB5EEB300ACBED0 /* CYLTableViewPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTableViewPlaceHolder.h; sourceTree = "<group>"; };
+		1C895EF91EB5EEB300ACBED0 /* CYLTableViewPlaceHolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTableViewPlaceHolderDelegate.h; sourceTree = "<group>"; };
+		1C895EFA1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CYLTableViewPlaceHolder.h"; sourceTree = "<group>"; };
+		1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CYLTableViewPlaceHolder.m"; sourceTree = "<group>"; };
 		1C98DEB81EB2DAAB00C68A96 /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
 		1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
 		1CA71B401EADF1B80071312F /* ClassificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationModel.h; sourceTree = "<group>"; };
@@ -626,6 +631,17 @@
 			path = ConfigManager;
 			sourceTree = "<group>";
 		};
+		1C895EF71EB5EEB300ACBED0 /* CYLTableViewPlaceHolder */ = {
+			isa = PBXGroup;
+			children = (
+				1C895EF81EB5EEB300ACBED0 /* CYLTableViewPlaceHolder.h */,
+				1C895EF91EB5EEB300ACBED0 /* CYLTableViewPlaceHolderDelegate.h */,
+				1C895EFA1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.h */,
+				1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */,
+			);
+			path = CYLTableViewPlaceHolder;
+			sourceTree = "<group>";
+		};
 		1CB5323C226C4EB714185F9C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -685,6 +701,7 @@
 		CB7863A21EA3CDAD006ED01C /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				1C895EF71EB5EEB300ACBED0 /* CYLTableViewPlaceHolder */,
 				1C5EACB91EB2F36000EDADA5 /* 手势 */,
 				CBAAB0A31EB2600300B1C679 /* HYCollectionViewAlignedLayout */,
 				1C8386E21EB0A5E7006A8A71 /* SCLAlertView */,
@@ -1090,6 +1107,7 @@
 				1C8386F51EB0A5E7006A8A71 /* SCLAlertViewResponder.m in Sources */,
 				1C4EB2C81EA4A665009A1B3D /* JiroTextField.swift in Sources */,
 				CB4981E61EA5425C000E0792 /* HTDataBaseManager.m in Sources */,
+				1C895EFC1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m in Sources */,
 				1C4EB2861EA455B2009A1B3D /* UIView+ZTQuickControl.m in Sources */,
 				CB4981E31EA51447000E0792 /* HTBaseViewController.m in Sources */,
 				1C8386C91EB063DB006A8A71 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,

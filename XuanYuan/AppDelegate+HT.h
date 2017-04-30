@@ -10,4 +10,14 @@
 
 @interface AppDelegate (HT)
 
+-(void)setShortcutIcon;
+
+//进入验证界面
+-(void)checkController;
+
+
+/**
+ 启动时进入
+ */
+-(void)launchCheck;
 @end
