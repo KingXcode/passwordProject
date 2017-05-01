@@ -39,4 +39,12 @@
  */
 -(void)isOpenTouchID:(BOOL)isOpen;
 -(BOOL)isOpenTouchID;
+
+
+/**
+ 是否允许三方键盘
+ */
+-(void)isAllowThirdKeyboard:(BOOL)isAllow;
+-(BOOL)isAllowThirdKeyboard;
+
 @end

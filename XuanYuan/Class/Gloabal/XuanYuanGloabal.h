@@ -18,7 +18,8 @@
 #define kStartPasswordUserDefaults @"kStartPasswordUserDefaults"
 //启用touchID @YES--启用   @NO-关闭
 #define kStartTouchIDUserDefaults @"kStartTouchIDUserDefaults"
-
+//启用三方键盘
+#define kAllowThirdKeyboardUserDefaults @"kAllowThirdKeyboardUserDefaults"
 
 //通知
 //刷新首页通知

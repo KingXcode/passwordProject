@@ -280,8 +280,13 @@
 
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
 {
-    ClassificationCell *cell = (ClassificationCell *)previewingContext.sourceView;
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    ClassificationCell *cell;
+    if (ht_IOS9_OR_LATER) {
+        cell = (ClassificationCell *)previewingContext.sourceView;
+    }else
+    {
+        cell = [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForRowAtPoint:location]];
+    }    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     DetailCopyViewController *detailVC = [sb instantiateViewControllerWithIdentifier:@"DetailCopyViewController"];
     detailVC.isPeek = YES;
     detailVC.model = cell.model;

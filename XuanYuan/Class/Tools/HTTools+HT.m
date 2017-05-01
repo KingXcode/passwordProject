@@ -112,7 +112,7 @@
 
 + (void)saveScreenshotToPhotosAlbum:(UIView *)view
 {
-    UIImageWriteToSavedPhotosAlbum([self captureScreen], nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum([self convertViewToImage:view], nil, nil, nil);
 }
 
 

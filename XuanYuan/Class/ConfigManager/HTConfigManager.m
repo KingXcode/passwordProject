@@ -33,12 +33,13 @@
     [[NSUserDefaults standardUserDefaults] setObject:isOpenPassword forKey:kStartPasswordUserDefaults];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
 -(BOOL)isOpenStartPassword
 {
     NSNumber *isOpenPassword = [[NSUserDefaults standardUserDefaults] objectForKey:kStartPasswordUserDefaults];
     return isOpenPassword.boolValue;
 }
+
+
 -(void)startPassword:(NSString *)password
 {
     [[NSUserDefaults standardUserDefaults] setObject:password forKey:kPasswordUserDefaults];
@@ -63,6 +64,18 @@
     return isOpen.boolValue;
 }
 
+
+
+-(void)isAllowThirdKeyboard:(BOOL)isAllow
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:isAllow] forKey:kAllowThirdKeyboardUserDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+-(BOOL)isAllowThirdKeyboard
+{
+    NSNumber *isAllow = [[NSUserDefaults standardUserDefaults] objectForKey:kAllowThirdKeyboardUserDefaults];
+    return isAllow.boolValue;
+}
 
 
 

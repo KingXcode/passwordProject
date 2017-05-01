@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1C0639811EB627690039FEDC /* HTPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639801EB627690039FEDC /* HTPlaceHolderView.m */; };
+		1C0639841EB653280039FEDC /* HTSelectIconTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639831EB653280039FEDC /* HTSelectIconTypeView.m */; };
+		1C0639881EB658830039FEDC /* HTSelectIconTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */; };
+		1C0639891EB658830039FEDC /* HTSelectIconTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0639871EB658830039FEDC /* HTSelectIconTypeCell.xib */; };
+		1C06398D1EB78E510039FEDC /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06398C1EB78E510039FEDC /* Classification.m */; };
 		1C14FB0B1EAEDE140064DBEA /* HTTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */; };
 		1C14FB0E1EAEE8780064DBEA /* HTTools+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB0D1EAEE8780064DBEA /* HTTools+HT.m */; };
 		1C14FB111EAF606F0064DBEA /* Setting_interface_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB101EAF606F0064DBEA /* Setting_interface_ViewController.m */; };
@@ -121,6 +125,13 @@
 /* Begin PBXFileReference section */
 		1C06397F1EB627690039FEDC /* HTPlaceHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPlaceHolderView.h; sourceTree = "<group>"; };
 		1C0639801EB627690039FEDC /* HTPlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPlaceHolderView.m; sourceTree = "<group>"; };
+		1C0639821EB653280039FEDC /* HTSelectIconTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectIconTypeView.h; sourceTree = "<group>"; };
+		1C0639831EB653280039FEDC /* HTSelectIconTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSelectIconTypeView.m; sourceTree = "<group>"; };
+		1C0639851EB658830039FEDC /* HTSelectIconTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectIconTypeCell.h; sourceTree = "<group>"; };
+		1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSelectIconTypeCell.m; sourceTree = "<group>"; };
+		1C0639871EB658830039FEDC /* HTSelectIconTypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTSelectIconTypeCell.xib; sourceTree = "<group>"; };
+		1C06398B1EB78E510039FEDC /* Classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classification.h; sourceTree = "<group>"; };
+		1C06398C1EB78E510039FEDC /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
 		1C14FB091EAEDE140064DBEA /* HTTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTextLabel.h; sourceTree = "<group>"; };
 		1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTextLabel.m; sourceTree = "<group>"; };
 		1C14FB0C1EAEE8780064DBEA /* HTTools+HT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTools+HT.h"; sourceTree = "<group>"; };
@@ -351,6 +362,15 @@
 				99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C06398A1EB78E2E0039FEDC /* ControllerConfig */ = {
+			isa = PBXGroup;
+			children = (
+				1C06398B1EB78E510039FEDC /* Classification.h */,
+				1C06398C1EB78E510039FEDC /* Classification.m */,
+			);
+			path = ControllerConfig;
 			sourceTree = "<group>";
 		};
 		1C4EB2B71EA4A665009A1B3D /* TextFieldEffects */ = {
@@ -752,6 +772,7 @@
 				CB7863BB1EA3D546006ED01C /* Model(模型) */,
 				CB7863BC1EA3D546006ED01C /* SubViewController(子控制器) */,
 				CB7863BD1EA3D546006ED01C /* View(交互界面) */,
+				1C06398A1EB78E2E0039FEDC /* ControllerConfig */,
 				CB7863AC1EA3D3B1006ED01C /* ClassificationViewController.h */,
 				CB7863AD1EA3D3B1006ED01C /* ClassificationViewController.m */,
 			);
@@ -870,6 +891,11 @@
 				CB4981F51EA660A8000E0792 /* ClassificationCell.h */,
 				CB4981F61EA660A8000E0792 /* ClassificationCell.m */,
 				CB4981F71EA660A8000E0792 /* ClassificationCell.xib */,
+				1C0639821EB653280039FEDC /* HTSelectIconTypeView.h */,
+				1C0639831EB653280039FEDC /* HTSelectIconTypeView.m */,
+				1C0639851EB658830039FEDC /* HTSelectIconTypeCell.h */,
+				1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */,
+				1C0639871EB658830039FEDC /* HTSelectIconTypeCell.xib */,
 				1C14FB091EAEDE140064DBEA /* HTTextLabel.h */,
 				1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */,
 			);
@@ -1013,6 +1039,7 @@
 				CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */,
 				1C8386DE1EB0816C006A8A71 /* HTEditItemsCell.xib in Resources */,
 				1C4EB2D81EA4AEB7009A1B3D /* HTAddItemsCell.xib in Resources */,
+				1C0639891EB658830039FEDC /* HTSelectIconTypeCell.xib in Resources */,
 				CBF589011EA3AA2900E7327B /* Assets.xcassets in Resources */,
 				CBF588FF1EA3AA2900E7327B /* Main.storyboard in Resources */,
 			);
@@ -1121,13 +1148,16 @@
 				1C8386F41EB0A5E7006A8A71 /* SCLAlertView.m in Sources */,
 				1C8386E11EB08184006A8A71 /* HTEditItemsModel.m in Sources */,
 				1C14FB0B1EAEDE140064DBEA /* HTTextLabel.m in Sources */,
+				1C0639841EB653280039FEDC /* HTSelectIconTypeView.m in Sources */,
 				1C8386B41EB063DB006A8A71 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				1C14FB0E1EAEE8780064DBEA /* HTTools+HT.m in Sources */,
 				CB4981EF1EA61D3F000E0792 /* PopoverView.m in Sources */,
+				1C0639881EB658830039FEDC /* HTSelectIconTypeCell.m in Sources */,
 				1C8386B81EB063DB006A8A71 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
 				1C8386C31EB063DB006A8A71 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				1C4EB2871EA455B2009A1B3D /* ZTButton.m in Sources */,
 				1C4EB2811EA455B2009A1B3D /* HTTools.m in Sources */,
+				1C06398D1EB78E510039FEDC /* Classification.m in Sources */,
 				1C8386AE1EB063DB006A8A71 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				CB7863C11EA3D97C006ED01C /* HTTabBarController.m in Sources */,
 				1C8386AD1EB063DB006A8A71 /* DGActivityIndicatorAnimation.m in Sources */,

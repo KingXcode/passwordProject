@@ -10,6 +10,7 @@
 
 #import "HTAddItemsCell.h"
 #import "HTAddItemsModel.h"
+#import "HTSelectIconTypeView.h"
 
 @interface HTAddItemsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -70,9 +71,23 @@
         _listView.backgroundColor = MainTableViewBackgroundColor;
         _listView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_listView registerNib:[UINib nibWithNibName:@"HTAddItemsCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+        HTSelectIconTypeView *typeView = [[HTSelectIconTypeView alloc]initWithFrame:CGRectMake(0, 0, IPHONE_WIDTH, 100)];
+      
+        __weak typeof(self) __self = self;
+        [typeView setDidselectIcon:^(NSString *type) {
+            [__self selectIconType:type];
+        }];
+        
+        _listView.tableHeaderView = typeView;
         _listView.tableFooterView = [UIView new];
     }
     return _listView;
+}
+
+-(void)selectIconType:(NSString *)type
+{
+    self.MainModel.iconType = type.integerValue;
+    [self check];
 }
 
 -(NSMutableArray *)listArray
@@ -363,18 +378,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HTAddItemsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-
     HTAddItemsModel *model = self.listArray[indexPath.section][indexPath.row];
-    
+
+    HTAddItemsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.model = model;
-    
     __weak typeof(self) __self = self;
     [cell setDidEndEditing:^(NSString *text,NSInteger index,HTAddItemsModel *model) {
-        
         [__self cellInputFinish:text Index:index Model:model];
-        
     }];
+    
+    
     
     return cell;
 }

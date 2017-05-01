@@ -17,13 +17,20 @@
 
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *clearCell;
+
 @property (weak, nonatomic) IBOutlet UITableViewCell *startPassWordCell;
+@property (weak, nonatomic) IBOutlet UILabel *startPassWordLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *openandclosePassWordSwitch;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *isThirdKeyBoardCell;
+@property (weak, nonatomic) IBOutlet UILabel *isThirdKeyBoardLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *isThirdKeyBoardSwitch;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *touchIDCell;
 @end
 
 @implementation Setting_interface_ViewController
+
 - (IBAction)dismiss:(UIBarButtonItem *)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         
@@ -41,18 +48,13 @@
 -(void)setTitleButton
 {
     UIButton *titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    
     [titleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [titleButton setBackgroundImage:[HTTools ht_createImageWithColor:RGBA(34, 34, 34, 0.3)] forState:UIControlStateHighlighted];
     titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [titleButton setContentEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-    
     [titleButton addTarget:self action:@selector(clickTopButton) forControlEvents:UIControlEventTouchUpInside];
-    
     titleButton.layer.cornerRadius = 4;
     titleButton.layer.masksToBounds = YES;
-    
-    
     [titleButton sizeToFit];
     self.navigationItem.titleView = titleButton;
     self.titleButton = titleButton;
@@ -70,18 +72,17 @@
     
     [self setTitleButton];
     self.title = @"设置";
-    
     self.tableView.backgroundColor = MainTableViewBackgroundColor;
     self.tableView.tableFooterView = [UIView new];
-    
     [self reloadStartPassWordCell];
     [self reloadTouchIdcell];
+    [self reloadIsThirdKeyBoardCell];
     
     
 }
 
 #pragma -mark-  刷新cell
-//刷新修改密码cell  
+//刷新修改密码cell
 -(void)reloadStartPassWordCell
 {
     NSString *password = [MainConfigManager startPassword];
@@ -100,6 +101,10 @@
     self.openandclosePassWordSwitch.on = isOpenPassword;
 }
 
+-(void)reloadIsThirdKeyBoardCell
+{
+    self.isThirdKeyBoardSwitch.on = [[HTConfigManager sharedconfigManager] isAllowThirdKeyboard];
+}
 
 
 //刷新touchid cell
@@ -123,6 +128,14 @@
     
     [MainConfigManager isOpenStartPassword:sender.on];
     self.touchIDCell.hidden = !sender.on;
+}
+
+
+/**
+ 是否启用第三方键盘
+ */
+- (IBAction)isThirdKeyBoard:(UISwitch *)sender {
+    [[HTConfigManager sharedconfigManager] isAllowThirdKeyboard:sender.on];
 }
 
 /**

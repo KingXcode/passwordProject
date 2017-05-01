@@ -22,16 +22,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     HTTabBarController *tabbar = instantiateStoryboardControllerWithIdentifier(@"HTTabBarController");
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
     self.window.rootViewController = tabbar;
-    
     [self.window makeKeyAndVisible];
-    
     [self setShortcutIcon];
     [self launchCheck];
-    
     
     return YES;
 }
@@ -61,7 +56,6 @@
     self.backgroundView = imageView;
     [MainKeyWindow addSubview:self.backgroundView];
     
-    
     [UIView animateWithDuration:0.4 animations:^{
         self.backgroundView.alpha = 1;
     }];
@@ -78,7 +72,11 @@
     
 }
 
-
+//禁用三方键盘
+- (BOOL)application:(UIApplication *)application shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier
+{
+    return [[HTConfigManager sharedconfigManager] isAllowThirdKeyboard];
+}
 
 
 

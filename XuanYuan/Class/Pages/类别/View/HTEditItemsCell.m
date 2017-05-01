@@ -38,7 +38,7 @@
     
     if (textField == self.textField) {
         
-        if (range.length == 1 && string.length == 0) {
+        if ((range.length == 1 && string.length == 0)||[self.model.title isEqualToString:@"备注"]) {
             return YES;
         }
         else if (self.textField.text.length >= 15) {

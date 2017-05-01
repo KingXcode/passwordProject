@@ -35,9 +35,7 @@
 @implementation ClassificationViewController
 - (IBAction)settingItem:(id)sender {
     Setting_interface_ViewController *vc = instantiateStoryboardControllerWithIdentifier(@"SettingHTNavigationController");
-    
     [self presentViewController:vc animated:YES completion:^{
-        
     }];
 }
 
@@ -338,10 +336,7 @@
  */
 -(void)clickTopButton
 {
-    
     [self presentViewController:[self nextCollectViewController] animated:YES completion:nil];
-    
-    
 }
 
 
@@ -349,7 +344,13 @@
 
 - (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
 {
-    ClassificationCell *cell = (ClassificationCell *)previewingContext.sourceView;
+    ClassificationCell *cell;
+    if (ht_IOS9_OR_LATER) {
+        cell = (ClassificationCell *)previewingContext.sourceView;
+    }else
+    {
+        cell = [self.tableView cellForRowAtIndexPath:[self.tableView indexPathForRowAtPoint:location]];
+    }
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     DetailCopyViewController *detailVC = [sb instantiateViewControllerWithIdentifier:@"DetailCopyViewController"];
     detailVC.isPeek = YES;
@@ -400,7 +401,6 @@
 //                                         fromViewController:[self class]
 //                                           toViewController:nil
 //                                                  forAction:RZTransitionAction_Dismiss];
-//    
     return nav;
 }
 

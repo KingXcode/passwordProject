@@ -45,6 +45,7 @@ typedef NS_ENUM(NSUInteger, HTItemCheck) {
 @property (nonatomic,copy) NSString * passWord;     //密码  *******   必须不为空
 @property (nonatomic,copy) NSString * remarks;      //备注            可以为空
 @property (nonatomic,assign) BOOL isCollect;        //是否被收藏
+@property (nonatomic,assign) NSInteger iconType;    //icon类型  默认为0;
 
 
 /**

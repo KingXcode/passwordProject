@@ -41,6 +41,9 @@
     
     NSString *number = sender.titleLabel.text;
     [self.inputString appendString:number];
+    if ([self.passLabel.text isEqualToString:@"验证失败,请重新输入"]) {
+        self.passLabel.text = @"";
+    }
     self.passLabel.text = [NSString stringWithFormat:@"%@●",self.passLabel.text];
     if (self.inputString.length>=self.password.length) {
         [self check];
@@ -60,7 +63,7 @@
        
         self.view.userInteractionEnabled = NO;
         
-        self.showLabel.text = @"验证成功!";
+        self.passLabel.text = @"验证成功!";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self dismissViewControllerAnimated:YES completion:nil];
@@ -72,9 +75,8 @@
         self.view.userInteractionEnabled = NO;
 
         [self.inputString setString:@""];
-        self.passLabel.text = @"";
-        self.showLabel.text = @"验证失败,请重新输入";
-        [HTTools shakeAnnimation:self.showLabel completion:^(BOOL finished) {
+        self.passLabel.text = @"验证失败,请重新输入";
+        [HTTools shakeAnnimation:self.passLabel completion:^(BOOL finished) {
             self.view.userInteractionEnabled = YES;
         }];
         
@@ -86,9 +88,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.showLabel.font = [UIFont boldSystemFontOfSize:26];
+    
     [self.cancelButton setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
 
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appHasGoneInForeground:)
