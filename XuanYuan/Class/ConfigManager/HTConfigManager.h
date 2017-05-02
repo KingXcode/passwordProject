@@ -21,10 +21,18 @@
 
 
 /**
+ 默认设置
+ */
+-(void)defaultSetting;
+
+
+/**
  是否打开启动密码
  */
 -(void)isOpenStartPassword:(BOOL)isopen;
 -(BOOL)isOpenStartPassword;
+-(BOOL)checkInputPassword:(NSString *)inputPassword;
+
 
 
 /**
@@ -46,5 +54,29 @@
  */
 -(void)isAllowThirdKeyboard:(BOOL)isAllow;
 -(BOOL)isAllowThirdKeyboard;
+
+
+
+/**
+ 打开源代码页面
+ */
+-(void)openSourceCodeWebView;
+-(void)openBlogWebView;
+
+
+/**
+ 能否发送邮件
+ */
+-(BOOL)canSendEmail;
+/**
+ 发送邮件
+ 
+ @param subject 设置邮件主题
+ @param recipients 设置收件人
+ @param emailContent 邮件内容
+ */
+- (void)sendEmailActionWithSubject:(NSString *)subject
+                        Recipients:(NSString *)recipients
+                       MessageBody:(NSString *)emailContent;
 
 @end

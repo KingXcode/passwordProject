@@ -16,32 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.selectedIndex = 1;
+
     self.tabBar.tintColor = MainRGB;
     self.tabBar.barStyle = UIBarStyleDefault;
-//    [self.tabBar removeFromSuperview];
-    
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
-    tap.numberOfTapsRequired = 2;
-    [self.tabBar addGestureRecognizer:tap];
- 
-    
-    NSString *version = [[UIDevice currentDevice] systemVersion];
-    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable&&version.integerValue>=10) {
-        [self registerForPreviewingWithDelegate:(id)self sourceView:self.tabBar];
-    }
-    
+    self.tabBar.layer.cornerRadius = 5;
+    self.tabBar.layer.masksToBounds = YES;
+    self.tabBar.layer.borderWidth = 1;
+    self.tabBar.layer.borderColor = MainRGB.CGColor;
+    self.tabBar.backgroundColor = [UIColor whiteColor];
+    self.tabBar.frame = CGRectMake(0, IPHONE_HEIGHT-49, 49, 49);
+//    self.tabBar.center = CGPointMake(IPHONE_WIDTH*0.5f, self.tabBar.center.y);
+
+
 }
 
 
 
-
--(void)tap:(UITapGestureRecognizer *)tap
-{
-    [HTTools openSafariServiceWithUrl:[NSURL URLWithString:@"https://www.baidu.com"] byController:self];
-}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -49,18 +39,11 @@
     [self.view endEditing:YES];
 }
 
-
-- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+-(void)viewDidAppear:(BOOL)animated
 {
-
-    SFSafariViewController *vc = [[SFSafariViewController alloc]initWithURL:[NSURL URLWithString:@"http://www.niesiyang.cn"]];
-    return vc;
+    [super viewDidAppear:animated];
 }
 
-- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
-{
-    [self presentViewController:viewControllerToCommit animated:YES completion:nil];
-}
 
 
 - (void)didReceiveMemoryWarning {

@@ -25,11 +25,17 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *isThirdKeyBoardCell;
 @property (weak, nonatomic) IBOutlet UILabel *isThirdKeyBoardLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *isThirdKeyBoardSwitch;
+@property (weak, nonatomic) IBOutlet UITableViewCell *sendEmailCell;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *touchIDCell;
 @end
 
 @implementation Setting_interface_ViewController
+
+
+
+
+
 
 - (IBAction)dismiss:(UIBarButtonItem *)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
@@ -42,8 +48,21 @@
  */
 -(void)clickTopButton
 {
-    
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -(void)setTitleButton
 {
@@ -77,11 +96,19 @@
     [self reloadStartPassWordCell];
     [self reloadTouchIdcell];
     [self reloadIsThirdKeyBoardCell];
-    
+    [self reloadSendEmailCell];
     
 }
 
 #pragma -mark-  刷新cell
+-(void)reloadSendEmailCell
+{
+    BOOL isSend = [MainConfigManager canSendEmail];
+    if (!isSend) {
+        self.sendEmailCell.textLabel.text = @"吐槽微密(不可用)";
+    }
+    self.sendEmailCell.userInteractionEnabled = isSend;
+}
 //刷新修改密码cell
 -(void)reloadStartPassWordCell
 {
@@ -97,7 +124,7 @@
     }
     
     BOOL isOpenPassword = [MainConfigManager isOpenStartPassword];
-    self.touchIDCell.hidden = !isOpenPassword;
+    self.touchIDCell.userInteractionEnabled = isOpenPassword;
     self.openandclosePassWordSwitch.on = isOpenPassword;
 }
 
@@ -121,13 +148,29 @@
 
 
 #pragma -mark-  cell点击事件
+
+
+/**
+ 发送邮件
+ */
+-(void)sendEmail
+{
+    NSString *subject = @"微密-反馈邮件";
+    NSString *recipients = @"siyang.nie.520@gmail.com";
+    NSString *body = [NSString stringWithFormat:@"机器型号:%@\n系统版本:%@\n反馈问题:\n",[HTTools deviceVersion],[HTTools phoneVersion]];
+    [MainConfigManager sendEmailActionWithSubject:subject Recipients:recipients MessageBody:body];
+}
+
+
+
+
 /**
  是否启用启动密码
  */
 - (IBAction)isOpenPassword:(UISwitch *)sender {
     
     [MainConfigManager isOpenStartPassword:sender.on];
-    self.touchIDCell.hidden = !sender.on;
+    self.touchIDCell.userInteractionEnabled = sender.on;
 }
 
 
@@ -147,6 +190,8 @@
     NSString *subTitle;
     NSString *password = [MainConfigManager startPassword];
     
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    SCLTextView *textField0;
     if ([HTTools ht_isBlankString:password]) {
         title = @"设置密码";
         subTitle = @"请设置启动密码";
@@ -154,11 +199,12 @@
     {
         title = @"修改密码";
         subTitle = @"请修改启动密码";
+        textField0 = [alert addTextField:@"请输入原密码"];
+        textField0.keyboardType = UIKeyboardTypeNumberPad;
     }
     
-    SCLAlertView *alert = [[SCLAlertView alloc] init];
     
-    SCLTextView *textField1 = [alert addTextField:@"请输入密码"];
+    SCLTextView *textField1 = [alert addTextField:@"请输入新密码"];
     SCLTextView *textField2 = [alert addTextField:@"请再一次输入密码"];
     
     textField1.keyboardType = UIKeyboardTypeNumberPad;
@@ -167,7 +213,19 @@
     textField2.tintColor = MainTextColor;
 
     [alert addButton:@"确定" validationBlock:^BOOL{
-        [self reloadStartPassWordCell];
+        
+
+        if (!(!textField0||(textField0&&[MainConfigManager checkInputPassword:textField0.text]))) {
+            textField0.text = nil;
+            textField0.placeholder = @"密码错误";
+            [HTTools shakeAnnimation:textField0 completion:^(BOOL finished) {
+                
+            }];
+            [HTTools vibrate];
+            return NO;
+        }
+        
+
         if ([HTTools ht_isBlankString:textField1.text]||[HTTools ht_isBlankString:textField2.text]) {
             
             textField1.placeholder = @"输入不能为空";
@@ -251,13 +309,44 @@
 -(void)showClearWarningAlert
 {
     __weak typeof(self) __self = self;
-    
+    NSString *password = [MainConfigManager startPassword];
+
     SCLAlertView *alert = [[SCLAlertView alloc] init];
-    [alert addButton:@"确定" actionBlock:^(void) {
+    SCLTextView *textField1;
+    
+    if (![HTTools ht_isBlankString:password]) {
+        
+        textField1 = [alert addTextField:@"请输入密码"];
+        textField1.keyboardType = UIKeyboardTypeNumberPad;
+        textField1.tintColor = MainTextColor;
+        
+    }
+
+    
+    [alert addButton:@"确定" validationBlock:^BOOL{
+        if ([HTTools ht_isBlankString:password])
+        {
+            return YES;
+        }
+        else if ([MainConfigManager checkInputPassword:textField1.text])
+        {
+            return YES;
+        }
+        else
+        {
+            textField1.text = nil;
+            textField1.placeholder = @"密码错误";
+            [HTTools shakeAnnimation:textField1 completion:^(BOOL finished) {
+                
+            }];
+            [HTTools vibrate];
+            return NO;
+        }
+    } actionBlock:^{
         [__self clearAllData];
     }];
     
-    [alert showCustom:self.navigationController image:[UIImage imageNamed:@"warning_delete"] color:MainRGB title:@"警告" subTitle:@"永久删除您所记录的账号密码信息?(此操作不可恢复)" closeButtonTitle:@"取消" duration:0.0f];
+    [alert showCustom:self.navigationController image:[UIImage imageNamed:@"warning_delete"] color:MainRGB title:@"警告" subTitle:@"永久删除您所记录的账号密码信息?\n(此操作不可恢复)" closeButtonTitle:@"取消" duration:0.0f];
     
     
 }
@@ -272,6 +361,59 @@
 
 }
 
+//默认设置
+-(void)defaultSetting
+{
+    
+    __weak typeof(self) __self = self;
+    NSString *password = [MainConfigManager startPassword];
+
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    
+    SCLTextView *textField1;
+    
+    if (![HTTools ht_isBlankString:password]) {
+       
+        textField1 = [alert addTextField:@"请输入密码"];
+        textField1.keyboardType = UIKeyboardTypeNumberPad;
+        textField1.tintColor = MainTextColor;
+        
+    }
+
+    
+    [alert addButton:@"确定" validationBlock:^BOOL{
+        
+        if ([HTTools ht_isBlankString:password])
+        {
+            return YES;
+        }
+        else if ([MainConfigManager checkInputPassword:textField1.text])
+        {
+            return YES;
+        }
+        else
+        {
+            textField1.text = nil;
+            textField1.placeholder = @"密码错误";
+            [HTTools shakeAnnimation:textField1 completion:^(BOOL finished) {
+                
+            }];
+            [HTTools vibrate];
+            return NO;
+        }
+    } actionBlock:^{
+        [MainConfigManager defaultSetting];
+        [__self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }];
+    
+
+    
+    [alert showCustom:self.navigationController image:[UIImage imageNamed:@"warning_delete"] color:MainRGB title:@"警告" subTitle:@"恢复默认设置?\n(此操作不可恢复)" closeButtonTitle:@"取消" duration:0.0f];
+    
+}
 
 
 #pragma -mark-  tableView 代理数据源方法
@@ -290,19 +432,35 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        
+    if (indexPath.section == 0 && indexPath.row == 0)
+    {
         [self showClearWarningAlert];
-        
-    }else if (indexPath.section == 1 && indexPath.row == 0) {
-        
+    }
+    else if (indexPath.section == 0 && indexPath.row == 1)
+    {
+        [self defaultSetting];
+    }
+    else if (indexPath.section == 1 && indexPath.row == 0)
+    {
         [self startPasswordChange];
-        
     }
     else if (indexPath.section == 1 && indexPath.row == 1)
     {
         [self enableTouchID];
     }
+    else if (indexPath.section == 2 && indexPath.row == 0)
+    {
+        [self sendEmail];
+    }
+    else if (indexPath.section == 3 && indexPath.row == 0)
+    {
+        [[HTConfigManager sharedconfigManager]openSourceCodeWebView];
+    }
+    else if (indexPath.section == 3 && indexPath.row == 1)
+    {
+        [[HTConfigManager sharedconfigManager]openBlogWebView];
+    }
+
 }
 
 

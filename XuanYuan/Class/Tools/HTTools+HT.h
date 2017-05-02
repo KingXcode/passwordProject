@@ -100,5 +100,15 @@
  */
 + (UIViewController *)getCurrentVC;
 
+/**
+ 系统版本
+ */
++(NSString *)phoneVersion;
+/**
+ *  设备版本
+ *
+ *  @return e.g. iPhone 5S
+ */
++ (NSString*)deviceVersion;
 
 @end

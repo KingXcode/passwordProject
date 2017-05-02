@@ -61,7 +61,7 @@
 -(void)setModel:(ClassificationModel *)model
 {
     _model = model;
-    self.ht_typeIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"type_%ld",_model.iconType]];
+    self.ht_typeIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"type_%ld",(long)_model.iconType]];
     self.ht_title.text   = [NSString stringWithFormat:@"%@",_model.accountTitle];
     self.ht_account.text = [NSString stringWithFormat:@"%@",model.account];
     self.ht_password.text = [NSString stringWithFormat:@"●●●●●●"];

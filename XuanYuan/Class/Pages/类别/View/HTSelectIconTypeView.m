@@ -35,7 +35,7 @@
 {
     
     _typeIcon = typeIcon;
-    _iconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"type_%ld",_typeIcon]];
+    _iconView.image = [UIImage imageNamed:[NSString stringWithFormat:@"type_%ld",(long)_typeIcon]];
                        
 }
 

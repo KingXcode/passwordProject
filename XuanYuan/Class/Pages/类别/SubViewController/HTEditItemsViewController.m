@@ -114,6 +114,7 @@
     if (_sureButton == nil) {
         _sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_sureButton setTitle:@"确认保存" forState:UIControlStateNormal];
+        
         [_sureButton setBackgroundImage:[HTTools ht_createImageWithColor:MainRGB] forState:UIControlStateNormal];
         [_sureButton setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateDisabled];
         

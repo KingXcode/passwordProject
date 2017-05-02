@@ -11,7 +11,10 @@
 		1C0639841EB653280039FEDC /* HTSelectIconTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639831EB653280039FEDC /* HTSelectIconTypeView.m */; };
 		1C0639881EB658830039FEDC /* HTSelectIconTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */; };
 		1C0639891EB658830039FEDC /* HTSelectIconTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0639871EB658830039FEDC /* HTSelectIconTypeCell.xib */; };
-		1C06398D1EB78E510039FEDC /* Classification.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06398C1EB78E510039FEDC /* Classification.m */; };
+		1C0639901EB78F050039FEDC /* ClassificationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06398F1EB78F050039FEDC /* ClassificationConfig.m */; };
+		1C0639931EB7AF290039FEDC /* HTColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639921EB7AF290039FEDC /* HTColorManager.m */; };
+		1C11E4881EB82B7900B00935 /* HTEncryptionAndDecryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C11E4851EB82B7900B00935 /* HTEncryptionAndDecryption.m */; };
+		1C11E4891EB82B7900B00935 /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C11E4871EB82B7900B00935 /* NSData+Encryption.m */; };
 		1C14FB0B1EAEDE140064DBEA /* HTTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */; };
 		1C14FB0E1EAEE8780064DBEA /* HTTools+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB0D1EAEE8780064DBEA /* HTTools+HT.m */; };
 		1C14FB111EAF606F0064DBEA /* Setting_interface_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C14FB101EAF606F0064DBEA /* Setting_interface_ViewController.m */; };
@@ -88,7 +91,6 @@
 		1C8386F91EB0A5E7006A8A71 /* SCLTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8386EF1EB0A5E7006A8A71 /* SCLTextView.m */; };
 		1C8386FA1EB0A5E7006A8A71 /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8386F11EB0A5E7006A8A71 /* SCLTimerDisplay.m */; };
 		1C8386FB1EB0A5E7006A8A71 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8386F31EB0A5E7006A8A71 /* UIImage+ImageEffects.m */; };
-		1C8387001EB18330006A8A71 /* HTEncryptionAndDecryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8386FF1EB18330006A8A71 /* HTEncryptionAndDecryption.m */; };
 		1C8387051EB19D41006A8A71 /* HTModalTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8387041EB19D41006A8A71 /* HTModalTransition.m */; };
 		1C8387091EB1A22F006A8A71 /* DetailCopyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8387081EB1A22F006A8A71 /* DetailCopyViewController.m */; };
 		1C83870D1EB1C3AD006A8A71 /* DetailCopyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C83870C1EB1C3AD006A8A71 /* DetailCopyView.m */; };
@@ -97,7 +99,6 @@
 		1C895EF41EB5DD5300ACBED0 /* HTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */; };
 		1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1C895EF51EB5E6D000ACBED0 /* LICENSE */; };
 		1C895EFC1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */; };
-		1C98DEBA1EB2DAAB00C68A96 /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */; };
 		1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71B411EADF1B80071312F /* ClassificationModel.m */; };
 		3778629A3909E5D08534993F /* libPods-XuanYuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */; };
 		CB4981E31EA51447000E0792 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4981E21EA51447000E0792 /* HTBaseViewController.m */; };
@@ -130,8 +131,14 @@
 		1C0639851EB658830039FEDC /* HTSelectIconTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectIconTypeCell.h; sourceTree = "<group>"; };
 		1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTSelectIconTypeCell.m; sourceTree = "<group>"; };
 		1C0639871EB658830039FEDC /* HTSelectIconTypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTSelectIconTypeCell.xib; sourceTree = "<group>"; };
-		1C06398B1EB78E510039FEDC /* Classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classification.h; sourceTree = "<group>"; };
-		1C06398C1EB78E510039FEDC /* Classification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classification.m; sourceTree = "<group>"; };
+		1C06398E1EB78F050039FEDC /* ClassificationConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationConfig.h; sourceTree = "<group>"; };
+		1C06398F1EB78F050039FEDC /* ClassificationConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationConfig.m; sourceTree = "<group>"; };
+		1C0639911EB7AF290039FEDC /* HTColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTColorManager.h; sourceTree = "<group>"; };
+		1C0639921EB7AF290039FEDC /* HTColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTColorManager.m; sourceTree = "<group>"; };
+		1C11E4841EB82B7900B00935 /* HTEncryptionAndDecryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEncryptionAndDecryption.h; sourceTree = "<group>"; };
+		1C11E4851EB82B7900B00935 /* HTEncryptionAndDecryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEncryptionAndDecryption.m; sourceTree = "<group>"; };
+		1C11E4861EB82B7900B00935 /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
+		1C11E4871EB82B7900B00935 /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
 		1C14FB091EAEDE140064DBEA /* HTTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTextLabel.h; sourceTree = "<group>"; };
 		1C14FB0A1EAEDE140064DBEA /* HTTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTextLabel.m; sourceTree = "<group>"; };
 		1C14FB0C1EAEE8780064DBEA /* HTTools+HT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTools+HT.h"; sourceTree = "<group>"; };
@@ -276,8 +283,6 @@
 		1C8386F11EB0A5E7006A8A71 /* SCLTimerDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLTimerDisplay.m; sourceTree = "<group>"; };
 		1C8386F21EB0A5E7006A8A71 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		1C8386F31EB0A5E7006A8A71 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
-		1C8386FE1EB18330006A8A71 /* HTEncryptionAndDecryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTEncryptionAndDecryption.h; sourceTree = "<group>"; };
-		1C8386FF1EB18330006A8A71 /* HTEncryptionAndDecryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTEncryptionAndDecryption.m; sourceTree = "<group>"; };
 		1C8387011EB197DD006A8A71 /* XuanYuanGloabal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XuanYuanGloabal.h; sourceTree = "<group>"; };
 		1C8387031EB19D41006A8A71 /* HTModalTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTModalTransition.h; sourceTree = "<group>"; };
 		1C8387041EB19D41006A8A71 /* HTModalTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTModalTransition.m; sourceTree = "<group>"; };
@@ -296,8 +301,6 @@
 		1C895EF91EB5EEB300ACBED0 /* CYLTableViewPlaceHolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTableViewPlaceHolderDelegate.h; sourceTree = "<group>"; };
 		1C895EFA1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CYLTableViewPlaceHolder.h"; sourceTree = "<group>"; };
 		1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CYLTableViewPlaceHolder.m"; sourceTree = "<group>"; };
-		1C98DEB81EB2DAAB00C68A96 /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
-		1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
 		1CA71B401EADF1B80071312F /* ClassificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationModel.h; sourceTree = "<group>"; };
 		1CA71B411EADF1B80071312F /* ClassificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationModel.m; sourceTree = "<group>"; };
 		68CB27532AE44E81173A081E /* Pods-XuanYuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuanYuan.release.xcconfig"; path = "Pods/Target Support Files/Pods-XuanYuan/Pods-XuanYuan.release.xcconfig"; sourceTree = "<group>"; };
@@ -367,8 +370,8 @@
 		1C06398A1EB78E2E0039FEDC /* ControllerConfig */ = {
 			isa = PBXGroup;
 			children = (
-				1C06398B1EB78E510039FEDC /* Classification.h */,
-				1C06398C1EB78E510039FEDC /* Classification.m */,
+				1C06398E1EB78F050039FEDC /* ClassificationConfig.h */,
+				1C06398F1EB78F050039FEDC /* ClassificationConfig.m */,
 			);
 			path = ControllerConfig;
 			sourceTree = "<group>";
@@ -605,10 +608,10 @@
 		1C8386FD1EB182AE006A8A71 /* 加密解密 */ = {
 			isa = PBXGroup;
 			children = (
-				1C8386FE1EB18330006A8A71 /* HTEncryptionAndDecryption.h */,
-				1C8386FF1EB18330006A8A71 /* HTEncryptionAndDecryption.m */,
-				1C98DEB81EB2DAAB00C68A96 /* NSData+Encryption.h */,
-				1C98DEB91EB2DAAB00C68A96 /* NSData+Encryption.m */,
+				1C11E4841EB82B7900B00935 /* HTEncryptionAndDecryption.h */,
+				1C11E4851EB82B7900B00935 /* HTEncryptionAndDecryption.m */,
+				1C11E4861EB82B7900B00935 /* NSData+Encryption.h */,
+				1C11E4871EB82B7900B00935 /* NSData+Encryption.m */,
 			);
 			path = "加密解密";
 			sourceTree = "<group>";
@@ -650,6 +653,8 @@
 			children = (
 				1C895EF21EB5DD5300ACBED0 /* HTConfigManager.h */,
 				1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */,
+				1C0639911EB7AF290039FEDC /* HTColorManager.h */,
+				1C0639921EB7AF290039FEDC /* HTColorManager.m */,
 			);
 			path = ConfigManager;
 			sourceTree = "<group>";
@@ -1101,7 +1106,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4EB2CE1EA4A665009A1B3D /* YoshikoTextField.swift in Sources */,
-				1C8387001EB18330006A8A71 /* HTEncryptionAndDecryption.m in Sources */,
 				1C8386D31EB07750006A8A71 /* HTEditItemsViewController.m in Sources */,
 				1C4EB2CC1EA4A665009A1B3D /* TextFieldEffects.swift in Sources */,
 				1C8386F61EB0A5E7006A8A71 /* SCLAlertViewStyleKit.m in Sources */,
@@ -1114,9 +1118,9 @@
 				1C8386DD1EB0816C006A8A71 /* HTEditItemsCell.m in Sources */,
 				1C5EACB81EB2E9B200EDADA5 /* HTCheckViewController.m in Sources */,
 				1C8386CE1EB063DB006A8A71 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
-				1C98DEBA1EB2DAAB00C68A96 /* NSData+Encryption.m in Sources */,
 				CB4981F01EA61D3F000E0792 /* PopoverViewCell.m in Sources */,
 				1C8386C81EB063DB006A8A71 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				1C0639931EB7AF290039FEDC /* HTColorManager.m in Sources */,
 				1C8386B31EB063DB006A8A71 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
 				1C8386FB1EB0A5E7006A8A71 /* UIImage+ImageEffects.m in Sources */,
 				1C8386CB1EB063DB006A8A71 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
@@ -1157,7 +1161,6 @@
 				1C8386C31EB063DB006A8A71 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				1C4EB2871EA455B2009A1B3D /* ZTButton.m in Sources */,
 				1C4EB2811EA455B2009A1B3D /* HTTools.m in Sources */,
-				1C06398D1EB78E510039FEDC /* Classification.m in Sources */,
 				1C8386AE1EB063DB006A8A71 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				CB7863C11EA3D97C006ED01C /* HTTabBarController.m in Sources */,
 				1C8386AD1EB063DB006A8A71 /* DGActivityIndicatorAnimation.m in Sources */,
@@ -1175,10 +1178,12 @@
 				1C8386B21EB063DB006A8A71 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				1C14FB111EAF606F0064DBEA /* Setting_interface_ViewController.m in Sources */,
 				1C8386CD1EB063DB006A8A71 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
+				1C11E4881EB82B7900B00935 /* HTEncryptionAndDecryption.m in Sources */,
 				1C8386BE1EB063DB006A8A71 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				CB7863B41EA3D3D8006ED01C /* CollectViewController.m in Sources */,
 				CBF588F91EA3AA2900E7327B /* AppDelegate.m in Sources */,
 				1C4EB2CB1EA4A665009A1B3D /* MinoruTextField.swift in Sources */,
+				1C0639901EB78F050039FEDC /* ClassificationConfig.m in Sources */,
 				1C4EB2831EA455B2009A1B3D /* UIButton+EnlargeEdge.m in Sources */,
 				1C8386C01EB063DB006A8A71 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				1C8386CF1EB063DB006A8A71 /* DGActivityIndicatorView.m in Sources */,
@@ -1187,6 +1192,7 @@
 				1C4EB2901EA46F96009A1B3D /* HTMainItemModel.m in Sources */,
 				1C8386CA1EB063DB006A8A71 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				CB4981EE1EA61D3F000E0792 /* PopoverAction.m in Sources */,
+				1C11E4891EB82B7900B00935 /* NSData+Encryption.m in Sources */,
 				CBF588F61EA3AA2900E7327B /* main.m in Sources */,
 				1C8386601EB04F01006A8A71 /* UITableView+Extension.m in Sources */,
 				1C8386AF1EB063DB006A8A71 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
@@ -1256,6 +1262,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1304,6 +1311,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1328,12 +1336,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PDA4VU96AT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuanYuan/Class/Gloabal/XuanYuanPCH.pch;
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.niesiyang.XuanYuan0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niesiyang.XuanYuan1;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
@@ -1351,12 +1363,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PDA4VU96AT;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuanYuan/Class/Gloabal/XuanYuanPCH.pch;
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.niesiyang.XuanYuan0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niesiyang.XuanYuan1;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";

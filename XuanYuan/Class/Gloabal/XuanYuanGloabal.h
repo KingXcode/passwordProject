@@ -10,7 +10,7 @@
 #define XuanYuanGloabal_h
 
 
-
+#define XuanYuanAeskey @"cn.niesiyang.aeskey"
 //偏好设置
 //密码
 #define kPasswordUserDefaults @"kPasswordUserDefaults"
@@ -29,14 +29,15 @@
 
 
 #define MainConfigManager [HTConfigManager sharedconfigManager]
+#define MainColorManager  [HTColorManager sharedcolorManager]
 
 //主基调
-#define MainRGB RGB(0, 191, 255)
-#define MainTextColor [UIColor darkGrayColor]
-#define MainTextWhiteColor [UIColor whiteColor]
+#define MainRGB [MainColorManager mainRGB]
+#define MainTextColor [MainColorManager mainTextColor]
+#define MainTextWhiteColor [MainColorManager mainTextWhiteColor]
 
-#define MainCollectColor [UIColor orangeColor]
-#define MainTableViewBackgroundColor  [UIColor groupTableViewBackgroundColor]
+#define MainCollectColor [MainColorManager mainCollectColor]//收藏的颜色
+#define MainTableViewBackgroundColor  [MainColorManager mainTableViewBackgroundColor]
 
 //主控制器
 #define MainKeyWindow [UIApplication sharedApplication].keyWindow

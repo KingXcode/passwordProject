@@ -45,9 +45,7 @@
     HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
     NSArray *list = [manager getAccountList];
     NSArray *newArray = [[self class] mj_objectArrayWithKeyValuesArray:list];
-    
     newArray = [HTTools ht_SortModelArrar:newArray info:@{@"ID.integerValue":[NSNumber numberWithBool:NO]}];
-    
     return newArray;
 }
 

@@ -79,6 +79,10 @@ NSString * const __aesKey = @"com.niesiyang";
     [dict enumerateKeysAndObjectsUsingBlock:^(NSString * key, id obj, BOOL * _Nonnull stop) {
         
         NSString *newkey = [HTEncryptionAndDecryption Decryption:key];
+        if ([HTTools ht_isBlankString:newkey]) {
+            return ;
+        }
+        
         if ([obj isKindOfClass:[NSString class]]) {
             
             NSString *newObj = [HTEncryptionAndDecryption Decryption:obj];

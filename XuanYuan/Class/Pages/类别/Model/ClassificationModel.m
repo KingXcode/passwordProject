@@ -21,18 +21,19 @@
 {
     if (self.selectState) {
         
-        CGFloat height = 70 + self.infoPassWord.count*29+8;
+        CGFloat height = 75 + self.infoPassWord.count*29;
         
         if (![HTTools ht_isBlankString:self.remarks]) {
             
-            CGFloat h = [HTTools heightOfString:self.remarks font:[UIFont systemFontOfSize:15] width:IPHONE_WIDTH-16-18]+25;
+            CGFloat h = [HTTools heightOfString:self.remarks font:[UIFont systemFontOfSize:15] width:IPHONE_WIDTH-16-18]+25+8;
             height += h;
+            
         }
         
         return height;
     }else
     {
-        return 70;
+        return 75;
     }
 }
 
