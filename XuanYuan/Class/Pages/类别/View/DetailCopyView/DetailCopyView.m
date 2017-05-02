@@ -29,7 +29,6 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 
 
-@property (nonatomic,assign) BOOL isBigBang;
 
 
 @end
@@ -137,9 +136,15 @@
     self.isBigBang = !self.isBigBang;
 
     
-    [self reloadData];
     
     [self.collectionView setCollectionViewLayout:self.layout];
+
+}
+
+-(void)setIsBigBang:(BOOL)isBigBang
+{
+    _isBigBang = isBigBang;
+    [self reloadData];
 
 }
 
@@ -297,39 +302,61 @@
     
     {
         [self.bigbangDataArray removeAllObjects];
-        [self.bigbangDataArray addObject:@"标题:"];
-        [self.bigbangDataArray addObject:model.accountTitle];
-        [self.bigbangDataArray addObject:@"账号:"];
-        [self.bigbangDataArray addObject:model.account];
-        [self.bigbangDataArray addObject:@"密码:"];
-        [self.bigbangDataArray addObject:model.passWord];
+        if (![HTTools ht_isBlankString:model.accountTitle]) {
+            [self.bigbangDataArray addObject:@"标题:"];
+            [self.bigbangDataArray addObject:model.accountTitle];
+        }
+        if (![HTTools ht_isBlankString:model.account]) {
+            [self.bigbangDataArray addObject:@"账号:"];
+            [self.bigbangDataArray addObject:model.account];
+        }
+        if (![HTTools ht_isBlankString:model.passWord]) {
+            [self.bigbangDataArray addObject:@"密码:"];
+            [self.bigbangDataArray addObject:model.passWord];
+        }
+
         
         for (infoPassModel *info in model.infoPassWord) {
             [self.bigbangDataArray addObject:info.info_pass_Text];
             [self.bigbangDataArray addObject:info.info_password];
         }
         
-        [self.bigbangDataArray addObject:@"备注:"];
         NSArray *arr = [HTTools stringTokenizerWithWord:model.remarks];
-        [self.bigbangDataArray addObjectsFromArray:arr];
+        if (arr.count>0) {
+            [self.bigbangDataArray addObject:@"备注:"];
+            [self.bigbangDataArray addObjectsFromArray:arr];
+        }
         
-        [self.bigbangDataArray addObject:@","];
-        [self.bigbangDataArray addObject:@"."];
-        [self.bigbangDataArray addObject:@":"];
-        [self.bigbangDataArray addObject:@"\""];
-        [self.bigbangDataArray addObject:@"空格"];
-        [self.bigbangDataArray addObject:@";"];
+//        [self.bigbangDataArray addObject:@","];
+//        [self.bigbangDataArray addObject:@"."];
+//        [self.bigbangDataArray addObject:@":"];
+//        [self.bigbangDataArray addObject:@"\""];
+//        [self.bigbangDataArray addObject:@";"];
+//        [self.bigbangDataArray addObject:@"空格"];
+
     }
     {
         [self.dataArray removeAllObjects];
-        
-        [self.dataArray addObject:[NSString stringWithFormat:@"标题:%@",model.accountTitle]];
-        [self.dataArray addObject:[NSString stringWithFormat:@"账号:%@",model.account]];
-        [self.dataArray addObject:[NSString stringWithFormat:@"密码:%@",model.passWord]];
+       
+        if (![HTTools ht_isBlankString:model.accountTitle])
+        {
+            [self.dataArray addObject:[NSString stringWithFormat:@"标题:%@",model.accountTitle]];
+        }
+        if (![HTTools ht_isBlankString:model.account])
+        {
+            [self.dataArray addObject:[NSString stringWithFormat:@"账号:%@",model.account]];
+        }
+        if (![HTTools ht_isBlankString:model.passWord])
+        {
+            [self.dataArray addObject:[NSString stringWithFormat:@"密码:%@",model.passWord]];
+        }
         for (infoPassModel *info in model.infoPassWord) {
             [self.dataArray addObject:[NSString stringWithFormat:@"%@:%@",info.info_pass_Text,info.info_password]];
         }
-        [self.dataArray addObject:[NSString stringWithFormat:@"备注:%@",model.remarks]];
+        if (![HTTools ht_isBlankString:model.remarks])
+        {
+            [self.dataArray addObject:[NSString stringWithFormat:@"备注:%@",model.remarks]];
+        }
     }
     
 }
@@ -377,12 +404,8 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailCopyCell *cell = (DetailCopyCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if ([cell.text isEqualToString:@"空格"]) {
-        [self insertTextViewString:@" "];
-    }else
-    {
-        [self insertTextViewString:cell.text];
-    }
+
+    [self insertTextViewString:cell.text];
     [self reloadButton];
 }
 

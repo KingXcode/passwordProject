@@ -8,6 +8,7 @@
 
 #import "HTMainItemModel.h"
 #import "HTDataBaseManager.h"
+#import "MJExtension.h"
 
 @implementation infoPassModel
 

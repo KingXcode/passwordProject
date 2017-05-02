@@ -92,6 +92,7 @@
     
 }
 
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -134,6 +135,12 @@
             [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
         }];
     }];
+}
+
+-(void)setIsBigBang:(BOOL)isBigBang
+{
+    _isBigBang = isBigBang;
+    self.detailView.isBigBang = _isBigBang;
 }
 
 - (void)didReceiveMemoryWarning {

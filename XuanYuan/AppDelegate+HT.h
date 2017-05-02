@@ -15,6 +15,7 @@
 //进入添加账号界面
 -(void)openAddViewController;
 
+-(void)openBigBangViewController;
 
 //进入验证界面
 -(void)checkController;

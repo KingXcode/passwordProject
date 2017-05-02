@@ -10,7 +10,7 @@
 #import "HTAddItemsViewController.h"
 #import "HTNavigationController.h"
 #import "HTCheckViewController.h"
-
+#import "DetailCopyViewController.h"
 
 
 @implementation AppDelegate (HT)
@@ -19,7 +19,11 @@
 {
     UIApplicationShortcutIcon *addShortcutIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd];
     UIApplicationShortcutItem *addShortcutItem = [[UIApplicationShortcutItem alloc] initWithType:@"com.niesiyang.add" localizedTitle:@"添加账号" localizedSubtitle:@"创建一个新的账号信息" icon:addShortcutIcon userInfo:nil];
-    [UIApplication sharedApplication].shortcutItems = @[addShortcutItem];
+    
+    UIApplicationShortcutIcon *bigbangShortcutIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeBookmark];
+    UIApplicationShortcutItem *bigbangShortcutItem = [[UIApplicationShortcutItem alloc] initWithType:@"com.niesiyang.bigbang" localizedTitle:@"分词" localizedSubtitle:@"将您剪贴板中的内容分词复制" icon:bigbangShortcutIcon userInfo:nil];
+    
+    [UIApplication sharedApplication].shortcutItems = @[addShortcutItem,bigbangShortcutItem];
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
@@ -27,6 +31,10 @@
     if ([shortcutItem.type isEqualToString:@"com.niesiyang.add"])
     {
         [self openAddViewController];
+    }
+    else if ([shortcutItem.type isEqualToString:@"com.niesiyang.bigbang"])
+    {
+        [self openBigBangViewController];
     }
 }
 
@@ -40,6 +48,19 @@
     [nav.viewControllers.firstObject presentViewController:nextnav animated:YES completion:nil];
     
     
+}
+
+-(void)openBigBangViewController
+{
+    ClassificationModel *model = [[ClassificationModel alloc]init];
+    UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+    model.remarks = pasteboard.string;
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    DetailCopyViewController *vc = [sb instantiateViewControllerWithIdentifier:@"DetailCopyViewController"];
+    vc.model = model;
+    vc.isPeek = NO;
+    vc.isBigBang = YES;
+    [[HTTools getCurrentVC] presentViewController:vc animated:NO completion:^{}];
 }
 
 

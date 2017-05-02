@@ -11,21 +11,25 @@
 
 @interface TodayViewController () <NCWidgetProviding>
 
-
 @end
 
 @implementation TodayViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"001"]];
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    NSString *urlStr = [NSString stringWithFormat:@"weimi://"];
-    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURL *url = [NSURL URLWithString:@"weimi://"];
     [self.extensionContext openURL:url completionHandler:^(BOOL success) {
+        
     }];
 }
 

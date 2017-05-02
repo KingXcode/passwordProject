@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 @property (weak, nonatomic) IBOutlet UIView *backTopView;
 @property (strong,nonatomic) ClassificationModel *model;
+@property (nonatomic,assign) BOOL isBigBang;
 
 @property (assign,nonatomic) BOOL isPeek;
 

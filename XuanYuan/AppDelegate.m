@@ -20,7 +20,7 @@
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     if ([url.scheme isEqualToString:@"weimi"]) {
-        [self openAddViewController];
+        [self openBigBangViewController];
     }
     return YES;
 }
@@ -28,7 +28,7 @@
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
     if ([url.scheme isEqualToString:@"weimi"]) {
-        [self openAddViewController];
+        [self openBigBangViewController];
     }
     return YES;
 }

@@ -105,6 +105,7 @@
 		1C895EFC1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */; };
 		1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71B411EADF1B80071312F /* ClassificationModel.m */; };
 		3778629A3909E5D08534993F /* libPods-XuanYuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */; };
+		A59BD631CEC9ECED47C68E92 /* libPods-XuYuanWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC37F6B2F544A6A59E1D2B8 /* libPods-XuYuanWidget.a */; };
 		CB4981E31EA51447000E0792 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4981E21EA51447000E0792 /* HTBaseViewController.m */; };
 		CB4981E61EA5425C000E0792 /* HTDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4981E51EA5425C000E0792 /* HTDataBaseManager.m */; };
 		CB4981EE1EA61D3F000E0792 /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4981E91EA61D3F000E0792 /* PopoverAction.m */; };
@@ -152,6 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0BC37F6B2F544A6A59E1D2B8 /* libPods-XuYuanWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XuYuanWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C03079A1EB8807200A0328E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		1C0307B01EB88E0600A0328E /* XuYuanWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XuYuanWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C0307B31EB88E0600A0328E /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -337,6 +339,8 @@
 		1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CYLTableViewPlaceHolder.m"; sourceTree = "<group>"; };
 		1CA71B401EADF1B80071312F /* ClassificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationModel.h; sourceTree = "<group>"; };
 		1CA71B411EADF1B80071312F /* ClassificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationModel.m; sourceTree = "<group>"; };
+		5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuYuanWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XuYuanWidget/Pods-XuYuanWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuYuanWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-XuYuanWidget/Pods-XuYuanWidget.release.xcconfig"; sourceTree = "<group>"; };
 		68CB27532AE44E81173A081E /* Pods-XuanYuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuanYuan.release.xcconfig"; path = "Pods/Target Support Files/Pods-XuanYuan/Pods-XuanYuan.release.xcconfig"; sourceTree = "<group>"; };
 		8DE9E907E5B1736353F54A0A /* Pods-XuanYuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuanYuan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XuanYuan/Pods-XuanYuan.debug.xcconfig"; sourceTree = "<group>"; };
 		99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XuanYuan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C0307B11EB88E0600A0328E /* NotificationCenter.framework in Frameworks */,
+				A59BD631CEC9ECED47C68E92 /* libPods-XuYuanWidget.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +411,7 @@
 			children = (
 				99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */,
 				1C03079A1EB8807200A0328E /* NotificationCenter.framework */,
+				0BC37F6B2F544A6A59E1D2B8 /* libPods-XuYuanWidget.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -729,6 +735,8 @@
 			children = (
 				8DE9E907E5B1736353F54A0A /* Pods-XuanYuan.debug.xcconfig */,
 				68CB27532AE44E81173A081E /* Pods-XuanYuan.release.xcconfig */,
+				5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */,
+				5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1038,9 +1046,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C0307BD1EB88E0600A0328E /* Build configuration list for PBXNativeTarget "XuYuanWidget" */;
 			buildPhases = (
+				9DA89950DA5020D5F4CC36D1 /* [CP] Check Pods Manifest.lock */,
 				1C0307AC1EB88E0600A0328E /* Sources */,
 				1C0307AD1EB88E0600A0328E /* Frameworks */,
 				1C0307AE1EB88E0600A0328E /* Resources */,
+				706F756BBA7CCE7FC0317B7D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1084,12 +1094,12 @@
 				TargetAttributes = {
 					1C0307AF1EB88E0600A0328E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = PDA4VU96AT;
+						DevelopmentTeam = 48JW4E44TT;
 						ProvisioningStyle = Automatic;
 					};
 					CBF588F01EA3AA2800E7327B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PDA4VU96AT;
+						DevelopmentTeam = 48JW4E44TT;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -1155,6 +1165,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XuanYuan/Pods-XuanYuan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		706F756BBA7CCE7FC0317B7D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XuYuanWidget/Pods-XuYuanWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DA89950DA5020D5F4CC36D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BDD54650C5F2E6C88E3EDE02 /* [CP] Embed Pods Frameworks */ = {
@@ -1349,15 +1389,16 @@
 /* Begin XCBuildConfiguration section */
 		1C0307BE1EB88E0600A0328E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1365,15 +1406,16 @@
 		};
 		1C0307BF1EB88E0600A0328E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1480,7 +1522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1490,7 +1532,7 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
@@ -1507,7 +1549,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1517,7 +1559,7 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
@@ -1536,6 +1578,7 @@
 				1C0307BF1EB88E0600A0328E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBF588EC1EA3AA2800E7327B /* Build configuration list for PBXProject "XuanYuan" */ = {
 			isa = XCConfigurationList;
