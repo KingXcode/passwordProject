@@ -16,7 +16,22 @@
 
 @implementation AppDelegate
 
-
+//ios9之前
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([url.scheme isEqualToString:@"weimi"]) {
+        [self openAddViewController];
+    }
+    return YES;
+}
+//ios9之后
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    if ([url.scheme isEqualToString:@"weimi"]) {
+        [self openAddViewController];
+    }
+    return YES;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -37,7 +52,6 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
     [self checkController];
-
 
 }
 

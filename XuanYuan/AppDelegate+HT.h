@@ -12,6 +12,10 @@
 
 -(void)setShortcutIcon;
 
+//进入添加账号界面
+-(void)openAddViewController;
+
+
 //进入验证界面
 -(void)checkController;
 

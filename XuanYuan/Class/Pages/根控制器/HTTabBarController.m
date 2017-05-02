@@ -17,16 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.tabBar.tintColor = MainRGB;
+    self.tabBar.tintColor = MainTextWhiteColor;
     self.tabBar.barStyle = UIBarStyleDefault;
     self.tabBar.layer.cornerRadius = 5;
     self.tabBar.layer.masksToBounds = YES;
     self.tabBar.layer.borderWidth = 1;
     self.tabBar.layer.borderColor = MainRGB.CGColor;
-    self.tabBar.backgroundColor = [UIColor whiteColor];
-    self.tabBar.frame = CGRectMake(0, IPHONE_HEIGHT-49, 49, 49);
-//    self.tabBar.center = CGPointMake(IPHONE_WIDTH*0.5f, self.tabBar.center.y);
+    self.tabBar.backgroundImage = [HTTools ht_createImageWithColor:MainRGB];
 
+
+    
 
 }
 

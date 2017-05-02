@@ -26,13 +26,20 @@
 {
     if ([shortcutItem.type isEqualToString:@"com.niesiyang.add"])
     {
-        HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];
-        vc.view.backgroundColor = [UIColor whiteColor];
-        HTTabBarController *tab = MainRootTabbarController;
-        HTNavigationController *nav = tab.selectedViewController;
-        [nav.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"moveIn" direction:@"fromTop" time:0.4] forKey:nil];
-        [nav pushViewController:vc animated:NO];
+        [self openAddViewController];
     }
+}
+
+-(void)openAddViewController
+{
+    HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];
+    HTNavigationController *nextnav = [[HTNavigationController alloc]initWithRootViewController:vc];
+    
+    HTTabBarController *tab = MainRootTabbarController;
+    HTNavigationController *nav = tab.selectedViewController;
+    [nav.viewControllers.firstObject presentViewController:nextnav animated:YES completion:nil];
+    
+    
 }
 
 

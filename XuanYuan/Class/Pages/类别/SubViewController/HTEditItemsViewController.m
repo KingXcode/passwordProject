@@ -190,8 +190,10 @@
 
 -(void)goBack
 {
-    [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"push" direction:@"fromBottom" time:0.4] forKey:nil];
-    [self.navigationController popViewControllerAnimated:NO];
+//    [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"push" direction:@"fromBottom" time:0.4] forKey:nil];
+//    [self.navigationController popViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 /**
@@ -326,7 +328,8 @@
 -(void)clickedSureBtn:(UIButton *)button
 {
     [self saveDate];
-    [self.navigationController popViewControllerAnimated:YES];
+
+    [self goBack];
     [[NSNotificationCenter defaultCenter]postNotificationName:kReloadClassification_Noti object:nil];
 }
 

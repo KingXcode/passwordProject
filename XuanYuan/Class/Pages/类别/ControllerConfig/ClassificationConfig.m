@@ -8,6 +8,8 @@
 
 #import "ClassificationConfig.h"
 
+#import "XuanYuanGloabal.h"
+
 
 @interface ClassificationConfig()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate>
 
@@ -38,6 +40,13 @@
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(configData) name:kReloadClassification_Noti object:nil];
     [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+       
+        make.top.left.right.bottom.mas_equalTo(0);
+        
+    }];
+    
     [self configDataNoRefresh];
     [self.tableView reloadDataWithDirectionType:ZPReloadAnimationDirectionBottom AnimationTimeNum:0.5 interval:0.05];
     
@@ -238,10 +247,9 @@
 {
     HTEditItemsViewController *vc = [[HTEditItemsViewController alloc]init];
     vc.MainModel = model;
-    vc.view.backgroundColor = [UIColor whiteColor];
-    [self.controller.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"moveIn" direction:@"fromTop" time:0.4] forKey:nil];
-    [self.controller.navigationController pushViewController:vc animated:NO];
-    [self reloadMyTableView];
+    HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+    [self.controller presentViewController:nav animated:YES completion:nil];
+
 }
 
 

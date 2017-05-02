@@ -36,9 +36,8 @@
 
 - (IBAction)addItem:(UIBarButtonItem *)sender {
     HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];
-    vc.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"moveIn" direction:@"fromTop" time:0.4] forKey:nil];
-    [self.navigationController pushViewController:vc animated:NO];
+    HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
@@ -48,7 +47,11 @@
     self.configModel = [[ClassificationConfig alloc]initWithController:self];
     [self.configModel drawView];
     [self.view addSubview:self.configModel.view];
-    [self annimation];
+    
+    [self.configModel.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.bottom.mas_equalTo(0);
+    }];
+    
     
 }
 
@@ -87,6 +90,13 @@
     [self presentViewController:[self nextCollectViewController] animated:YES completion:nil];
 }
 
+- (UIViewController *)nextCollectViewController
+{
+    HTNavigationController *nav = instantiateStoryboardControllerWithIdentifier(@"CollecHTNavigationController");
+    return nav;
+}
+
+
 
 
 
@@ -94,64 +104,9 @@
 {
     [super viewWillAppear:animated];
     
-    [self setInteractionController];
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
--(void)annimation
-{
-    self.presentInteractionController = [[RZVerticalSwipeInteractionController alloc] init];
-    [self.presentInteractionController setNextViewControllerDelegate:self];
-    [self.presentInteractionController attachViewController:self withAction:RZTransitionAction_Present];
-    
-    [[RZTransitionsManager shared] setAnimationController:[[RZCirclePushAnimationController alloc] init]
-                                       fromViewController:[self class]
-                                                forAction:RZTransitionAction_PresentDismiss];
-}
-
-
--(void)setInteractionController
-{
-    [[RZTransitionsManager shared] setInteractionController:self.presentInteractionController
-                                         fromViewController:[self class]
-                                           toViewController:nil
-                                                  forAction:RZTransitionAction_Present];
-}
-
-
-
-- (UIViewController *)nextCollectViewController
-{
-    HTNavigationController *nav = instantiateStoryboardControllerWithIdentifier(@"CollecHTNavigationController");
-    [nav setTransitioningDelegate:[RZTransitionsManager shared]];
-    
-//    RZVerticalSwipeInteractionController *dismissInteractionController = [[RZVerticalSwipeInteractionController alloc] init];
-//    [dismissInteractionController attachViewController:nav withAction:RZTransitionAction_Dismiss];
-//    
-//    [[RZTransitionsManager shared] setInteractionController:dismissInteractionController
-//                                         fromViewController:[self class]
-//                                           toViewController:nil
-//                                                  forAction:RZTransitionAction_Dismiss];
-    return nav;
-}
-
-#pragma mark - RZTransitionInteractorDelegate
-- (UIViewController *)nextViewControllerForInteractor:(id<RZTransitionInteractionController>)interactor
-{
-    return [self nextCollectViewController];
-}
 
 
 

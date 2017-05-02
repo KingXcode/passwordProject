@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0307B11EB88E0600A0328E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C03079A1EB8807200A0328E /* NotificationCenter.framework */; };
+		1C0307B51EB88E0600A0328E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0307B41EB88E0600A0328E /* TodayViewController.m */; };
+		1C0307B81EB88E0600A0328E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C0307B61EB88E0600A0328E /* MainInterface.storyboard */; };
+		1C0307BC1EB88E0600A0328E /* XuYuanWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C0307B01EB88E0600A0328E /* XuYuanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1C0639811EB627690039FEDC /* HTPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639801EB627690039FEDC /* HTPlaceHolderView.m */; };
 		1C0639841EB653280039FEDC /* HTSelectIconTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639831EB653280039FEDC /* HTSelectIconTypeView.m */; };
 		1C0639881EB658830039FEDC /* HTSelectIconTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */; };
@@ -123,7 +127,37 @@
 		CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF589021EA3AA2900E7327B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1C0307BA1EB88E0600A0328E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBF588E91EA3AA2800E7327B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C0307AF1EB88E0600A0328E;
+			remoteInfo = XuYuanWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C0307AA1EB8807200A0328E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1C0307BC1EB88E0600A0328E /* XuYuanWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1C03079A1EB8807200A0328E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		1C0307B01EB88E0600A0328E /* XuYuanWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = XuYuanWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C0307B31EB88E0600A0328E /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		1C0307B41EB88E0600A0328E /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		1C0307B71EB88E0600A0328E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		1C0307B91EB88E0600A0328E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C06397F1EB627690039FEDC /* HTPlaceHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPlaceHolderView.h; sourceTree = "<group>"; };
 		1C0639801EB627690039FEDC /* HTPlaceHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPlaceHolderView.m; sourceTree = "<group>"; };
 		1C0639821EB653280039FEDC /* HTSelectIconTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTSelectIconTypeView.h; sourceTree = "<group>"; };
@@ -348,6 +382,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1C0307AD1EB88E0600A0328E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0307B11EB88E0600A0328E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBF588EE1EA3AA2800E7327B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,8 +405,20 @@
 			isa = PBXGroup;
 			children = (
 				99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */,
+				1C03079A1EB8807200A0328E /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C0307B21EB88E0600A0328E /* XuYuanWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1C0307B31EB88E0600A0328E /* TodayViewController.h */,
+				1C0307B41EB88E0600A0328E /* TodayViewController.m */,
+				1C0307B61EB88E0600A0328E /* MainInterface.storyboard */,
+				1C0307B91EB88E0600A0328E /* Info.plist */,
+			);
+			path = XuYuanWidget;
 			sourceTree = "<group>";
 		};
 		1C06398A1EB78E2E0039FEDC /* ControllerConfig */ = {
@@ -935,6 +989,7 @@
 			children = (
 				1C895EF51EB5E6D000ACBED0 /* LICENSE */,
 				CBF588F31EA3AA2900E7327B /* XuanYuan */,
+				1C0307B21EB88E0600A0328E /* XuYuanWidget */,
 				CBF588F21EA3AA2900E7327B /* Products */,
 				1CB5323C226C4EB714185F9C /* Pods */,
 				17BD4FA78AD9714896A4E9A4 /* Frameworks */,
@@ -945,6 +1000,7 @@
 			isa = PBXGroup;
 			children = (
 				CBF588F11EA3AA2900E7327B /* XuanYuan.app */,
+				1C0307B01EB88E0600A0328E /* XuYuanWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -978,6 +1034,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1C0307AF1EB88E0600A0328E /* XuYuanWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C0307BD1EB88E0600A0328E /* Build configuration list for PBXNativeTarget "XuYuanWidget" */;
+			buildPhases = (
+				1C0307AC1EB88E0600A0328E /* Sources */,
+				1C0307AD1EB88E0600A0328E /* Frameworks */,
+				1C0307AE1EB88E0600A0328E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XuYuanWidget;
+			productName = XuYuanWidget;
+			productReference = 1C0307B01EB88E0600A0328E /* XuYuanWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CBF588F01EA3AA2800E7327B /* XuanYuan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CBF589081EA3AA2900E7327B /* Build configuration list for PBXNativeTarget "XuanYuan" */;
@@ -988,10 +1061,12 @@
 				CBF588EF1EA3AA2800E7327B /* Resources */,
 				BDD54650C5F2E6C88E3EDE02 /* [CP] Embed Pods Frameworks */,
 				3F821F728991141C649D43CC /* [CP] Copy Pods Resources */,
+				1C0307AA1EB8807200A0328E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1C0307BB1EB88E0600A0328E /* PBXTargetDependency */,
 			);
 			name = XuanYuan;
 			productName = XuanYuan;
@@ -1007,6 +1082,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "聂嗣洋";
 				TargetAttributes = {
+					1C0307AF1EB88E0600A0328E = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = PDA4VU96AT;
+						ProvisioningStyle = Automatic;
+					};
 					CBF588F01EA3AA2800E7327B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = PDA4VU96AT;
@@ -1029,11 +1109,20 @@
 			projectRoot = "";
 			targets = (
 				CBF588F01EA3AA2800E7327B /* XuanYuan */,
+				1C0307AF1EB88E0600A0328E /* XuYuanWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1C0307AE1EB88E0600A0328E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0307B81EB88E0600A0328E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBF588EF1EA3AA2800E7327B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1101,6 +1190,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1C0307AC1EB88E0600A0328E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C0307B51EB88E0600A0328E /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CBF588ED1EA3AA2800E7327B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1214,7 +1311,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1C0307BB1EB88E0600A0328E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C0307AF1EB88E0600A0328E /* XuYuanWidget */;
+			targetProxy = 1C0307BA1EB88E0600A0328E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		1C0307B61EB88E0600A0328E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C0307B71EB88E0600A0328E /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		CBF588FD1EA3AA2900E7327B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1234,6 +1347,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1C0307BE1EB88E0600A0328E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = PDA4VU96AT;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = XuYuanWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1C0307BF1EB88E0600A0328E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = PDA4VU96AT;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = XuYuanWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CBF589061EA3AA2900E7327B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1275,7 +1420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_MODULE_NAME = XuanYuan;
@@ -1319,7 +1464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				SDKROOT = iphoneos;
@@ -1345,7 +1490,7 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.niesiyang.XuanYuan1;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
@@ -1372,7 +1517,7 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.niesiyang.XuanYuan1;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
@@ -1384,6 +1529,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C0307BD1EB88E0600A0328E /* Build configuration list for PBXNativeTarget "XuYuanWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C0307BE1EB88E0600A0328E /* Debug */,
+				1C0307BF1EB88E0600A0328E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CBF588EC1EA3AA2800E7327B /* Build configuration list for PBXProject "XuanYuan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

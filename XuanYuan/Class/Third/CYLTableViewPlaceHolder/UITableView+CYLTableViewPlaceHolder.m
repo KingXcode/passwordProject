@@ -63,7 +63,7 @@
             self.scrollWasEnabled = self.scrollEnabled;
             BOOL scrollEnabled = NO;
             if ([self respondsToSelector:@selector(enableScrollWhenPlaceHolderViewShowing)]) {
-                 scrollEnabled = [self performSelector:@selector(enableScrollWhenPlaceHolderViewShowing)];
+                 scrollEnabled = (BOOL)[self performSelector:@selector(enableScrollWhenPlaceHolderViewShowing)];
                 if (!scrollEnabled) {
                     NSString *reason = @"There is no need to return  NO for `-enableScrollWhenPlaceHolderViewShowing`, it will be NO by default";
                     @throw [NSException exceptionWithName:NSGenericException
@@ -71,7 +71,7 @@
                                                  userInfo:nil];
                 }
             } else if ([self.delegate respondsToSelector:@selector(enableScrollWhenPlaceHolderViewShowing)]) {
-                scrollEnabled = [self.delegate performSelector:@selector(enableScrollWhenPlaceHolderViewShowing)];
+                scrollEnabled = (BOOL)[self.delegate performSelector:@selector(enableScrollWhenPlaceHolderViewShowing)];
                 if (!scrollEnabled) {
                     NSString *reason = @"There is no need to return  NO for `-enableScrollWhenPlaceHolderViewShowing`, it will be NO by default";
                     @throw [NSException exceptionWithName:NSGenericException
