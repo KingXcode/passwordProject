@@ -15,11 +15,11 @@ target 'XuanYuan' do
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'YTKKeyValueStore'
    
-    pod 'TZImagePickerController'
-    pod 'AFNetworking', '~> 3.1.0'
-    pod 'SDWebImage', '~> 3.8.1'
-    pod 'RKNotificationHub'         #这是通知数量,就是类似icon上的红色小点
-    pod 'RZTransitions'
+   pod 'TZImagePickerController'
+   pod 'AFNetworking', '~> 3.1.0'
+   pod 'SDWebImage', '~> 3.8.1'
+   pod 'RKNotificationHub'         #这是通知数量,就是类似icon上的红色小点
+   pod 'RZTransitions'
     #pod 'YYKit'
     #pod 'CRRefresh'
 end

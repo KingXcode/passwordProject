@@ -12,16 +12,12 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <UIKit/UIKit.h>
-#import <AFNetworking.h>
 #import <IQKeyboardManager.h>
 #import <Masonry.h>
 #import <MJRefresh.h>
 #import <MJExtension.h>
-#import <UIView+WebCacheOperation.h>
-#import <UIImageView+WebCache.h>
 #import <UINavigationController+SwipeBack.h>//解决侧滑失效
 #import <YTKKeyValueStore.h>//数据库
-#import <RZTransitions.h>   //转场动画库
 
 #import "AppDelegate.h"
 #import "AppDelegate+HT.h"

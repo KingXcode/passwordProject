@@ -21,6 +21,7 @@
 -(void)clearAllData
 {
     [[HTDataBaseManager sharedInstance]clearAccountList];
+    [[HTDataBaseManager sharedInstance]clearErrorPassword];
 
 }
 

@@ -17,7 +17,9 @@
 
 
 @property (nonatomic,copy) NSString *accountList;
-@property (nonatomic,copy) NSString *collectList;
+
+@property (nonatomic,copy) NSString *errorPasswordWarningList;//入侵记录表
+
 
 @end
 
@@ -51,10 +53,10 @@
         _accountList = @"accountList_table";
         [_store createTableWithName:_accountList];
         
-        //收藏表
-        _collectList = @"collect_table";
-        [_store createTableWithName:_collectList];
 
+        //入侵记录表
+        _errorPasswordWarningList = @"errorPasswordWarningList";
+        [_store createTableWithName:_errorPasswordWarningList];
         
     }
     return self;
@@ -132,7 +134,44 @@
 
 
 
+-(void)updataErrorPasswordWarningListByModel:(HTCheckPasswordErrorModel *)model
+{
+    NSMutableDictionary *modelDict = model.mj_keyValues;
+    
+    NSDictionary *newModelDict = [HTEncryptionAndDecryption EncryptionDict:modelDict];
+    
+    [_store putObject:newModelDict withId:model.ID intoTable:_errorPasswordWarningList];
+}
 
+-(void)deleteErrorPasswordWarningListByModel:(HTCheckPasswordErrorModel *)model
+{
+    [_store deleteObjectById:model.ID fromTable:_errorPasswordWarningList];
+}
+
+-(NSArray*)getErrorPasswordWarningList
+{
+    NSArray *arr = [_store getAllItemsFromTable:_errorPasswordWarningList];
+    
+    NSMutableArray *newList = [NSMutableArray array];
+    
+    for (YTKKeyValueItem *item in arr) {
+        if ([item.itemObject isKindOfClass:[NSDictionary class]]) {
+            
+            NSDictionary *dict = item.itemObject;
+            
+            NSDictionary *newDict = [HTEncryptionAndDecryption DecryptionDict:dict];
+            
+            [newList addObject:newDict];
+            
+        }
+        
+    }
+    return newList;
+}
+-(void)clearErrorPassword
+{
+    [_store clearTable:_errorPasswordWarningList];
+}
 
 
 

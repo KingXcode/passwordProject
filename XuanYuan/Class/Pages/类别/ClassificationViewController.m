@@ -16,10 +16,9 @@
 
 
 
-@interface ClassificationViewController ()<RZTransitionInteractionControllerDelegate>
+@interface ClassificationViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addItem;
 @property (nonatomic,weak)UIButton *titleButton;
-@property (nonatomic, strong) id<RZTransitionInteractionController> presentInteractionController;
 
 @property (nonatomic,strong)ClassificationConfig *configModel;
 

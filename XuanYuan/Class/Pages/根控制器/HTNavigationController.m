@@ -7,9 +7,6 @@
 //
 
 #import "HTNavigationController.h"
-#import "RZTransitionsInteractionControllers.h"
-#import "RZTransitionsAnimationControllers.h"
-#import "RZTransitionInteractionControllerProtocol.h"
 
 @interface HTNavigationController ()
 

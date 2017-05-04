@@ -306,6 +306,9 @@
     DetailCopyViewController *detailVC = [sb instantiateViewControllerWithIdentifier:@"DetailCopyViewController"];
     detailVC.isPeek = YES;
     detailVC.model = cell.model;
+    
+    detailVC.preferredContentSize = CGSizeMake(IPHONE_WIDTH*0.9, IPHONE_HEIGHT*0.9);
+    
     return detailVC;
 }
 

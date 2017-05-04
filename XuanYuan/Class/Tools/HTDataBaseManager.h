@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "HTMainItemModel.h"
+#import "HTCheckPasswordErrorModel.h"
 
 @interface HTDataBaseManager : NSObject
 
@@ -28,6 +29,11 @@
 -(void)clearAccountList;
 
 
+-(void)updataErrorPasswordWarningListByModel:(HTCheckPasswordErrorModel *)model;
+-(void)deleteErrorPasswordWarningListByModel:(HTCheckPasswordErrorModel *)model;
+
+-(NSArray*)getErrorPasswordWarningList;
+-(void)clearErrorPassword;
 
 
 

@@ -139,6 +139,8 @@
 		CB7863B41EA3D3D8006ED01C /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7863B31EA3D3D8006ED01C /* CollectViewController.m */; };
 		CB7863C11EA3D97C006ED01C /* HTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7863C01EA3D97C006ED01C /* HTTabBarController.m */; };
 		CB7863C41EA3D999006ED01C /* HTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7863C31EA3D999006ED01C /* HTNavigationController.m */; };
+		CB898BDB1EBB7A3D00989106 /* HTCheckPasswordErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB898BDA1EBB7A3D00989106 /* HTCheckPasswordErrorModel.m */; };
+		CB898BDD1EBB804600989106 /* photoShutter2.caf in Resources */ = {isa = PBXBuildFile; fileRef = CB898BDC1EBB804600989106 /* photoShutter2.caf */; };
 		CBAAB0A61EB2600300B1C679 /* HYCollectViewAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAAB0A51EB2600300B1C679 /* HYCollectViewAlignedLayout.m */; };
 		CBAAB0A91EB51A7D00B1C679 /* AppDelegate+HT.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAAB0A81EB51A7D00B1C679 /* AppDelegate+HT.m */; };
 		CBF588F61EA3AA2900E7327B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF588F51EA3AA2900E7327B /* main.m */; };
@@ -431,6 +433,9 @@
 		CB7863C01EA3D97C006ED01C /* HTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTabBarController.m; sourceTree = "<group>"; };
 		CB7863C21EA3D999006ED01C /* HTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTNavigationController.h; sourceTree = "<group>"; };
 		CB7863C31EA3D999006ED01C /* HTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTNavigationController.m; sourceTree = "<group>"; };
+		CB898BD91EBB7A3D00989106 /* HTCheckPasswordErrorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCheckPasswordErrorModel.h; sourceTree = "<group>"; };
+		CB898BDA1EBB7A3D00989106 /* HTCheckPasswordErrorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCheckPasswordErrorModel.m; sourceTree = "<group>"; };
+		CB898BDC1EBB804600989106 /* photoShutter2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = photoShutter2.caf; sourceTree = "<group>"; };
 		CBAAB0A41EB2600300B1C679 /* HYCollectViewAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCollectViewAlignedLayout.h; sourceTree = "<group>"; };
 		CBAAB0A51EB2600300B1C679 /* HYCollectViewAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCollectViewAlignedLayout.m; sourceTree = "<group>"; };
 		CBAAB0A71EB51A7D00B1C679 /* AppDelegate+HT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+HT.h"; sourceTree = "<group>"; };
@@ -554,6 +559,7 @@
 		1C5EACB51EB2E98E00EDADA5 /* 验证(check) */ = {
 			isa = PBXGroup;
 			children = (
+				CB898BD81EBB79FD00989106 /* Model */,
 				1C5EACB61EB2E9B200EDADA5 /* HTCheckViewController.h */,
 				1C5EACB71EB2E9B200EDADA5 /* HTCheckViewController.m */,
 			);
@@ -1122,6 +1128,15 @@
 			path = "根控制器";
 			sourceTree = "<group>";
 		};
+		CB898BD81EBB79FD00989106 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB898BD91EBB7A3D00989106 /* HTCheckPasswordErrorModel.h */,
+				CB898BDA1EBB7A3D00989106 /* HTCheckPasswordErrorModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CBAAB0A31EB2600300B1C679 /* HYCollectionViewAlignedLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1155,6 +1170,7 @@
 		CBF588F31EA3AA2900E7327B /* XuanYuan */ = {
 			isa = PBXGroup;
 			children = (
+				CB898BDC1EBB804600989106 /* photoShutter2.caf */,
 				1C24D22B1EB96E22009F1592 /* 悬浮球 */,
 				CBF588F71EA3AA2900E7327B /* AppDelegate.h */,
 				CBF588F81EA3AA2900E7327B /* AppDelegate.m */,
@@ -1234,12 +1250,12 @@
 				TargetAttributes = {
 					1C0307AF1EB88E0600A0328E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = PDA4VU96AT;
+						DevelopmentTeam = 48JW4E44TT;
 						ProvisioningStyle = Automatic;
 					};
 					CBF588F01EA3AA2800E7327B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PDA4VU96AT;
+						DevelopmentTeam = 48JW4E44TT;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -1278,6 +1294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB898BDD1EBB804600989106 /* photoShutter2.caf in Resources */,
 				1C4EB2C61EA4A665009A1B3D /* Info.plist in Resources */,
 				CB4981F91EA660A8000E0792 /* ClassificationCell.xib in Resources */,
 				1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */,
@@ -1385,6 +1402,7 @@
 			files = (
 				1C4EB2CE1EA4A665009A1B3D /* YoshikoTextField.swift in Sources */,
 				1C8386D31EB07750006A8A71 /* HTEditItemsViewController.m in Sources */,
+				CB898BDB1EBB7A3D00989106 /* HTCheckPasswordErrorModel.m in Sources */,
 				1C4EB2CC1EA4A665009A1B3D /* TextFieldEffects.swift in Sources */,
 				1C8386F61EB0A5E7006A8A71 /* SCLAlertViewStyleKit.m in Sources */,
 				CBAAB0A91EB51A7D00B1C679 /* AppDelegate+HT.m in Sources */,
@@ -1552,16 +1570,16 @@
 			baseConfigurationReference = 5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuYuanWidget/XuYuanWidget.pch;
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1570,16 +1588,16 @@
 			baseConfigurationReference = 5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuYuanWidget/XuYuanWidget.pch;
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1684,7 +1702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1694,13 +1712,13 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1711,7 +1729,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 48JW4E44TT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1721,12 +1739,12 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
