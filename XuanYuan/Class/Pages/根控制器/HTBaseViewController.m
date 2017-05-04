@@ -24,15 +24,7 @@
 
     [self setTitleLabel];
     
-    if ([self isKindOfClass:NSClassFromString(@"HTAddItemsViewController")] || [self isKindOfClass:NSClassFromString(@"HTEditItemsViewController")]) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_shanchu_nor"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-
-    }else 
-    {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back-返回"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
-
-    }
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back-返回"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
 
 }
 
@@ -45,7 +37,7 @@
 {
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectZero];
     titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [MainColorManager mainTextWhiteColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
@@ -55,7 +47,6 @@
 -(void)setTitle:(NSString *)title
 {
     [super setTitle:title];
-    
     self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
 }

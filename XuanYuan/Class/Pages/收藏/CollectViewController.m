@@ -269,7 +269,7 @@
 -(void)presentDetailCopyControllerWithModel:(ClassificationModel *)model
                        andGestureRecognizer:(UILongPressGestureRecognizer *)gesture
 {
-    UIImage *image = [HTTools captureScreen];
+    UIImage *image = [HTTools ht_captureScreen];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     DetailCopyViewController *vc = [sb instantiateViewControllerWithIdentifier:@"DetailCopyViewController"];
     vc.model = model;

@@ -7,17 +7,18 @@ target 'XuanYuan' do
   # use_frameworks!
 
   # Pods for XuanYuan
-    pod 'SDWebImage', '~> 3.8.1'
-    pod 'AFNetworking', '~> 3.1.0'
     pod 'IQKeyboardManager', '~> 4.0.3'
     pod 'MJExtension', '~> 3.0.10'
     pod 'MJRefresh', '~> 3.1.7'
     pod 'Masonry'
-    pod 'TZImagePickerController'
     pod 'SwipeBack', '~> 1.0'
-    pod 'RKNotificationHub'         #这是通知数量,就是类似icon上的红色小点
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'YTKKeyValueStore'
+   
+    pod 'TZImagePickerController'
+    pod 'AFNetworking', '~> 3.1.0'
+    pod 'SDWebImage', '~> 3.8.1'
+    pod 'RKNotificationHub'         #这是通知数量,就是类似icon上的红色小点
     pod 'RZTransitions'
     #pod 'YYKit'
     #pod 'CRRefresh'

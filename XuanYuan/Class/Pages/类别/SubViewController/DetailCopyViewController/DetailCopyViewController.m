@@ -10,28 +10,77 @@
 
 #import "DetailCopyViewController.h"
 #import "DetailCopyView.h"
+#import <Social/Social.h>
 
-@interface DetailCopyViewController ()
+
+@interface DetailCopyViewController ()<ShareActionViewDelegate>
 
 @property (nonatomic,strong)DetailCopyView *detailView;
 @property (nonatomic,strong)UIVisualEffectView *gaussianBlurImageView;
+
+@property (nonatomic,strong)ShareActionView *actionView;
 
 @end
 
 @implementation DetailCopyViewController
 
+- (void)shareToPlatWithIndex:(NSInteger)index
+{
+    NSString * type = SLServiceTypeSinaWeibo;
+    SLComposeViewController *composeVc = [SLComposeViewController composeViewControllerForServiceType:type];
+    [composeVc setInitialText:self.detailView.textView.text];
+    [self presentViewController:composeVc animated:YES completion:nil];
+}
+
+//没有用了
+- (ShareActionView *)actionView{
+    if (!_actionView) {
+        _actionView = [[ShareActionView alloc]initWithFrame:CGRectMake(0,IPHONE_HEIGHT, IPHONE_WIDTH, 0)
+                                            WithSourceArray:@[@"新浪微博"]
+                                              WithIconArray:@[@"shared_新浪微博"]];
+        _actionView.delegate = self;
+    }
+    return _actionView;
+}
+
+
 -(DetailCopyView *)detailView
 {
     if (_detailView == nil) {
-        
         _detailView = [[DetailCopyView alloc]init];
-        
         _detailView.backgroundColor = [UIColor whiteColor];
         _detailView.layer.opacity = 0;
-        [_detailView.button addTarget:self action:@selector(copyString) forControlEvents:UIControlEventTouchUpInside];
+        [_detailView.copybtn addTarget:self action:@selector(copyString) forControlEvents:UIControlEventTouchUpInside];
         [_detailView.closeButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+        [_detailView.shareBtn addTarget:self action:@selector(shareString) forControlEvents:UIControlEventTouchUpInside];
     }
     return  _detailView;
+}
+
+-(void)shareString
+{
+    
+    if (self.detailView.textView.text.length>0) {
+        UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
+        pasteboard.string=self.detailView.textView.text;
+        
+        UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[self.detailView.textView.text] applicationActivities:nil];
+        activityVC.excludedActivityTypes = @[UIActivityTypePostToVimeo,
+                                             UIActivityTypePostToFacebook,
+                                             UIActivityTypePostToTwitter,
+                                             UIActivityTypePrint,
+                                             UIActivityTypeCopyToPasteboard,
+                                             UIActivityTypeAddToReadingList,
+                                             UIActivityTypePostToFlickr];
+
+        [self presentViewController:activityVC animated:YES completion:nil];
+        
+    }else
+    {
+        SCLAlertView *alert = [[SCLAlertView alloc] init];
+        [alert showTitle:self title:@"分享失败!" subTitle:@"(分享的内容为空!)" style:SCLAlertViewStyleError closeButtonTitle:@"完成" duration:0.0f];
+        
+    }
 }
 
 -(void)copyString
@@ -57,7 +106,7 @@
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
 
     
-    UIImage *image = [HTTools captureScreen];
+    UIImage *image = [HTTools ht_captureScreen];
     self.backImageView.image = image;
     
     self.gaussianBlurImageView = [HTTools gaussianBlurWithFrame:[UIScreen mainScreen].bounds];
@@ -85,7 +134,7 @@
             make.height.mas_equalTo(IPHONE_HEIGHT*0.9);
         }else
         {
-            make.height.mas_equalTo(IPHONE_HEIGHT*0.7);
+            make.height.mas_equalTo(IPHONE_HEIGHT*0.9);
         }
         
     }];

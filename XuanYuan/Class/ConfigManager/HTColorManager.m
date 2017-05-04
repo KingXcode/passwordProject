@@ -16,8 +16,7 @@
 
 -(UIColor *)mainRGB
 {
-    //return RGB(254, 199, 73);//黄色
-    return RGB(0, 191, 255);//蓝色
+    return [MainConfigManager mainRGB];
 }
 
 

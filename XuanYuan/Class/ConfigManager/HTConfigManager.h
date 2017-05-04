@@ -26,6 +26,14 @@
 -(void)defaultSetting;
 
 
+
+/**
+ 主色调
+ */
+-(void)mainRGB:(UIColor *)color;
+-(UIColor *)mainRGB;
+
+
 /**
  是否打开启动密码
  */

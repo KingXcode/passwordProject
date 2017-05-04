@@ -10,6 +10,7 @@
 
 #import "Setting_interface_ViewController.h"
 #import "HTDataBaseManager.h"
+#import "HTRecordViewController.h"
 
 @interface Setting_interface_ViewController ()
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *isThirdKeyBoardCell;
 @property (weak, nonatomic) IBOutlet UILabel *isThirdKeyBoardLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *isThirdKeyBoardSwitch;
+@property (weak, nonatomic) IBOutlet UITableViewCell *changeColorCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *sendEmailCell;
 
 @property (weak, nonatomic) IBOutlet UITableViewCell *touchIDCell;
@@ -97,10 +99,22 @@
     [self reloadTouchIdcell];
     [self reloadIsThirdKeyBoardCell];
     [self reloadSendEmailCell];
+    [self reloadChangeColorCell];
     
 }
 
 #pragma -mark-  刷新cell
+-(void)reloadChangeColorCell
+{
+    UIImageView *view = [UIImageView new];
+    view.image = [HTTools ht_createImageWithColor:[MainConfigManager mainRGB]];
+    view.bounds = CGRectMake(0, 0, 30, 30);
+    self.changeColorCell.accessoryView = view;
+}
+
+/**
+ 发送邮件
+ */
 -(void)reloadSendEmailCell
 {
     BOOL isSend = [MainConfigManager canSendEmail];
@@ -149,6 +163,20 @@
 
 #pragma -mark-  cell点击事件
 
+-(void)pushRecordViewController
+{
+    HTRecordViewController *record = instantiateStoryboardControllerWithIdentifier(@"HTRecordViewController");
+    
+    [self.navigationController pushViewController:record animated:YES];
+}
+
+/**
+ 修改主题颜色
+ */
+-(void)changeColor
+{
+    [MainConfigManager mainRGB:RGB(0, 191, 255)];
+}
 
 /**
  发送邮件
@@ -440,6 +468,14 @@
     {
         [self defaultSetting];
     }
+    else if (indexPath.section == 0 && indexPath.row == 2)
+    {
+
+    }
+    else if (indexPath.section == 0 && indexPath.row == 3)
+    {
+        [self pushRecordViewController];
+    }
     else if (indexPath.section == 1 && indexPath.row == 0)
     {
         [self startPasswordChange];
@@ -450,13 +486,17 @@
     }
     else if (indexPath.section == 2 && indexPath.row == 0)
     {
-        [self sendEmail];
+        [self changeColor];
     }
     else if (indexPath.section == 3 && indexPath.row == 0)
     {
+        [self sendEmail];
+    }
+    else if (indexPath.section == 4 && indexPath.row == 0)
+    {
         [[HTConfigManager sharedconfigManager]openSourceCodeWebView];
     }
-    else if (indexPath.section == 3 && indexPath.row == 1)
+    else if (indexPath.section == 4 && indexPath.row == 1)
     {
         [[HTConfigManager sharedconfigManager]openBlogWebView];
     }

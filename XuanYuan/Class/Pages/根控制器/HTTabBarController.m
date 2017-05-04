@@ -4,9 +4,11 @@
 //
 //  Created by 聂嗣洋 on 2017/4/17.
 //  Copyright © 2017年 聂嗣洋. All rights reserved.
-//
+//  
 
 #import "HTTabBarController.h"
+#import "ZYTestManager.h"
+#import "TestManagerConfig.h"
 
 @interface HTTabBarController ()
 
@@ -16,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
 
     self.tabBar.tintColor = MainTextWhiteColor;
     self.tabBar.barStyle = UIBarStyleDefault;
@@ -24,13 +27,45 @@
     self.tabBar.layer.borderWidth = 1;
     self.tabBar.layer.borderColor = MainRGB.CGColor;
     self.tabBar.backgroundImage = [HTTools ht_createImageWithColor:MainRGB];
-
-
     
+    if (DEBUG) {
+        UIScreenEdgePanGestureRecognizer* screenEdgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(action:)];
+        screenEdgePan.edges = UIRectEdgeLeft;
+        [self.tabBar addGestureRecognizer:screenEdgePan];
+    }
 
 }
 
 
+-(void)action:(UIScreenEdgePanGestureRecognizer*)sender{
+    if (sender.edges == UIRectEdgeLeft) {
+        switch (sender.state) {
+                case UIGestureRecognizerStateBegan:
+                NSLog(@"手势开始");
+                break;
+                case UIGestureRecognizerStateChanged:
+                NSLog(@"手势进行中");
+                break;
+                case UIGestureRecognizerStateEnded:
+                NSLog(@"手势结束");
+                break;
+                
+            default:
+                break;
+        }
+        if ([ZYTestManager shareInstance].isExist == NO) {
+            [TestManagerConfig setupTestManager];
+        }
+    }
+}
+
+-(void)testZYTestManager
+{
+    if ([ZYTestManager shareInstance].isExist == NO) {
+        //悬浮球
+        [TestManagerConfig setupTestManager];
+    }
+}
 
 
 -(void)viewWillDisappear:(BOOL)animated

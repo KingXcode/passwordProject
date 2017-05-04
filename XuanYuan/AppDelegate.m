@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HTTabBarController.h"
+#import "TestManagerConfig.h"
 
 @interface AppDelegate ()
 
@@ -19,29 +20,44 @@
 //ios9之前
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    if ([url.scheme isEqualToString:@"weimi"]) {
-        [self openBigBangViewController];
+    if ([url.scheme isEqualToString:@"weimi"])
+    {
+        [self openUrlFromWeiMi:url];
     }
     return YES;
 }
 //ios9之后
 -(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-    if ([url.scheme isEqualToString:@"weimi"]) {
-        [self openBigBangViewController];
+    if ([url.scheme isEqualToString:@"weimi"])
+    {
+        [self openUrlFromWeiMi:url];
     }
     return YES;
 }
 
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    if ([shortcutItem.type isEqualToString:@"cn.niesiyang.add"])
+    {
+        [self openAddViewController];
+    }
+    else if ([shortcutItem.type isEqualToString:@"cn.niesiyang.bigbang"])
+    {
+        [self openBigBangViewController];
+    }
+}
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    HTTabBarController *tabbar = instantiateStoryboardControllerWithIdentifier(@"HTTabBarController");
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = tabbar;
-    [self.window makeKeyAndVisible];
+
+    [self setMainRootViewController];
     [self setShortcutIcon];
     [self launchCheck];
+    
     
     return YES;
 }

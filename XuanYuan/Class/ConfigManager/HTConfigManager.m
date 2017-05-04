@@ -30,7 +30,34 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kStartPasswordUserDefaults];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kStartTouchIDUserDefaults];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAllowThirdKeyboardUserDefaults];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kMainColorUserDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
+
+-(void)mainRGB:(UIColor *)color
+{
+    [[NSUserDefaults standardUserDefaults] setObject:color forKey:kMainColorUserDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    AppDelegate *delegate = MainAppDelegate;
+    [delegate setMainRootViewController];
+}
+
+-(UIColor *)mainRGB
+{
+
+    UIColor *color = [[NSUserDefaults standardUserDefaults] objectForKey:kMainColorUserDefaults];
+    
+    if (!color) {
+        return RGB(0, 191, 255);
+    }else
+    {
+
+        return RGB(0, 191, 255);
+    }
+}
+
 
 
 -(void)isOpenStartPassword:(BOOL)isopen

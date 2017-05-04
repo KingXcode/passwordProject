@@ -7,7 +7,7 @@
 //
 
 #import "HTEncryptionAndDecryption.h"
-#import "NSData+Encryption.h"
+#import "NSData+HTEncryption.h"
 
 NSString * const __aesKey = @"com.niesiyang";
 

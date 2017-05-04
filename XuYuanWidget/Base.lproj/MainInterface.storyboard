@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,6 +21,56 @@
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77s-OA-G9V">
+                                <rect key="frame" x="31" y="8" width="110" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="dFb-xa-KBC"/>
+                                    <constraint firstAttribute="width" constant="110" id="whq-8V-Emm"/>
+                                </constraints>
+                                <state key="normal" image="list-目录">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickLeft:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="XBV-aR-XJo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分词" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c2-pB-LpW">
+                                <rect key="frame" x="31" y="76" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTi-GD-bys">
+                                <rect key="frame" x="179" y="76" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imq-8W-Nln">
+                                <rect key="frame" x="179" y="8" width="110" height="60"/>
+                                <state key="normal" image="list-目录">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickRight:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="ppD-MI-VJU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="77s-OA-G9V" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="15" id="1HD-Bc-Leo"/>
+                            <constraint firstItem="Imq-8W-Nln" firstAttribute="width" secondItem="77s-OA-G9V" secondAttribute="width" id="8Ff-kQ-8Fr"/>
+                            <constraint firstItem="6c2-pB-LpW" firstAttribute="leading" secondItem="77s-OA-G9V" secondAttribute="leading" id="JKf-pg-gcm"/>
+                            <constraint firstItem="Imq-8W-Nln" firstAttribute="height" secondItem="77s-OA-G9V" secondAttribute="height" id="Khr-eQ-Zf9"/>
+                            <constraint firstItem="6c2-pB-LpW" firstAttribute="trailing" secondItem="77s-OA-G9V" secondAttribute="trailing" id="MGd-p6-BZg"/>
+                            <constraint firstItem="Imq-8W-Nln" firstAttribute="top" secondItem="77s-OA-G9V" secondAttribute="top" id="ORO-Dz-WUK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Imq-8W-Nln" secondAttribute="trailing" constant="15" id="OyW-5N-d8v"/>
+                            <constraint firstItem="dTi-GD-bys" firstAttribute="top" secondItem="Imq-8W-Nln" secondAttribute="bottom" constant="8" id="P30-3f-D46"/>
+                            <constraint firstItem="77s-OA-G9V" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="QVG-Dc-I5l"/>
+                            <constraint firstItem="6c2-pB-LpW" firstAttribute="top" secondItem="77s-OA-G9V" secondAttribute="bottom" constant="8" id="aIR-fR-hU7"/>
+                            <constraint firstItem="dTi-GD-bys" firstAttribute="leading" secondItem="Imq-8W-Nln" secondAttribute="leading" id="lgU-fZ-m6c"/>
+                            <constraint firstItem="dTi-GD-bys" firstAttribute="trailing" secondItem="Imq-8W-Nln" secondAttribute="trailing" id="yiq-RR-ok0"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -27,10 +78,17 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="110"/>
+                    <connections>
+                        <outlet property="leftBtn" destination="77s-OA-G9V" id="aIn-S9-TEC"/>
+                        <outlet property="rightBtn" destination="Imq-8W-Nln" id="HJ9-4e-Ifl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.59999999999999" y="138.53073463268368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list-目录" width="32" height="22"/>
+    </resources>
 </document>

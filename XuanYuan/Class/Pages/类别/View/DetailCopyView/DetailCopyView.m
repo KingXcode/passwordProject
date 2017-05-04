@@ -10,6 +10,7 @@
 #import "DetailCopyCell.h"
 #import "DetailCopyViewToolBar.h"
 #import "HYCollectViewAlignedLayout.h"
+#import <CoreImage/CoreImage.h>
 
 @interface DetailCopyView()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
@@ -218,15 +219,23 @@
     
     [self addSubview:self.toolBar];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
-    [button setTitle:@"复制" forState:UIControlStateNormal];
-    [button setTitleColor:MainTextColor forState:UIControlStateNormal];
-    [button setTitleColor:MainTextWhiteColor forState:UIControlStateHighlighted];
-    [self addSubview:button];
-    _button = button;
+    UIButton *copybtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [copybtn setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
+    [copybtn setTitle:@"复制" forState:UIControlStateNormal];
+    [copybtn setTitleColor:MainTextColor forState:UIControlStateNormal];
+    [copybtn setTitleColor:MainTextWhiteColor forState:UIControlStateHighlighted];
+    [self addSubview:copybtn];
+    _copybtn = copybtn;
     
     
+    
+    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [shareBtn setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
+    [shareBtn setTitle:@"保存到" forState:UIControlStateNormal];
+    [shareBtn setTitleColor:MainTextColor forState:UIControlStateNormal];
+    [shareBtn setTitleColor:MainTextWhiteColor forState:UIControlStateHighlighted];
+    [self addSubview:shareBtn];
+    _shareBtn = shareBtn;
 
     
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -262,7 +271,7 @@
         make.top.mas_equalTo(40);
         make.centerX.equalTo(self);
         make.width.equalTo(self);
-        make.height.mas_equalTo(195);
+        make.height.mas_equalTo(300);
         
     }];
     
@@ -283,14 +292,22 @@
         make.height.mas_equalTo(40);
         
     }];
-    
-    //这个按钮是复制按钮 懒得改名字了
-    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+
+    [copybtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
         make.top.equalTo(self.toolBar.mas_bottom).offset(8);
         make.left.equalTo(self).offset(15);
+        make.bottom.equalTo(self);
+        
+    }];
+    
+    [shareBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(copybtn.mas_top);
+        make.left.equalTo(copybtn.mas_right);
         make.right.equalTo(self).offset(-15);
         make.bottom.equalTo(self);
+        make.width.equalTo(copybtn);
         
     }];
     
@@ -371,9 +388,13 @@
 -(void)reloadButton
 {
     if (self.textView.text.length>0) {
-        [self.button setTitleColor:MainRGB forState:UIControlStateNormal];
+        UIColor *color = MainRGB;
+        [self.copybtn setTitleColor:color forState:UIControlStateNormal];
+        [self.shareBtn setTitleColor:color forState:UIControlStateNormal];
     }else{
-        [self.button setTitleColor:MainTextColor forState:UIControlStateNormal];
+        [self.copybtn setTitleColor:MainTextColor forState:UIControlStateNormal];
+        [self.shareBtn setTitleColor:MainTextColor forState:UIControlStateNormal];
+
     }
 }
 

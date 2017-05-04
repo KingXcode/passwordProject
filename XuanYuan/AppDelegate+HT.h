@@ -12,10 +12,21 @@
 
 -(void)setShortcutIcon;
 
+
+/**
+ 设置主控制器
+ */
+-(void)setMainRootViewController;
+
+
 //进入添加账号界面
 -(void)openAddViewController;
-
+//bigbang
 -(void)openBigBangViewController;
+
+
+-(void)openUrlFromWeiMi:(NSURL *)url;
+
 
 //进入验证界面
 -(void)checkController;

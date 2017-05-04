@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (Encryption)
+@interface NSData (HTEncryption)
 
 
 - (NSData *)AES256EncryptWithKey:(NSString *)key;   //加密

@@ -6,12 +6,12 @@
 //  Copyright © 2017年 聂嗣洋. All rights reserved.
 //
 
-#import "NSData+Encryption.h"
+#import "NSData+HTEncryption.h"
 #import <CommonCrypto/CommonCryptor.h>
 
 //aes 加密key  上线的时候需要修改
 
-@implementation NSData (Encryption)
+@implementation NSData (HTEncryption)
 
 - (NSData *)AES256EncryptWithKey:(NSString *)key {//加密
     char keyPtr[kCCKeySizeAES256+1];

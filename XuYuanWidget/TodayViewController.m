@@ -10,12 +10,23 @@
 #import <NotificationCenter/NotificationCenter.h>
 
 @interface TodayViewController () <NCWidgetProviding>
+@property (weak, nonatomic) IBOutlet UIButton *leftBtn;
+@property (weak, nonatomic) IBOutlet UIButton *rightBtn;
 
 @end
 
 @implementation TodayViewController
 
+- (IBAction)clickLeft:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"weimi://BigBang"];
+    [self.extensionContext openURL:url completionHandler:^(BOOL success) {
+        
+    }];
+}
 
+- (IBAction)clickRight:(id)sender {
+    
+}
 
 
 - (void)viewDidLoad {
@@ -25,13 +36,6 @@
     
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    NSURL *url = [NSURL URLWithString:@"weimi://"];
-    [self.extensionContext openURL:url completionHandler:^(BOOL success) {
-        
-    }];
-}
 
 
 - (void)didReceiveMemoryWarning {

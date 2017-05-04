@@ -13,7 +13,9 @@
 
 @property (strong,nonatomic) ClassificationModel *model;
 
-@property (nonatomic,weak)UIButton *button;
+@property (nonatomic,weak)UIButton *copybtn;
+@property (nonatomic,weak)UIButton *shareBtn;
+
 @property (nonatomic,weak)UITextView *textView;
 @property (nonatomic,weak)UIButton *closeButton;
 @property (nonatomic,weak)UIButton *bigbang;
