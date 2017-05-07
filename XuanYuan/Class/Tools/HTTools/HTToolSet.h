@@ -25,5 +25,7 @@
 #import "HTTools+Annimation.h"
 #import "HTTools+HTRegularExpression.h"
 #import "UIView+HTExtension.h"
+#import "HTTools+FileManager.h"
+#import "HTTools+SandBox.h"
 
 #endif /* HTToolSet_h */

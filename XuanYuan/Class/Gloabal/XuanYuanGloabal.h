@@ -22,6 +22,8 @@
 #define kStartTouchIDUserDefaults @"kStartTouchIDUserDefaults"
 //启用三方键盘
 #define kAllowThirdKeyboardUserDefaults @"kAllowThirdKeyboardUserDefaults"
+//入侵记录InvadeRecord
+#define kAllowInvadeRecordUserDefaults @"kAllowInvadeRecordUserDefaults"
 
 //通知
 //刷新首页通知
@@ -75,6 +77,44 @@
                                         green:((float)((rgbValue & 0xFF00) >> 8))/255.0    \
                                          blue:((float)(rgbValue & 0xFF))/255.0             \
                                         alpha:1.0]
+
+
+
+
+//weakSelf
+#define WeakSelf(type)  __weak typeof(type) weak##type = type;
+/** 通知相关  */
+//通知中心发送通知
+#define NSNotificationPost_(ht_Name, ht_object, ht_UserInfo) \
+[[NSNotificationCenter defaultCenter] postNotificationName:ht_Name object:ht_object userInfo:(ht_UserInfo)]
+//通知中心接收通知
+#define NSNotificationReceive_(ht_SEL, ht_name) \
+[[NSNotificationCenter defaultCenter] addObserver:self selector:ht_SEL name:ht_name object:nil]
+//移除通知
+#define NSNotificationRemove \
+[[NSNotificationCenter defaultCenter] removeObserver:self]
+
+
+//const字符串
+#define NSString_Const_H_(ht_strName) \
+UIKIT_EXTERN NSString * const ht_strName;
+
+#define NSString_Const_M_(ht_strName, ht_String) \
+NSString * const ht_strName = ht_String;
+
+
+#define NSUserDefaultsSave_(key,value) \
+[[NSUserDefaults standardUserDefaults] setObject:value forKey:key] //以key,value存储信息
+
+#define NSUserDefaultsGet_(key) \
+[[NSUserDefaults standardUserDefaults] objectForKey:key] //以key取出value
+
+#define NSUserDefaultsRemove_(key) \
+[[NSUserDefaults standardUserDefaults] removeObjectForKey:key] //以key删除value
+
+//立即同步
+#define NSUserDefaultsSync \
+[[NSUserDefaults standardUserDefaults] synchronize]
 
 
 

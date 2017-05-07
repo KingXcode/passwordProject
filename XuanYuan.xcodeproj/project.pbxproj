@@ -104,6 +104,9 @@
 		1C83870D1EB1C3AD006A8A71 /* DetailCopyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C83870C1EB1C3AD006A8A71 /* DetailCopyView.m */; };
 		1C8387201EB1DEA3006A8A71 /* DetailCopyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C83871F1EB1DEA3006A8A71 /* DetailCopyCell.m */; };
 		1C8387231EB1FE73006A8A71 /* DetailCopyViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8387221EB1FE73006A8A71 /* DetailCopyViewToolBar.m */; };
+		1C8808E61EBC2CE8002F4B37 /* HTAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C8808E51EBC2CE8002F4B37 /* HTAccessView.xib */; };
+		1C8808FF1EBE1071002F4B37 /* HTTools+SandBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8808FE1EBE1071002F4B37 /* HTTools+SandBox.m */; };
+		1C8809021EBE1161002F4B37 /* HTTools+FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8809011EBE1161002F4B37 /* HTTools+FileManager.m */; };
 		1C895EF41EB5DD5300ACBED0 /* HTConfigManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */; };
 		1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1C895EF51EB5E6D000ACBED0 /* LICENSE */; };
 		1C895EFC1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C895EFB1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m */; };
@@ -123,6 +126,7 @@
 		1C95425C1EBB263E0077B6D1 /* HTTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C95424F1EBB263E0077B6D1 /* HTTools.m */; };
 		1C95425F1EBB266F0077B6D1 /* UIView+HTExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C95425E1EBB266F0077B6D1 /* UIView+HTExtension.m */; };
 		1C9542661EBB35650077B6D1 /* HTRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9542651EBB35650077B6D1 /* HTRecordViewController.m */; };
+		1C95426A1EBC2B1E0077B6D1 /* HTAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9542691EBC2B1E0077B6D1 /* HTAccessView.m */; };
 		1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71B411EADF1B80071312F /* ClassificationModel.m */; };
 		3778629A3909E5D08534993F /* libPods-XuanYuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */; };
 		A59BD631CEC9ECED47C68E92 /* libPods-XuYuanWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC37F6B2F544A6A59E1D2B8 /* libPods-XuYuanWidget.a */; };
@@ -360,6 +364,11 @@
 		1C83871F1EB1DEA3006A8A71 /* DetailCopyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCopyCell.m; sourceTree = "<group>"; };
 		1C8387211EB1FE73006A8A71 /* DetailCopyViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCopyViewToolBar.h; sourceTree = "<group>"; };
 		1C8387221EB1FE73006A8A71 /* DetailCopyViewToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCopyViewToolBar.m; sourceTree = "<group>"; };
+		1C8808E51EBC2CE8002F4B37 /* HTAccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTAccessView.xib; sourceTree = "<group>"; };
+		1C8808FD1EBE1071002F4B37 /* HTTools+SandBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTools+SandBox.h"; sourceTree = "<group>"; };
+		1C8808FE1EBE1071002F4B37 /* HTTools+SandBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTTools+SandBox.m"; sourceTree = "<group>"; };
+		1C8809001EBE1161002F4B37 /* HTTools+FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTools+FileManager.h"; sourceTree = "<group>"; };
+		1C8809011EBE1161002F4B37 /* HTTools+FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "HTTools+FileManager.m"; sourceTree = "<group>"; };
 		1C895EF21EB5DD5300ACBED0 /* HTConfigManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTConfigManager.h; sourceTree = "<group>"; };
 		1C895EF31EB5DD5300ACBED0 /* HTConfigManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTConfigManager.m; sourceTree = "<group>"; };
 		1C895EF51EB5E6D000ACBED0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -399,6 +408,8 @@
 		1C9542631EBB283F0077B6D1 /* HTToolSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTToolSet.h; sourceTree = "<group>"; };
 		1C9542641EBB35650077B6D1 /* HTRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTRecordViewController.h; sourceTree = "<group>"; };
 		1C9542651EBB35650077B6D1 /* HTRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTRecordViewController.m; sourceTree = "<group>"; };
+		1C9542681EBC2B1E0077B6D1 /* HTAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAccessView.h; sourceTree = "<group>"; };
+		1C9542691EBC2B1E0077B6D1 /* HTAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAccessView.m; sourceTree = "<group>"; };
 		1CA71B401EADF1B80071312F /* ClassificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationModel.h; sourceTree = "<group>"; };
 		1CA71B411EADF1B80071312F /* ClassificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationModel.m; sourceTree = "<group>"; };
 		5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuYuanWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XuYuanWidget/Pods-XuYuanWidget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -564,13 +575,6 @@
 				1C5EACB71EB2E9B200EDADA5 /* HTCheckViewController.m */,
 			);
 			path = "验证(check)";
-			sourceTree = "<group>";
-		};
-		1C5EACB91EB2F36000EDADA5 /* 手势 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "手势";
 			sourceTree = "<group>";
 		};
 		1C83865D1EB04F01006A8A71 /* UITableView+Extension */ = {
@@ -845,6 +849,10 @@
 			isa = PBXGroup;
 			children = (
 				1C9542631EBB283F0077B6D1 /* HTToolSet.h */,
+				1C8809001EBE1161002F4B37 /* HTTools+FileManager.h */,
+				1C8809011EBE1161002F4B37 /* HTTools+FileManager.m */,
+				1C8808FD1EBE1071002F4B37 /* HTTools+SandBox.h */,
+				1C8808FE1EBE1071002F4B37 /* HTTools+SandBox.m */,
 				1C95425D1EBB266F0077B6D1 /* UIView+HTExtension.h */,
 				1C95425E1EBB266F0077B6D1 /* UIView+HTExtension.m */,
 				1C9542381EBB263E0077B6D1 /* HTTools+Annimation.h */,
@@ -874,6 +882,16 @@
 				1C9542501EBB263E0077B6D1 /* RegularExpressionExample.h */,
 			);
 			path = HTTools;
+			sourceTree = "<group>";
+		};
+		1C9542671EBC2AF00077B6D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1C9542681EBC2B1E0077B6D1 /* HTAccessView.h */,
+				1C9542691EBC2B1E0077B6D1 /* HTAccessView.m */,
+				1C8808E51EBC2CE8002F4B37 /* HTAccessView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1CB5323C226C4EB714185F9C /* Pods */ = {
@@ -912,8 +930,8 @@
 		CB78639A1EA3CD63006ED01C /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				1C895EF11EB5DD2800ACBED0 /* ConfigManager */,
 				CB78639E1EA3CD92006ED01C /* Pages */,
+				1C895EF11EB5DD2800ACBED0 /* ConfigManager */,
 				CB7863A41EA3CE45006ED01C /* PagesInterFace */,
 				CB7863A81EA3CF07006ED01C /* Gloabal */,
 				CB7863A31EA3CDC3006ED01C /* Tools */,
@@ -939,7 +957,6 @@
 			children = (
 				1C9542071EB9D7740077B6D1 /* ShareActionView */,
 				1C895EF71EB5EEB300ACBED0 /* CYLTableViewPlaceHolder */,
-				1C5EACB91EB2F36000EDADA5 /* 手势 */,
 				CBAAB0A31EB2600300B1C679 /* HYCollectionViewAlignedLayout */,
 				1C8386E21EB0A5E7006A8A71 /* SCLAlertView */,
 				1C8386641EB063DB006A8A71 /* DGActivityIndicatorView */,
@@ -1056,6 +1073,7 @@
 		CB7863B91EA3D539006ED01C /* SubViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1C9542671EBC2AF00077B6D1 /* View */,
 				1C9542641EBB35650077B6D1 /* HTRecordViewController.h */,
 				1C9542651EBB35650077B6D1 /* HTRecordViewController.m */,
 			);
@@ -1250,12 +1268,12 @@
 				TargetAttributes = {
 					1C0307AF1EB88E0600A0328E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 48JW4E44TT;
+						DevelopmentTeam = PDA4VU96AT;
 						ProvisioningStyle = Automatic;
 					};
 					CBF588F01EA3AA2800E7327B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 48JW4E44TT;
+						DevelopmentTeam = PDA4VU96AT;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -1301,6 +1319,7 @@
 				CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */,
 				1C8386DE1EB0816C006A8A71 /* HTEditItemsCell.xib in Resources */,
 				1C4EB2D81EA4AEB7009A1B3D /* HTAddItemsCell.xib in Resources */,
+				1C8808E61EBC2CE8002F4B37 /* HTAccessView.xib in Resources */,
 				1C0639891EB658830039FEDC /* HTSelectIconTypeCell.xib in Resources */,
 				CBF589011EA3AA2900E7327B /* Assets.xcassets in Resources */,
 				CBF588FF1EA3AA2900E7327B /* Main.storyboard in Resources */,
@@ -1433,9 +1452,11 @@
 				1C4EB2851EA455B2009A1B3D /* UIView+AddClick.m in Sources */,
 				1C8386BD1EB063DB006A8A71 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				1C4EB2C41EA4A665009A1B3D /* AkiraTextField.swift in Sources */,
+				1C8808FF1EBE1071002F4B37 /* HTTools+SandBox.m in Sources */,
 				1C83870D1EB1C3AD006A8A71 /* DetailCopyView.m in Sources */,
 				1C8387051EB19D41006A8A71 /* HTModalTransition.m in Sources */,
 				1C8386B51EB063DB006A8A71 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
+				1C95426A1EBC2B1E0077B6D1 /* HTAccessView.m in Sources */,
 				1C8386B61EB063DB006A8A71 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				1C8386F91EB0A5E7006A8A71 /* SCLTextView.m in Sources */,
 				1C8386C21EB063DB006A8A71 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
@@ -1494,6 +1515,7 @@
 				1C0639901EB78F050039FEDC /* ClassificationConfig.m in Sources */,
 				1C4EB2831EA455B2009A1B3D /* UIButton+EnlargeEdge.m in Sources */,
 				1C8386C01EB063DB006A8A71 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
+				1C8809021EBE1161002F4B37 /* HTTools+FileManager.m in Sources */,
 				1C8386CF1EB063DB006A8A71 /* DGActivityIndicatorView.m in Sources */,
 				1C8386C61EB063DB006A8A71 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				1C9542511EBB263E0077B6D1 /* HTTools+Annimation.m in Sources */,
@@ -1570,13 +1592,13 @@
 			baseConfigurationReference = 5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = 48JW4E44TT;
+				DEVELOPMENT_TEAM = PDA4VU96AT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuYuanWidget/XuYuanWidget.pch;
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1588,13 +1610,13 @@
 			baseConfigurationReference = 5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = 48JW4E44TT;
+				DEVELOPMENT_TEAM = PDA4VU96AT;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuYuanWidget/XuYuanWidget.pch;
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1702,7 +1724,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 48JW4E44TT;
+				DEVELOPMENT_TEAM = PDA4VU96AT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1712,7 +1734,7 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
@@ -1729,7 +1751,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 48JW4E44TT;
+				DEVELOPMENT_TEAM = PDA4VU96AT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1739,7 +1761,7 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang0;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";

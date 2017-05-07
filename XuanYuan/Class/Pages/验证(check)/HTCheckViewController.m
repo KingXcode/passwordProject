@@ -111,30 +111,42 @@
             self.view.userInteractionEnabled = YES;
         }];
         [HTTools vibrate];
-        NSInteger checkCount = 2;
-        if (self.errorCount < checkCount) {
-            
-            //安全范围   不处理
-            
-        }else if (self.errorCount == checkCount){
-            
-            //忍耐范围   准备处理
-            [self initAVCaptureSession];
-            
-        }else
-        {
-            //不忍耐     拍照定位处理
-            [self shutterCameraHandler:^{
-                self.errorModel.errorCount = self.errorCount;
-                [self.errorModel saveObject];
-            }];
-
+        
+        BOOL isAllow = [MainConfigManager isAllowInvadeRecord];
+        if (isAllow) {
+            [self invadeRecord];
         }
-        self.errorCount++;        
+        self.errorCount++;
     }
 }
 
+-(void)invadeRecord
+{
+    NSInteger checkCount = 2;
 
+    if (self.errorCount < checkCount) {
+        
+        //安全范围   不处理
+        
+    }else if (self.errorCount == checkCount){
+        
+        //忍耐范围   准备处理
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            [self initAVCaptureSession];
+            
+        });
+        
+    }else
+    {
+        //不忍耐     拍照定位处理
+        [self shutterCameraHandler:^{
+            self.errorModel.errorCount = self.errorCount;
+            [self.errorModel saveObject];
+        }];
+        
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -242,10 +254,13 @@
     //初始化预览图层
     self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
     [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
-    
     self.previewLayer.frame = CGRectMake(0, 0, 1, 1);
 
-    [self.view.layer addSublayer:self.previewLayer];
+    dispatch_async(dispatch_get_main_queue(), ^{
+       
+        [self.view.layer addSublayer:self.previewLayer];
+
+    });
     
 }
 

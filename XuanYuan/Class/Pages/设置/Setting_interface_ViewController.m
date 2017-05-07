@@ -175,7 +175,25 @@
  */
 -(void)changeColor
 {
-    [MainConfigManager mainRGB:RGB(0, 191, 255)];
+    
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+    
+    SCLButton *btn1 = [alert addButton:@"默认" actionBlock:^{
+        
+        [MainConfigManager mainRGB:RGB(0, 191, 255)];
+        
+    }];
+    btn1.defaultBackgroundColor = RGB(0, 191, 255);
+    
+    SCLButton *btn2 = [alert addButton:@"深灰色" actionBlock:^{
+       
+        [MainConfigManager mainRGB:[UIColor darkGrayColor]];
+
+    }];
+    btn2.defaultBackgroundColor = [UIColor darkGrayColor];
+
+    alert.iconTintColor = [UIColor whiteColor];
+    [alert showCustom:self.navigationController image:[UIImage imageNamed:@"settings-设置"] color:MainRGB title:@"提示" subTitle:@"更改APP的主题颜色" closeButtonTitle:@"取消" duration:0.0f];
 }
 
 /**
@@ -197,9 +215,62 @@
  */
 - (IBAction)isOpenPassword:(UISwitch *)sender {
     
-    [MainConfigManager isOpenStartPassword:sender.on];
-    self.touchIDCell.userInteractionEnabled = sender.on;
+
+    BOOL isOpen = [MainConfigManager isOpenStartPassword];
+    if (!isOpen && sender.on) {
+        [MainConfigManager isOpenStartPassword:sender.on];
+        self.touchIDCell.userInteractionEnabled = sender.on;
+    }else
+    {
+        SCLAlertView *alert = [[SCLAlertView alloc] init];
+        SCLTextView *textField = [alert addTextField:@"请输入密码"];
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        textField.tintColor = MainTextColor;
+        
+        NSString *password = [MainConfigManager startPassword];
+
+        [alert addButton:@"确定" validationBlock:^BOOL{
+
+            if ([password isEqualToString:textField.text]) {
+                
+                return YES;
+            }else
+            {
+                textField.placeholder = @"密码错误";
+                
+                [HTTools shakeAnnimation:textField completion:^(BOOL finished) {
+                    
+                }];
+                [HTTools vibrate];
+                
+                return NO;
+            }
+        
+        } actionBlock:^{
+            
+            [MainConfigManager isOpenStartPassword:sender.on];
+            [self reloadStartPassWordCell];
+            self.touchIDCell.userInteractionEnabled = sender.on;
+            
+        }];
+        
+        [alert addButton:@"取消" actionBlock:^{
+            sender.on = !sender.on;
+        }];
+        
+        UIImage *image = [UIImage imageNamed:@"lock-锁"];
+        alert.iconTintColor = [UIColor whiteColor];
+        [alert showCustom:self.navigationController image:image color:MainRGB title:@"提示" subTitle:@"是否关闭启动密码验证\n并且删除密码" closeButtonTitle:nil duration:0.0f];
+        
+    }
+    
+    
+    
+
 }
+
+
+
 
 
 /**
@@ -301,31 +372,70 @@
 //启用touchid
 -(void)enableTouchID
 {
+    SCLAlertView *alert = [[SCLAlertView alloc] init];
+
+    
     NSString *buttonText;
     NSString *subTitle;
 
     BOOL isStartTouchID = [MainConfigManager isOpenTouchID];
+    
     if (isStartTouchID) {
         buttonText = @"关闭";
         subTitle = @"是否关闭Touch-ID进行验证";
         isStartTouchID = NO;
+        
+        SCLTextView *textField = [alert addTextField:@"请输入密码"];
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        textField.tintColor = MainTextColor;
+        
+        NSString *password = [MainConfigManager startPassword];
+        
+        [alert addButton:buttonText validationBlock:^BOOL{
+            
+            if ([password isEqualToString:textField.text]) {
+                
+                return YES;
+            }else
+            {
+                textField.placeholder = @"密码错误";
+                
+                [HTTools shakeAnnimation:textField completion:^(BOOL finished) {
+                    
+                }];
+                [HTTools vibrate];
+                
+                return NO;
+            }
+            
+        } actionBlock:^{
+            
+            [MainConfigManager isOpenTouchID:isStartTouchID];
+            [self reloadTouchIdcell];
+            
+        }];
+
+
+        
     }else{
+        
         buttonText = @"启用";
         subTitle = @"是否启用Touch-ID进行验证";
         isStartTouchID = YES;
+        
+        [alert addButton:buttonText actionBlock:^(void) {
+            
+            [MainConfigManager isOpenTouchID:isStartTouchID];
+            [self reloadTouchIdcell];
+            
+        }];
+
     }
-
-    SCLAlertView *alert = [[SCLAlertView alloc] init];
-    
-    [alert addButton:buttonText actionBlock:^(void) {
-
-        [MainConfigManager isOpenTouchID:isStartTouchID];
-        [self reloadTouchIdcell];
-
-    }];
     UIImage *image = [UIImage imageNamed:@"lock-锁"];
     alert.iconTintColor = [UIColor whiteColor];
     [alert showCustom:self.navigationController image:image color:MainRGB title:@"提示" subTitle:subTitle closeButtonTitle:@"取消" duration:0.0f];
+    
+
     
 }
 

@@ -9,9 +9,13 @@
 #import "HTTools.h"
 
 @interface HTTools (HTRegularExpression)
+
+
 //***** 验证字符串 format是正则表达式
 //format:请参考RegularExpressionExample.h中的内容
 +(BOOL)ht_IsVerifyString:(NSString *)string predicateWithFormat:(NSString *)format;
+
+//***** 
 //***** 验证输入是否字母、数字与_两种组合 且6-20位
 +(BOOL)ht_IsPasswordCombination:(NSString *)passWord;
 //***** 验证输入的是否是URL地址

@@ -11,6 +11,7 @@
 @interface HTCheckPasswordErrorModel : NSObject
 
 @property (nonatomic,copy) NSString * ID;           //记录ID   正常不需要设置这个值
+@property (nonatomic,copy) NSString *dateString;
 
 @property (nonatomic,assign) NSInteger errorCount;
 @property (nonatomic,copy) NSString *imageString;

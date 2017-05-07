@@ -28,6 +28,8 @@
 
 #import "HTTools+Systerm.h"
 
+#import <AVFoundation/AVCaptureDevice.h>
+#import <AVFoundation/AVMediaFormat.h>
 #import <mach/mach.h>
 #import "sys/utsname.h"
 #import <LocalAuthentication/LocalAuthentication.h>
@@ -36,6 +38,24 @@
 #define HT_OpenUrl(urlStr) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]]
 
 @implementation HTTools (Systerm)
+
+
+
+
++(BOOL)ht_authorizationStatusForVideo
+{
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusRestricted || authStatus ==AVAuthorizationStatusDenied)
+    {
+        //无权限
+        return NO;
+
+    }else
+    {
+        return YES;
+    }
+}
+
 
 /**
  系统版本

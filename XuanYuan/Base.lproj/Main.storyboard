@@ -15,7 +15,7 @@
         <!--Classification View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ClassificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ClassificationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClassificationViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ClassificationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -50,7 +50,7 @@
         <!--Detail Copy View Controller-->
         <scene sceneID="Bqe-Fb-j29">
             <objects>
-                <viewController storyboardIdentifier="DetailCopyViewController" id="yqX-D0-FCB" customClass="DetailCopyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailCopyViewController" hidesBottomBarWhenPushed="YES" id="yqX-D0-FCB" customClass="DetailCopyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ymH-A6-UA6"/>
                         <viewControllerLayoutGuide type="bottom" id="yDM-Bs-ef8"/>
@@ -402,7 +402,7 @@
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
-                                                        <fragment content="(删除所有账号)">
+                                                        <fragment content="(删除所有账号以及入侵记录)">
                                                             <attributes>
                                                                 <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -569,12 +569,6 @@
                                                             <attributes>
                                                                 <font key="NSFont" size="17" name=".PingFangSC-Regular"/>
                                                                 <font key="NSOriginalFont" size="17" name=".AppleSystemUIFont"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="(开发中...)">
-                                                            <attributes>
-                                                                <font key="NSFont" size="12" name=".PingFangSC-Regular"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>

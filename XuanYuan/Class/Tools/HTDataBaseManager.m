@@ -47,7 +47,10 @@
 -(instancetype)init{
     if (self = [super init]) {
         //创建数据库文件
-        _store = [[YTKKeyValueStore alloc] initDBWithName:@"xuanyuanData.db"];
+//        _store = [[YTKKeyValueStore alloc] initDBWithName:@"xuanyuanData.db"];
+        
+        NSString *path = [[HTTools ht_sandbox_getLibrary_Cache] stringByAppendingPathComponent:@"weimiData.db"];
+        _store = [[YTKKeyValueStore alloc] initWithDBWithPath:path];
         
         //创建 账号信息表
         _accountList = @"accountList_table";

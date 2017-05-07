@@ -811,6 +811,7 @@ SCLTimerDisplay *buttonTimer;
     }
     else
     {
+
         _rootViewController = vc;
         
         [self disableInteractivePopGesture];

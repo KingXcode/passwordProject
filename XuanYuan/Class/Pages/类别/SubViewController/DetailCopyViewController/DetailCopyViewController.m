@@ -145,6 +145,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
 
     if (self.isPeek == NO) {
         [HTTools CATransform3DScaleView:self.detailView];
@@ -180,9 +181,22 @@
         self.detailView.layer.transform = CATransform3DScale(transform, 0.1, 0.1, 1);;
         self.detailView.layer.opacity = 1;
     } completion:^(BOOL finished) {
-        [self dismissViewControllerAnimated:NO completion:^{
+        
+        if (self.isBigBang) {
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            self.navigationController.navigationBar.hidden = NO;
             [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
-        }];
+
+
+        }else
+        {
+            [self dismissViewControllerAnimated:NO completion:^{
+                [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
+            }];
+        }
+        
+
     }];
 }
 

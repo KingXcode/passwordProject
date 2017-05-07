@@ -39,12 +39,10 @@
 
 -(void)openAddViewController
 {
-    HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];
-    HTNavigationController *nextnav = [[HTNavigationController alloc]initWithRootViewController:vc];
-    
+    HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];    
     HTTabBarController *tab = MainRootTabbarController;
     HTNavigationController *nav = tab.selectedViewController;
-    [nav.viewControllers.firstObject presentViewController:nextnav animated:YES completion:nil];
+    [nav pushViewController:vc animated:NO];
 }
 
 
@@ -68,7 +66,9 @@
     vc.model = model;
     vc.isPeek = NO;
     vc.isBigBang = YES;
-    [[HTTools getCurrentVC] presentViewController:vc animated:NO completion:^{}];
+    HTTabBarController *tab = MainRootTabbarController;
+    HTNavigationController *nav = tab.selectedViewController;
+    [nav pushViewController:vc animated:NO];
 }
 
 
@@ -77,7 +77,7 @@
 //进入验证界面
 -(void)checkController
 {
-    
+
     UIViewController *currentvc = [HTTools getCurrentVC];
     if ([currentvc isKindOfClass:[HTCheckViewController class]]) {
         return;
@@ -94,7 +94,7 @@
     if (isOpenPassword &&! [HTTools ht_isBlankString:password]) {
         HTCheckViewController *vc = instantiateStoryboardControllerWithIdentifier(@"HTCheckViewController");
         vc.image = imageView;
-        [currentvc presentViewController:vc animated:YES completion:^{}];
+        [MainRootViewController presentViewController:vc animated:YES completion:^{}];
     }
 }
 

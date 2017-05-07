@@ -166,7 +166,7 @@
 -(void)goBack
 {
 //    [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"push" direction:@"fromBottom" time:0.4] forKey:nil];
-//    [self.navigationController popViewControllerAnimated:NO];
+    [self.navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

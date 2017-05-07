@@ -42,10 +42,11 @@ static TestManagerConfig *_instance;
                               }
                               };
     NSDictionary *action2 = @{
-                              kTestTitleKey: @"000",
+                              kTestTitleKey: @"文件",
                               kTestAutoCloseKey: @YES,
                               kTestActionKey: ^{
-
+                                  NSString *path = [HTTools ht_sandbox_getHomePath];
+                                  NSLog(@"%@",path);
                               }
                               };
     

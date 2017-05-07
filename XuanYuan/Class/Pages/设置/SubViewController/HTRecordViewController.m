@@ -8,25 +8,116 @@
 
 #import "HTRecordViewController.h"
 #import "HTCheckPasswordErrorModel.h"
+#import "HTAccessView.h"
 
-@interface HTRecordViewController ()
+@interface HTRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic,copy) NSArray<HTCheckPasswordErrorModel *> *dataArray;
+
+@property (nonatomic,weak) UITableView *tableView;
+
+@property (nonatomic,weak) HTAccessView *headView;
 
 @end
 
 @implementation HTRecordViewController
 
+-(NSArray *)dataArray
+{
+    if (_dataArray == nil) {
+        _dataArray = [HTCheckPasswordErrorModel getModelArray];
+    }
+    return _dataArray;
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    HTCheckPasswordErrorModel *model = [HTCheckPasswordErrorModel getModelArray].firstObject;
-    UIImageView *ima = [[UIImageView alloc]initWithImage:[HTCheckPasswordErrorModel stringToImage:model.imageString]];
+    CGFloat height = 230;
     
-    ima.frame = CGRectMake(50, 100, 200, 200);
-    [self.view addSubview:ima];
+    HTAccessView *headView = [HTAccessView loadView];
+    headView.frame = CGRectMake(0, 64, self.view.bounds.size.width, height);
+    [self.view addSubview:headView];
     
     
+    
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, height+64, self.view.bounds.size.width, self.view.bounds.size.height-height-64) style:UITableViewStylePlain];
+    tableView.tableFooterView = [UIView new];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.bounces = NO;
+    [self.view addSubview:tableView];
+    
+    [tableView cyl_reloadData];
+    self.tableView = tableView;
+  
 }
+
+#pragma mark - PlaceHolderDelegate
+- (UIView *)makePlaceHolderView
+{
+    UIImage *zanwei = [UIImage imageNamed:@"zanwei_Icon"];
+    HTPlaceHolderView *view = [[HTPlaceHolderView alloc]init];
+    view.bgImage = zanwei;
+    return view;
+}
+- (BOOL)enableScrollWhenPlaceHolderViewShowing
+{
+    return YES;
+}
+
+
+
+
+#pragma -mark-  tableView 数据源代理
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    }
+    
+    HTCheckPasswordErrorModel *model = self.dataArray[indexPath.row];
+    UIImage *image = [HTCheckPasswordErrorModel stringToImage:model.imageString];
+    
+    cell.imageView.image = image;
+    
+    cell.textLabel.text = @"000";
+    
+    cell.detailTextLabel.text = model.dateString;
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (self.dataArray.count<=0) {
+        return nil;
+    }
+    return @"记录";
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -31,7 +31,7 @@
     if (DEBUG) {
         UIScreenEdgePanGestureRecognizer* screenEdgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(action:)];
         screenEdgePan.edges = UIRectEdgeLeft;
-        [self.tabBar addGestureRecognizer:screenEdgePan];
+        [self.view addGestureRecognizer:screenEdgePan];
     }
 
 }
@@ -39,20 +39,20 @@
 
 -(void)action:(UIScreenEdgePanGestureRecognizer*)sender{
     if (sender.edges == UIRectEdgeLeft) {
-        switch (sender.state) {
-                case UIGestureRecognizerStateBegan:
-                NSLog(@"手势开始");
-                break;
-                case UIGestureRecognizerStateChanged:
-                NSLog(@"手势进行中");
-                break;
-                case UIGestureRecognizerStateEnded:
-                NSLog(@"手势结束");
-                break;
-                
-            default:
-                break;
-        }
+//        switch (sender.state) {
+//                case UIGestureRecognizerStateBegan:
+//                HTLog(@"手势开始");
+//                break;
+//                case UIGestureRecognizerStateChanged:
+//                HTLog(@"手势进行中");
+//                break;
+//                case UIGestureRecognizerStateEnded:
+//                HTLog(@"手势结束");
+//                break;
+//                
+//            default:
+//                break;
+//        }
         if ([ZYTestManager shareInstance].isExist == NO) {
             [TestManagerConfig setupTestManager];
         }

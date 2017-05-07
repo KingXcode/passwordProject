@@ -26,17 +26,17 @@
  */
 +(NSArray *)ht_SortModelArrar:(NSArray *)modelArray info:(NSDictionary *)info
 {
-    NSMutableArray *SortDescriptorArray = [NSMutableArray array];
+    NSMutableArray *sortDescriptorArray = [NSMutableArray array];
     NSArray *infoKeyArray = [info allKeys];
     
     for (int i = 0; i < infoKeyArray.count; i++) {
         NSString *key = infoKeyArray[i];
         NSNumber *value = [info objectForKey:key];
         NSSortDescriptor *des = [[NSSortDescriptor alloc]initWithKey:key ascending:value.boolValue];
-        [SortDescriptorArray addObject:des];
+        [sortDescriptorArray addObject:des];
     }
     
-    NSArray *newA = [modelArray sortedArrayUsingDescriptors:SortDescriptorArray];
+    NSArray *newA = [modelArray sortedArrayUsingDescriptors:sortDescriptorArray];
     return newA;
 }
 

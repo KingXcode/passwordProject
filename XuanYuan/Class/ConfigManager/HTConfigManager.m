@@ -27,7 +27,6 @@
 
 -(void)defaultSetting
 {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordUserDefaults];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kStartPasswordUserDefaults];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kStartTouchIDUserDefaults];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kAllowThirdKeyboardUserDefaults];
@@ -38,7 +37,9 @@
 
 -(void)mainRGB:(UIColor *)color
 {
-    [[NSUserDefaults standardUserDefaults] setObject:color forKey:kMainColorUserDefaults];
+    NSData *foregndcolorData = [NSKeyedArchiver archivedDataWithRootObject:color];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:foregndcolorData forKey:kMainColorUserDefaults];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     AppDelegate *delegate = MainAppDelegate;
@@ -48,14 +49,15 @@
 -(UIColor *)mainRGB
 {
 
-    UIColor *color = [[NSUserDefaults standardUserDefaults] objectForKey:kMainColorUserDefaults];
+    NSData *foregroundcolorData = [[NSUserDefaults standardUserDefaults] objectForKey:kMainColorUserDefaults];
+    UIColor *foregndcolor = [NSKeyedUnarchiver unarchiveObjectWithData:foregroundcolorData];
     
-    if (!color) {
+    if (!foregroundcolorData) {
         return RGB(0, 191, 255);
     }else
     {
 
-        return RGB(0, 191, 255);
+        return foregndcolor;
     }
 }
 
@@ -65,6 +67,9 @@
 {
     NSNumber *isOpenPassword = [NSNumber numberWithBool:isopen];
     [[NSUserDefaults standardUserDefaults] setObject:isOpenPassword forKey:kStartPasswordUserDefaults];
+    if (isOpenPassword.boolValue == NO) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kPasswordUserDefaults];
+    }
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 -(BOOL)isOpenStartPassword
@@ -194,7 +199,16 @@
 
 
 
-
+-(void)isAllowInvadeRecord:(BOOL)isAllow
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:isAllow] forKey:kAllowInvadeRecordUserDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+-(BOOL)isAllowInvadeRecord
+{
+    NSNumber *isAllow = [[NSUserDefaults standardUserDefaults] objectForKey:kAllowInvadeRecordUserDefaults];
+    return isAllow.boolValue;
+}
 
 
 

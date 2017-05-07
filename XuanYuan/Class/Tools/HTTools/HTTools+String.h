@@ -26,6 +26,7 @@
 +(CGFloat)heightOfString:(NSString *)string font:(UIFont *)font width:(CGFloat)width;
 +(CGSize)sizeOfString:(NSString *)string font:(UIFont *)font width:(CGFloat)width;
 
+
 /**
  *  将阿拉伯数字转换为中文数字
  */
@@ -64,7 +65,7 @@
 //将16进制转化为二进制
 + (NSString *)ht_getBinaryByhex:(NSString *)hex;
 //判断是否有emoji
-+(BOOL)ht_stringContainsEmoji:(NSString *)string;
++ (BOOL)ht_stringContainsEmoji:(NSString *)string;
 /**
  字符串判空
  */

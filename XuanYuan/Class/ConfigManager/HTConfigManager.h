@@ -87,4 +87,14 @@
                         Recipients:(NSString *)recipients
                        MessageBody:(NSString *)emailContent;
 
+
+
+/**
+ 是否允许入侵记录
+ */
+-(void)isAllowInvadeRecord:(BOOL)isAllow;
+-(BOOL)isAllowInvadeRecord;
+
+
+
 @end

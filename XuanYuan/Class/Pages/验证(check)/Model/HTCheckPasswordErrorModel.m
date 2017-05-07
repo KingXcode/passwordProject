@@ -17,6 +17,9 @@
     if (self) {
         NSString *dataStr = [NSString stringWithFormat:@"%f",[NSDate date].timeIntervalSince1970*1000];
         _ID = [HTTools ht_DateWithLongTime:dataStr dateFormat:@"yyyyMMddHHmmss"];
+        
+        _dateString = [HTTools ht_DateWithLongTime:dataStr dateFormat:@"yyyy年MM月dd日 HH:mm:ss"];
+        
     }
     return self;
 }
