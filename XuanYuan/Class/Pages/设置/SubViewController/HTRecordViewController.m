@@ -88,9 +88,11 @@
     HTCheckPasswordErrorModel *model = self.dataArray[indexPath.row];
     UIImage *image = [HTCheckPasswordErrorModel stringToImage:model.imageString];
     
-    cell.imageView.image = image;
+    UIImage *newImage = [HTTools ht_returnImage:image BySize:CGSizeMake(40*image.size.width/image.size.height, 40)];
     
-    cell.textLabel.text = @"000";
+    cell.imageView.image = newImage;
+    
+    cell.textLabel.text = model.location;
     
     cell.detailTextLabel.text = model.dateString;
     

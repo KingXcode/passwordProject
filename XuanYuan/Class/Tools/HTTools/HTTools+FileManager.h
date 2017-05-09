@@ -8,6 +8,9 @@
 
 #import "HTTools.h"
 
+/*
+ 所有的操作都在主线程中,如果需要,请自主在子线程中做操作
+ */
 @interface HTTools (FileManager)
 /**
  @param path 文件是否存在
@@ -83,10 +86,12 @@
 /**
  将二进制文件直接写入LibraryCache路径
  如果路径不存在 会自动创建路径
+ （文件名包括了后缀在内，比如test1和test1.html是两个文件）存在，则将这个文件删除，然后再创建；
  */
 +(BOOL)ht_file_createFileAtToLibraryCachePath:(NSString *)path contents:(NSData *)data;
 /**
  从LibraryCache路径获取二进制文件
+ （文件名包括了后缀在内，比如test1和test1.html是两个文件）存在，则将这个文件删除，然后再创建；
  
  @param path 路径
  @return 如果路径为空  返回nil

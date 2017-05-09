@@ -7,6 +7,8 @@
 //
 
 #import "HTTools.h"
+#import <AVFoundation/AVCaptureDevice.h>
+#import <AVFoundation/AVMediaFormat.h>
 
 @interface HTTools (Systerm)
 
@@ -14,7 +16,7 @@
 /**
  是否具有相册相机访问权限
  */
-+(BOOL)ht_authorizationStatusForVideo;
++(AVAuthorizationStatus)ht_authorizationStatusForVideo;
 /*
  *  返回的CPU使用率
  */

@@ -29,9 +29,10 @@
 
 /**
  *  将阿拉伯数字转换为中文数字
+ *  下面的方法比较low
  */
-+(NSString *)ht_translationArabicNum:(NSInteger)arabicNum;
-
++(NSString *)ht_numberToChinese:(NSInteger)arabicNum;
++(NSString *)ht_numberToChinese_low:(NSInteger)arabicNum;
 /**
  设置行间距
  */

@@ -10,7 +10,6 @@
 		1C0307B11EB88E0600A0328E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C03079A1EB8807200A0328E /* NotificationCenter.framework */; };
 		1C0307B51EB88E0600A0328E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0307B41EB88E0600A0328E /* TodayViewController.m */; };
 		1C0307B81EB88E0600A0328E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C0307B61EB88E0600A0328E /* MainInterface.storyboard */; };
-		1C0307BC1EB88E0600A0328E /* XuYuanWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1C0307B01EB88E0600A0328E /* XuYuanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1C0639811EB627690039FEDC /* HTPlaceHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639801EB627690039FEDC /* HTPlaceHolderView.m */; };
 		1C0639841EB653280039FEDC /* HTSelectIconTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639831EB653280039FEDC /* HTSelectIconTypeView.m */; };
 		1C0639881EB658830039FEDC /* HTSelectIconTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0639861EB658830039FEDC /* HTSelectIconTypeCell.m */; };
@@ -153,30 +152,6 @@
 		CBF589011EA3AA2900E7327B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF589001EA3AA2900E7327B /* Assets.xcassets */; };
 		CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF589021EA3AA2900E7327B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1C0307BA1EB88E0600A0328E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CBF588E91EA3AA2800E7327B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1C0307AF1EB88E0600A0328E;
-			remoteInfo = XuYuanWidget;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		1C0307AA1EB8807200A0328E /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				1C0307BC1EB88E0600A0328E /* XuYuanWidget.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0BC37F6B2F544A6A59E1D2B8 /* libPods-XuYuanWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XuYuanWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1245,12 +1220,10 @@
 				CBF588EF1EA3AA2800E7327B /* Resources */,
 				BDD54650C5F2E6C88E3EDE02 /* [CP] Embed Pods Frameworks */,
 				3F821F728991141C649D43CC /* [CP] Copy Pods Resources */,
-				1C0307AA1EB8807200A0328E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1C0307BB1EB88E0600A0328E /* PBXTargetDependency */,
 			);
 			name = XuanYuan;
 			productName = XuanYuan;
@@ -1263,17 +1236,17 @@
 		CBF588E91EA3AA2800E7327B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "聂嗣洋";
 				TargetAttributes = {
 					1C0307AF1EB88E0600A0328E = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = PDA4VU96AT;
+						DevelopmentTeam = 9EF42SN8GN;
 						ProvisioningStyle = Automatic;
 					};
 					CBF588F01EA3AA2800E7327B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PDA4VU96AT;
+						DevelopmentTeam = 9EF42SN8GN;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -1551,14 +1524,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		1C0307BB1EB88E0600A0328E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1C0307AF1EB88E0600A0328E /* XuYuanWidget */;
-			targetProxy = 1C0307BA1EB88E0600A0328E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		1C0307B61EB88E0600A0328E /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1592,16 +1557,16 @@
 			baseConfigurationReference = 5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 9EF42SN8GN;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuYuanWidget/XuYuanWidget.pch;
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.weimi.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1610,16 +1575,16 @@
 			baseConfigurationReference = 5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 9EF42SN8GN;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = XuYuanWidget/XuYuanWidget.pch;
 				INFOPLIST_FILE = XuYuanWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.XuYuanWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.weimi.XuYuanWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1712,6 +1677,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1723,8 +1689,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 9EF42SN8GN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1734,13 +1701,15 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.weimi;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1750,8 +1719,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PDA4VU96AT;
+				DEVELOPMENT_TEAM = 9EF42SN8GN;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/XuanYuan/Class/Tools/加密解密",
@@ -1761,12 +1731,14 @@
 				INFOPLIST_FILE = XuanYuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.niesiyang.weimi;
 				PRODUCT_MODULE_NAME = XuanYuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "XuanYuan/Class/Third/XuanYuan-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

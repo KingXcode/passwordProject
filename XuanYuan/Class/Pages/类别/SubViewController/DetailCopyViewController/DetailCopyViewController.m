@@ -182,19 +182,10 @@
         self.detailView.layer.opacity = 1;
     } completion:^(BOOL finished) {
         
-        if (self.isBigBang) {
-            
-            [self.navigationController popViewControllerAnimated:YES];
-            self.navigationController.navigationBar.hidden = NO;
+
+        [self dismissViewControllerAnimated:NO completion:^{
             [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
-
-
-        }else
-        {
-            [self dismissViewControllerAnimated:NO completion:^{
-                [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
-            }];
-        }
+        }];
         
 
     }];

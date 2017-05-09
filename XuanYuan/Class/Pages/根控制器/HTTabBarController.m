@@ -28,44 +28,25 @@
     self.tabBar.layer.borderColor = MainRGB.CGColor;
     self.tabBar.backgroundImage = [HTTools ht_createImageWithColor:MainRGB];
     
-    if (DEBUG) {
-        UIScreenEdgePanGestureRecognizer* screenEdgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(action:)];
-        screenEdgePan.edges = UIRectEdgeLeft;
-        [self.view addGestureRecognizer:screenEdgePan];
-    }
+    
+    
+//    if (DEBUG) {
+//        UIScreenEdgePanGestureRecognizer* screenEdgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(action:)];
+//        screenEdgePan.edges = UIRectEdgeLeft;
+//        [self.view addGestureRecognizer:screenEdgePan];
+//    }
 
 }
 
 
--(void)action:(UIScreenEdgePanGestureRecognizer*)sender{
-    if (sender.edges == UIRectEdgeLeft) {
-//        switch (sender.state) {
-//                case UIGestureRecognizerStateBegan:
-//                HTLog(@"手势开始");
-//                break;
-//                case UIGestureRecognizerStateChanged:
-//                HTLog(@"手势进行中");
-//                break;
-//                case UIGestureRecognizerStateEnded:
-//                HTLog(@"手势结束");
-//                break;
-//                
-//            default:
-//                break;
+//-(void)action:(UIScreenEdgePanGestureRecognizer*)sender{
+//    if (sender.edges == UIRectEdgeLeft) {
+//        if ([ZYTestManager shareInstance].isExist == NO) {
+//            [TestManagerConfig setupTestManager];
 //        }
-        if ([ZYTestManager shareInstance].isExist == NO) {
-            [TestManagerConfig setupTestManager];
-        }
-    }
-}
+//    }
+//}
 
--(void)testZYTestManager
-{
-    if ([ZYTestManager shareInstance].isExist == NO) {
-        //悬浮球
-        [TestManagerConfig setupTestManager];
-    }
-}
 
 
 -(void)viewWillDisappear:(BOOL)animated

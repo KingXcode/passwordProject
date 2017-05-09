@@ -9,8 +9,9 @@
 #import "HTCheckViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "HTCheckPasswordErrorModel.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface HTCheckViewController ()
+@interface HTCheckViewController ()<CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *numberBtn;
 @property (weak, nonatomic) IBOutlet UILabel *showLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passLabel;
@@ -39,6 +40,14 @@
  *  预览图层
  */
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer* previewLayer;
+
+
+
+
+/**
+ 定位服务
+ */
+@property (nonatomic,strong)CLLocationManager *locationManager;
 
 @end
 
@@ -113,8 +122,12 @@
         [HTTools vibrate];
         
         BOOL isAllow = [MainConfigManager isAllowInvadeRecord];
-        if (isAllow) {
+        AVAuthorizationStatus auth = [HTTools ht_authorizationStatusForVideo];
+        
+        if (isAllow&&(auth == AVAuthorizationStatusAuthorized)) {
             [self invadeRecord];
+            [self initLocation];
+
         }
         self.errorCount++;
     }
@@ -153,6 +166,7 @@
     
     self.errorCount = 0;
     self.showLabel.font = [UIFont boldSystemFontOfSize:26];
+
     
     [self.cancelButton setBackgroundImage:[HTTools ht_createImageWithColor:MainTextColor] forState:UIControlStateHighlighted];
 
@@ -308,6 +322,67 @@
     }
     AudioServicesPlaySystemSound(soundID);
 }
+
+-(void)initLocation
+{
+    //初始化定位管理器
+    if (self.locationManager == nil) {
+        self.locationManager = [[CLLocationManager alloc]init];
+    }
+    //设置代理
+    self.locationManager.delegate = self;
+    //定位精准度
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    //横向移动多少距离后更新位置信息
+    self.locationManager.distanceFilter = 10;
+    //ios8以后需要获取定位权限
+    //有两个方法，取决于你的定位使用情况 一个是requestAlwaysAuthorization（始终允许获取定位信息），一个是requestWhenInUseAuthorization（使用期间允许获取定位信息）
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    //开始定位
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    CLLocation *location = locations.firstObject;
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        
+        if (placemarks.count > 0){
+            //获取到编译出的地标（CLPlacemark是一个地标类，封装了经纬度，国家，城市等地址信息）
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            //当前地址
+            NSLog(@"placemark.name = %@",placemark.name);
+            
+            NSString *city = placemark.locality;
+            if (!city) {
+                city = placemark.administrativeArea;
+            }
+            
+            self.errorModel.location = [NSString stringWithFormat:@"%@%@",city,placemark.name];
+        }
+        
+    }];
+    
+    [manager stopUpdatingLocation];
+}
+
+//定位失败时的回调
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error{
+    NSString *errMsg = nil;
+    if ([error code] == kCLErrorDenied) {
+        errMsg = @"访问被拒绝";
+    }
+    if ([error code] == kCLErrorLocationUnknown) {
+        errMsg = @"获取位置信息失败";
+    }
+    self.errorModel.location = errMsg;
+}
+
 
 - (void)viewWillAppear:(BOOL)animated{
     

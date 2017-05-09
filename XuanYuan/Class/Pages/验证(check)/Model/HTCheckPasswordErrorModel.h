@@ -15,6 +15,8 @@
 
 @property (nonatomic,assign) NSInteger errorCount;
 @property (nonatomic,copy) NSString *imageString;
+@property (nonatomic,copy) NSString *location;
+
 
 
 +(UIImage *)stringToImage:(NSString *)imageString;

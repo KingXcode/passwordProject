@@ -67,7 +67,6 @@
 //进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
-    [self checkController];
 
 }
 
@@ -75,7 +74,11 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 
     
+
 }
+
+
+
 
 //取消激活状态
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -98,6 +101,7 @@
         self.backgroundView.alpha = 0;
     }completion:^(BOOL finished) {
         [self.backgroundView removeFromSuperview];
+        [self checkController];
     }];
     
 }

@@ -70,7 +70,15 @@
 /**
  *  将阿拉伯数字转换为中文数字
  */
-+(NSString *)ht_translationArabicNum:(NSInteger)arabicNum
+
++(NSString *)ht_numberToChinese:(NSInteger)arabicNum
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = kCFNumberFormatterRoundHalfDown;
+    return [formatter stringFromNumber:[NSNumber numberWithInteger:arabicNum]];
+}
+
++(NSString *)ht_numberToChinese_low:(NSInteger)arabicNum
 {
     NSString *arabicNumStr = [NSString stringWithFormat:@"%ld",(long)arabicNum];
     NSArray *arabicNumeralsArray = @[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"0"];

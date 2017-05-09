@@ -76,7 +76,7 @@
 {
     UIImage *image = [self ht_captureScreen];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-    imageView.bounds = MainRootViewController.view.bounds;
+    imageView.bounds = [UIApplication sharedApplication].keyWindow.rootViewController.view.bounds;
     [imageView addSubview:[self gaussianBlurWithFrame:imageView.bounds andStyle:UIBlurEffectStyleExtraLight]];
     return imageView;
 }

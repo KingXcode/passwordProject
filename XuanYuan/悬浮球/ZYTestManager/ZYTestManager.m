@@ -129,7 +129,7 @@ static ZYTestManager *_instance;
 + (void)addTestItemWithTitle:(NSString *)title action:(void (^)())action
 {
 #if DEBUG
-    [self addTestItemWithTitle:title autoClose:@YES action:action];
+    [self addTestItemWithTitle:title autoClose:YES action:action];
 #endif
 }
 

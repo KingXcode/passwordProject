@@ -13,9 +13,14 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreLocation/CoreLocation.h>
 
+
+
+@interface HTAccessView ()<CLLocationManagerDelegate>
+@property (nonatomic,strong)CLLocationManager *manager;
+@end
+
+
 @implementation HTAccessView
-
-
 
 - (IBAction)mainSwitch:(UISwitch *)sender {
     
@@ -41,14 +46,36 @@
 
 - (IBAction)cameraAuthor:(UIButton *)sender {
     
-
+    
+    [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {//相机权限
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self setAuthorizationStatusVideo];
+            
+        });
+        
+        
+    }];
+    
     
 }
 
 - (IBAction)localAuthor:(id)sender {
+    
+    CLLocationManager *manager = [[CLLocationManager alloc] init];
+    [manager requestWhenInUseAuthorization];//使用的时候获取定位信息
+    manager.delegate = self;
+    self.manager = manager;
+    
 }
 
-
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    
+    [self setLocalAuthorBtnStatus:status];
+    
+}
 
 
 
@@ -77,7 +104,7 @@
 {
     [super awakeFromNib];
     
-
+    
     [self setUI];
     
     [self setAuthorizationStatus];
@@ -87,39 +114,102 @@
 
 -(void)setAuthorizationStatus
 {
-    BOOL status = [HTTools ht_authorizationStatusForVideo];
-    if (!status)
+    
+    [self setAuthorizationStatusVideo];
+    [self setAuthorizationStatusLocal];
+    
+}
+
+
+-(void)setAuthorizationStatusVideo
+{
+    AVAuthorizationStatus status = [HTTools ht_authorizationStatusForVideo];
+    if (status == AVAuthorizationStatusNotDetermined)
     {
-        //无权限
         [self.cameraAuthorBtn setTitle:@"授权" forState:UIControlStateNormal];
         self.cameraAuthorBtn.userInteractionEnabled = YES;
         self.cameraBottomLabel.text = @"为了更好的体验,请到设置->隐私->相机中开启【微密】相机服务.";
         
-    }else
+    }else if (status == AVAuthorizationStatusRestricted)
+    {
+        //无权限
+        [self.cameraAuthorBtn setTitle:@"受限制" forState:UIControlStateNormal];
+        self.cameraAuthorBtn.userInteractionEnabled = NO;
+        self.cameraBottomLabel.text = @"为了更好的体验,请到设置->隐私->相机中开启【微密】相机服务.";
+    }
+    else if (status == AVAuthorizationStatusDenied)
+    {
+        //无权限
+        [self.cameraAuthorBtn setTitle:@"已拒绝" forState:UIControlStateNormal];
+        self.cameraAuthorBtn.userInteractionEnabled = NO;
+        self.cameraBottomLabel.text = @"为了更好的体验,请到设置->隐私->相机中开启【微密】相机服务.";
+    }
+    else if(status == AVAuthorizationStatusAuthorized)
     {
         [self.cameraAuthorBtn setTitle:@"已授权" forState:UIControlStateNormal];
         self.cameraAuthorBtn.userInteractionEnabled = NO;
         self.cameraBottomLabel.text = @"已获取相机权限";
-        
     }
-    
-    CLAuthorizationStatus clstatus = [CLLocationManager authorizationStatus];
-    if (kCLAuthorizationStatusDenied == clstatus || kCLAuthorizationStatusRestricted == clstatus)
-    {
-        [self.localAuthorBtn setTitle:@"授权" forState:UIControlStateNormal];
-        self.localAuthorBtn.userInteractionEnabled = YES;
-        self.localBottomLabel.text = @"为了更好的体验,请到设置->隐私->定位服务中开启【微密】定位服务.";
-
-    }else//开启的
-    {
-
-        [self.localAuthorBtn setTitle:@"已授权" forState:UIControlStateNormal];
-        self.localAuthorBtn.userInteractionEnabled = NO;
-        self.localBottomLabel.text = @"已获取定位权限";
-    }
-    
-    
 }
+
+-(void)setAuthorizationStatusLocal
+{
+    
+    BOOL isLocation = [CLLocationManager locationServicesEnabled];
+    if (!isLocation)
+    {
+        [self.localAuthorBtn setTitle:@"已禁用" forState:UIControlStateNormal];
+        self.localAuthorBtn.userInteractionEnabled = NO;
+        self.localBottomLabel.text = @"为了更好的体验,请开启定位服务.";
+    }
+    else
+    {
+        CLAuthorizationStatus CLstatus = [CLLocationManager authorizationStatus];
+        [self setLocalAuthorBtnStatus:CLstatus];
+    }
+}
+
+-(void)setLocalAuthorBtnStatus:(CLAuthorizationStatus)CLstatus
+{
+    switch (CLstatus) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+        {
+            [self.localAuthorBtn setTitle:@"已授权" forState:UIControlStateNormal];
+            self.localAuthorBtn.userInteractionEnabled = NO;
+            self.localBottomLabel.text = @"已获取定位权限";
+        }
+            break;
+        case kCLAuthorizationStatusDenied:
+        {
+            [self.localAuthorBtn setTitle:@"已拒绝" forState:UIControlStateNormal];
+            self.localAuthorBtn.userInteractionEnabled = NO;
+            self.localBottomLabel.text = @"为了更好的体验,请到设置->隐私->定位服务中开启【微密】定位服务.";
+        }
+            break;
+        case kCLAuthorizationStatusNotDetermined:
+        {
+            [self.localAuthorBtn setTitle:@"授权" forState:UIControlStateNormal];
+            self.localAuthorBtn.userInteractionEnabled = YES;
+            self.localBottomLabel.text = @"为了更好的体验,请到设置->隐私->定位服务中开启【微密】定位服务.";
+        }
+            break;
+        case kCLAuthorizationStatusRestricted:
+        {
+            [self.localAuthorBtn setTitle:@"受限制" forState:UIControlStateNormal];
+            self.localAuthorBtn.userInteractionEnabled = NO;
+            self.localBottomLabel.text = @"为了更好的体验,请到设置->隐私->定位服务中开启【微密】定位服务.";
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+
+
 
 
 -(void)setUI

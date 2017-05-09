@@ -50,13 +50,12 @@
 {
 
     NSData *foregroundcolorData = [[NSUserDefaults standardUserDefaults] objectForKey:kMainColorUserDefaults];
-    UIColor *foregndcolor = [NSKeyedUnarchiver unarchiveObjectWithData:foregroundcolorData];
     
     if (!foregroundcolorData) {
         return RGB(0, 191, 255);
     }else
     {
-
+        UIColor *foregndcolor = [NSKeyedUnarchiver unarchiveObjectWithData:foregroundcolorData];
         return foregndcolor;
     }
 }
@@ -207,6 +206,8 @@
 -(BOOL)isAllowInvadeRecord
 {
     NSNumber *isAllow = [[NSUserDefaults standardUserDefaults] objectForKey:kAllowInvadeRecordUserDefaults];
+    
+    
     return isAllow.boolValue;
 }
 

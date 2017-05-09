@@ -39,10 +39,16 @@
 
 -(void)openAddViewController
 {
+    UIViewController *currentvc = [HTTools getCurrentVC];
+    if ([currentvc isKindOfClass:[HTAddItemsViewController class]]) {
+        return;
+    }
+    
     HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];    
-    HTTabBarController *tab = MainRootTabbarController;
-    HTNavigationController *nav = tab.selectedViewController;
-    [nav pushViewController:vc animated:NO];
+    HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+    [[HTTools getCurrentVC] presentViewController:nav animated:YES completion:^{
+        
+    }];
 }
 
 
@@ -57,6 +63,12 @@
 
 -(void)openBigBangViewController
 {
+    UIViewController *currentvc = [HTTools getCurrentVC];
+    if ([currentvc isKindOfClass:[DetailCopyViewController class]]) {
+        return;
+    }
+    
+    
     ClassificationModel *model = [[ClassificationModel alloc]init];
     UIPasteboard*pasteboard = [UIPasteboard generalPasteboard];
     model.remarks = pasteboard.string;
@@ -66,9 +78,10 @@
     vc.model = model;
     vc.isPeek = NO;
     vc.isBigBang = YES;
-    HTTabBarController *tab = MainRootTabbarController;
-    HTNavigationController *nav = tab.selectedViewController;
-    [nav pushViewController:vc animated:NO];
+
+    [[HTTools getCurrentVC] presentViewController:vc animated:YES completion:^{
+        
+    }];
 }
 
 
@@ -94,7 +107,7 @@
     if (isOpenPassword &&! [HTTools ht_isBlankString:password]) {
         HTCheckViewController *vc = instantiateStoryboardControllerWithIdentifier(@"HTCheckViewController");
         vc.image = imageView;
-        [MainRootViewController presentViewController:vc animated:YES completion:^{}];
+        [[HTTools getCurrentVC] presentViewController:vc animated:YES completion:^{}];
     }
 }
 
