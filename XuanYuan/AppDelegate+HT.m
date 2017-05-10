@@ -19,6 +19,9 @@
 -(void)setMainRootViewController
 {
     HTTabBarController *tabbar = instantiateStoryboardControllerWithIdentifier(@"HTTabBarController");
+    
+
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = tabbar;
     [self.window makeKeyAndVisible];
@@ -30,7 +33,7 @@
     UIApplicationShortcutItem *addShortcutItem = [[UIApplicationShortcutItem alloc] initWithType:@"cn.niesiyang.add" localizedTitle:@"添加账号" localizedSubtitle:@"创建一个新的账号信息" icon:addShortcutIcon userInfo:nil];
     
     UIApplicationShortcutIcon *bigbangShortcutIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeBookmark];
-    UIApplicationShortcutItem *bigbangShortcutItem = [[UIApplicationShortcutItem alloc] initWithType:@"cn.niesiyang.bigbang" localizedTitle:@"分词" localizedSubtitle:@"将您剪贴板中的内容分词复制" icon:bigbangShortcutIcon userInfo:nil];
+    UIApplicationShortcutItem *bigbangShortcutItem = [[UIApplicationShortcutItem alloc] initWithType:@"cn.niesiyang.bigbang" localizedTitle:@"分词" localizedSubtitle:@"将剪贴板中的内容分词" icon:bigbangShortcutIcon userInfo:nil];
     
     [UIApplication sharedApplication].shortcutItems = @[addShortcutItem,bigbangShortcutItem];
 }
@@ -95,13 +98,9 @@
     if ([currentvc isKindOfClass:[HTCheckViewController class]]) {
         return;
     }
-    
-    [self.backgroundView removeFromSuperview];
     UIImageView *imageView = [HTTools gaussianBlurWithMainRootView];
-    self.backgroundView = imageView;
-    [MainKeyWindow addSubview:self.backgroundView];
+
     BOOL isOpenPassword = [MainConfigManager isOpenStartPassword];
-    
     NSString *password = [MainConfigManager startPassword];
     
     if (isOpenPassword &&! [HTTools ht_isBlankString:password]) {

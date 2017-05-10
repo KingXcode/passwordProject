@@ -234,6 +234,7 @@
 {
     if (_session == nil) {
         _session = [[AVCaptureSession alloc] init];
+        _session.sessionPreset = AVCaptureSessionPreset640x480;
     }
     return _session;
 }
@@ -298,6 +299,7 @@
         NSData * imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
         
         UIImage * image = [UIImage imageWithData:imageData];
+
         
         NSString *encodedImageStr = [HTCheckPasswordErrorModel imageToString:image];
         __self.errorModel.imageString = encodedImageStr;

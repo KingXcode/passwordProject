@@ -49,6 +49,20 @@
 		1C4EB2D81EA4AEB7009A1B3D /* HTAddItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C4EB2D51EA4AD3A009A1B3D /* HTAddItemsCell.xib */; };
 		1C4EB2DB1EA4B728009A1B3D /* HTAddItemsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4EB2DA1EA4B728009A1B3D /* HTAddItemsModel.m */; };
 		1C5EACB81EB2E9B200EDADA5 /* HTCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EACB71EB2E9B200EDADA5 /* HTCheckViewController.m */; };
+		1C5EDEE41EC2EBAC00002A46 /* CYBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDED81EC2EBAC00002A46 /* CYBadgeView.m */; };
+		1C5EDEE51EC2EBAC00002A46 /* CYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEDA1EC2EBAC00002A46 /* CYButton.m */; };
+		1C5EDEE61EC2EBAC00002A46 /* CYCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEDC1EC2EBAC00002A46 /* CYCenterButton.m */; };
+		1C5EDEE71EC2EBAC00002A46 /* CYTabBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EDEDD1EC2EBAC00002A46 /* CYTabBar.bundle */; };
+		1C5EDEE81EC2EBAC00002A46 /* CYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEDF1EC2EBAC00002A46 /* CYTabBar.m */; };
+		1C5EDEE91EC2EBAC00002A46 /* CYTabBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEE11EC2EBAC00002A46 /* CYTabBarConfig.m */; };
+		1C5EDEEA1EC2EBAC00002A46 /* CYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEE31EC2EBAC00002A46 /* CYTabBarController.m */; };
+		1C5EDEF01EC2F91900002A46 /* ZYSpreadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEED1EC2F91900002A46 /* ZYSpreadButton.m */; };
+		1C5EDEF11EC2F91900002A46 /* ZYSpreadSubButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEEF1EC2F91900002A46 /* ZYSpreadSubButton.m */; };
+		1C5EDEFC1EC3179500002A46 /* JJMainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEF41EC3179500002A46 /* JJMainScrollView.m */; };
+		1C5EDEFD1EC3179500002A46 /* JJOneScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEF61EC3179500002A46 /* JJOneScrollView.m */; };
+		1C5EDEFE1EC3179500002A46 /* JJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEF81EC3179500002A46 /* JJPhoto.m */; };
+		1C5EDEFF1EC3179500002A46 /* JJPhotoManeger.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EDEFA1EC3179500002A46 /* JJPhotoManeger.m */; };
+		1C5EDF001EC3179500002A46 /* none.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5EDEFB1EC3179500002A46 /* none.png */; };
 		1C8386601EB04F01006A8A71 /* UITableView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C83865F1EB04F01006A8A71 /* UITableView+Extension.m */; };
 		1C8386631EB06396006A8A71 /* HTDIYRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8386621EB06396006A8A71 /* HTDIYRefreshHeader.m */; };
 		1C8386AD1EB063DB006A8A71 /* DGActivityIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8386671EB063DB006A8A71 /* DGActivityIndicatorAnimation.m */; };
@@ -229,6 +243,32 @@
 		1C4EB2DA1EA4B728009A1B3D /* HTAddItemsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAddItemsModel.m; sourceTree = "<group>"; };
 		1C5EACB61EB2E9B200EDADA5 /* HTCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCheckViewController.h; sourceTree = "<group>"; };
 		1C5EACB71EB2E9B200EDADA5 /* HTCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCheckViewController.m; sourceTree = "<group>"; };
+		1C5EDED71EC2EBAC00002A46 /* CYBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBadgeView.h; sourceTree = "<group>"; };
+		1C5EDED81EC2EBAC00002A46 /* CYBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBadgeView.m; sourceTree = "<group>"; };
+		1C5EDED91EC2EBAC00002A46 /* CYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYButton.h; sourceTree = "<group>"; };
+		1C5EDEDA1EC2EBAC00002A46 /* CYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYButton.m; sourceTree = "<group>"; };
+		1C5EDEDB1EC2EBAC00002A46 /* CYCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCenterButton.h; sourceTree = "<group>"; };
+		1C5EDEDC1EC2EBAC00002A46 /* CYCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYCenterButton.m; sourceTree = "<group>"; };
+		1C5EDEDD1EC2EBAC00002A46 /* CYTabBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CYTabBar.bundle; sourceTree = "<group>"; };
+		1C5EDEDE1EC2EBAC00002A46 /* CYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTabBar.h; sourceTree = "<group>"; };
+		1C5EDEDF1EC2EBAC00002A46 /* CYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTabBar.m; sourceTree = "<group>"; };
+		1C5EDEE01EC2EBAC00002A46 /* CYTabBarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTabBarConfig.h; sourceTree = "<group>"; };
+		1C5EDEE11EC2EBAC00002A46 /* CYTabBarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTabBarConfig.m; sourceTree = "<group>"; };
+		1C5EDEE21EC2EBAC00002A46 /* CYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTabBarController.h; sourceTree = "<group>"; };
+		1C5EDEE31EC2EBAC00002A46 /* CYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTabBarController.m; sourceTree = "<group>"; };
+		1C5EDEEC1EC2F91900002A46 /* ZYSpreadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSpreadButton.h; sourceTree = "<group>"; };
+		1C5EDEED1EC2F91900002A46 /* ZYSpreadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSpreadButton.m; sourceTree = "<group>"; };
+		1C5EDEEE1EC2F91900002A46 /* ZYSpreadSubButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYSpreadSubButton.h; sourceTree = "<group>"; };
+		1C5EDEEF1EC2F91900002A46 /* ZYSpreadSubButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSpreadSubButton.m; sourceTree = "<group>"; };
+		1C5EDEF31EC3179500002A46 /* JJMainScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJMainScrollView.h; sourceTree = "<group>"; };
+		1C5EDEF41EC3179500002A46 /* JJMainScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJMainScrollView.m; sourceTree = "<group>"; };
+		1C5EDEF51EC3179500002A46 /* JJOneScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJOneScrollView.h; sourceTree = "<group>"; };
+		1C5EDEF61EC3179500002A46 /* JJOneScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJOneScrollView.m; sourceTree = "<group>"; };
+		1C5EDEF71EC3179500002A46 /* JJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhoto.h; sourceTree = "<group>"; };
+		1C5EDEF81EC3179500002A46 /* JJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhoto.m; sourceTree = "<group>"; };
+		1C5EDEF91EC3179500002A46 /* JJPhotoManeger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJPhotoManeger.h; sourceTree = "<group>"; };
+		1C5EDEFA1EC3179500002A46 /* JJPhotoManeger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJPhotoManeger.m; sourceTree = "<group>"; };
+		1C5EDEFB1EC3179500002A46 /* none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = none.png; sourceTree = "<group>"; };
 		1C83865E1EB04F01006A8A71 /* UITableView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extension.h"; sourceTree = "<group>"; };
 		1C83865F1EB04F01006A8A71 /* UITableView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extension.m"; sourceTree = "<group>"; };
 		1C8386611EB06396006A8A71 /* HTDIYRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDIYRefreshHeader.h; sourceTree = "<group>"; };
@@ -550,6 +590,53 @@
 				1C5EACB71EB2E9B200EDADA5 /* HTCheckViewController.m */,
 			);
 			path = "验证(check)";
+			sourceTree = "<group>";
+		};
+		1C5EDED61EC2EBAC00002A46 /* CYTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EDED71EC2EBAC00002A46 /* CYBadgeView.h */,
+				1C5EDED81EC2EBAC00002A46 /* CYBadgeView.m */,
+				1C5EDED91EC2EBAC00002A46 /* CYButton.h */,
+				1C5EDEDA1EC2EBAC00002A46 /* CYButton.m */,
+				1C5EDEDB1EC2EBAC00002A46 /* CYCenterButton.h */,
+				1C5EDEDC1EC2EBAC00002A46 /* CYCenterButton.m */,
+				1C5EDEDD1EC2EBAC00002A46 /* CYTabBar.bundle */,
+				1C5EDEDE1EC2EBAC00002A46 /* CYTabBar.h */,
+				1C5EDEDF1EC2EBAC00002A46 /* CYTabBar.m */,
+				1C5EDEE01EC2EBAC00002A46 /* CYTabBarConfig.h */,
+				1C5EDEE11EC2EBAC00002A46 /* CYTabBarConfig.m */,
+				1C5EDEE21EC2EBAC00002A46 /* CYTabBarController.h */,
+				1C5EDEE31EC2EBAC00002A46 /* CYTabBarController.m */,
+			);
+			path = CYTabBar;
+			sourceTree = "<group>";
+		};
+		1C5EDEEB1EC2F91900002A46 /* SpreadButton */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EDEEC1EC2F91900002A46 /* ZYSpreadButton.h */,
+				1C5EDEED1EC2F91900002A46 /* ZYSpreadButton.m */,
+				1C5EDEEE1EC2F91900002A46 /* ZYSpreadSubButton.h */,
+				1C5EDEEF1EC2F91900002A46 /* ZYSpreadSubButton.m */,
+			);
+			path = SpreadButton;
+			sourceTree = "<group>";
+		};
+		1C5EDEF21EC3179500002A46 /* JJPhotoViewer */ = {
+			isa = PBXGroup;
+			children = (
+				1C5EDEF31EC3179500002A46 /* JJMainScrollView.h */,
+				1C5EDEF41EC3179500002A46 /* JJMainScrollView.m */,
+				1C5EDEF51EC3179500002A46 /* JJOneScrollView.h */,
+				1C5EDEF61EC3179500002A46 /* JJOneScrollView.m */,
+				1C5EDEF71EC3179500002A46 /* JJPhoto.h */,
+				1C5EDEF81EC3179500002A46 /* JJPhoto.m */,
+				1C5EDEF91EC3179500002A46 /* JJPhotoManeger.h */,
+				1C5EDEFA1EC3179500002A46 /* JJPhotoManeger.m */,
+				1C5EDEFB1EC3179500002A46 /* none.png */,
+			);
+			path = JJPhotoViewer;
 			sourceTree = "<group>";
 		};
 		1C83865D1EB04F01006A8A71 /* UITableView+Extension */ = {
@@ -930,6 +1017,9 @@
 		CB7863A21EA3CDAD006ED01C /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				1C5EDEF21EC3179500002A46 /* JJPhotoViewer */,
+				1C5EDEEB1EC2F91900002A46 /* SpreadButton */,
+				1C5EDED61EC2EBAC00002A46 /* CYTabBar */,
 				1C9542071EB9D7740077B6D1 /* ShareActionView */,
 				1C895EF71EB5EEB300ACBED0 /* CYLTableViewPlaceHolder */,
 				CBAAB0A31EB2600300B1C679 /* HYCollectionViewAlignedLayout */,
@@ -1289,9 +1379,11 @@
 				1C4EB2C61EA4A665009A1B3D /* Info.plist in Resources */,
 				CB4981F91EA660A8000E0792 /* ClassificationCell.xib in Resources */,
 				1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */,
+				1C5EDF001EC3179500002A46 /* none.png in Resources */,
 				CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */,
 				1C8386DE1EB0816C006A8A71 /* HTEditItemsCell.xib in Resources */,
 				1C4EB2D81EA4AEB7009A1B3D /* HTAddItemsCell.xib in Resources */,
+				1C5EDEE71EC2EBAC00002A46 /* CYTabBar.bundle in Resources */,
 				1C8808E61EBC2CE8002F4B37 /* HTAccessView.xib in Resources */,
 				1C0639891EB658830039FEDC /* HTSelectIconTypeCell.xib in Resources */,
 				CBF589011EA3AA2900E7327B /* Assets.xcassets in Resources */,
@@ -1408,9 +1500,11 @@
 				1C5EACB81EB2E9B200EDADA5 /* HTCheckViewController.m in Sources */,
 				1C9542551EBB263E0077B6D1 /* HTTools+Date.m in Sources */,
 				1C8386CE1EB063DB006A8A71 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
+				1C5EDEFC1EC3179500002A46 /* JJMainScrollView.m in Sources */,
 				CB4981F01EA61D3F000E0792 /* PopoverViewCell.m in Sources */,
 				1C8386C81EB063DB006A8A71 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				1C0639931EB7AF290039FEDC /* HTColorManager.m in Sources */,
+				1C5EDEE81EC2EBAC00002A46 /* CYTabBar.m in Sources */,
 				1C8386B31EB063DB006A8A71 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
 				1C8386FB1EB0A5E7006A8A71 /* UIImage+ImageEffects.m in Sources */,
 				1C8386CB1EB063DB006A8A71 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
@@ -1442,12 +1536,16 @@
 				CB4981E61EA5425C000E0792 /* HTDataBaseManager.m in Sources */,
 				1C895EFC1EB5EEB300ACBED0 /* UITableView+CYLTableViewPlaceHolder.m in Sources */,
 				1C4EB2861EA455B2009A1B3D /* UIView+ZTQuickControl.m in Sources */,
+				1C5EDEE41EC2EBAC00002A46 /* CYBadgeView.m in Sources */,
 				1C9542661EBB35650077B6D1 /* HTRecordViewController.m in Sources */,
 				CB4981E31EA51447000E0792 /* HTBaseViewController.m in Sources */,
 				1C8386C91EB063DB006A8A71 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
+				1C5EDEE61EC2EBAC00002A46 /* CYCenterButton.m in Sources */,
 				1C8386B01EB063DB006A8A71 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
 				1C4EB2D61EA4AD3A009A1B3D /* HTAddItemsCell.m in Sources */,
 				1C8386F41EB0A5E7006A8A71 /* SCLAlertView.m in Sources */,
+				1C5EDEFD1EC3179500002A46 /* JJOneScrollView.m in Sources */,
+				1C5EDEEA1EC2EBAC00002A46 /* CYTabBarController.m in Sources */,
 				1C8386E11EB08184006A8A71 /* HTEditItemsModel.m in Sources */,
 				1C9542571EBB263E0077B6D1 /* HTTools+Image.m in Sources */,
 				1C14FB0B1EAEDE140064DBEA /* HTTextLabel.m in Sources */,
@@ -1467,9 +1565,11 @@
 				1C9542591EBB263E0077B6D1 /* HTTools+SafariService.m in Sources */,
 				CB4981F81EA660A8000E0792 /* ClassificationCell.m in Sources */,
 				1C4EB28D1EA46DCB009A1B3D /* HTAddItemsViewController.m in Sources */,
+				1C5EDEE51EC2EBAC00002A46 /* CYButton.m in Sources */,
 				1C4EB2DB1EA4B728009A1B3D /* HTAddItemsModel.m in Sources */,
 				1C8387231EB1FE73006A8A71 /* DetailCopyViewToolBar.m in Sources */,
 				1C4EB2CD1EA4A665009A1B3D /* YokoTextField.swift in Sources */,
+				1C5EDEFF1EC3179500002A46 /* JJPhotoManeger.m in Sources */,
 				1C8386BA1EB063DB006A8A71 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				1C8386BF1EB063DB006A8A71 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
 				CB7863C41EA3D999006ED01C /* HTNavigationController.m in Sources */,
@@ -1477,8 +1577,11 @@
 				1C95425A1EBB263E0077B6D1 /* HTTools+String.m in Sources */,
 				1C8387201EB1DEA3006A8A71 /* DetailCopyCell.m in Sources */,
 				1C8386B21EB063DB006A8A71 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
+				1C5EDEF11EC2F91900002A46 /* ZYSpreadSubButton.m in Sources */,
+				1C5EDEE91EC2EBAC00002A46 /* CYTabBarConfig.m in Sources */,
 				1C14FB111EAF606F0064DBEA /* Setting_interface_ViewController.m in Sources */,
 				1C95425C1EBB263E0077B6D1 /* HTTools.m in Sources */,
+				1C5EDEF01EC2F91900002A46 /* ZYSpreadButton.m in Sources */,
 				1C8386CD1EB063DB006A8A71 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				1C11E4881EB82B7900B00935 /* HTEncryptionAndDecryption.m in Sources */,
 				1C8386BE1EB063DB006A8A71 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
@@ -1492,6 +1595,7 @@
 				1C8386CF1EB063DB006A8A71 /* DGActivityIndicatorView.m in Sources */,
 				1C8386C61EB063DB006A8A71 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				1C9542511EBB263E0077B6D1 /* HTTools+Annimation.m in Sources */,
+				1C5EDEFE1EC3179500002A46 /* JJPhoto.m in Sources */,
 				1C0639811EB627690039FEDC /* HTPlaceHolderView.m in Sources */,
 				1C95425F1EBB266F0077B6D1 /* UIView+HTExtension.m in Sources */,
 				1C4EB2901EA46F96009A1B3D /* HTMainItemModel.m in Sources */,

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HTTabBarController : UITabBarController
+@interface HTTabBarController : CYTabBarController
 
 @end

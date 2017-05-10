@@ -78,8 +78,6 @@
 }
 
 
-
-
 //取消激活状态
 - (void)applicationWillResignActive:(UIApplication *)application {
     

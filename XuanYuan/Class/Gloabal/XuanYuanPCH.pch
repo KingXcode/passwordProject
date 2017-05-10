@@ -34,9 +34,10 @@
 #import "ALActionSheetView.h"   //仿微信弹出框
 #import "CYLTableViewPlaceHolder.h"     //空tableView展示
 #import "ShareActionView.h"
+#import "JJPhotoManeger.h"
 
-
-
+#import "CYTabBarController.h"
+#import "ZYSpreadButton.h"
 
 
 #import "HTDIYRefreshHeader.h"

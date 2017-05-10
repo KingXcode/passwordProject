@@ -19,10 +19,9 @@
 @interface ClassificationViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addItem;
 @property (nonatomic,weak)UIButton *titleButton;
-
 @property (nonatomic,strong)ClassificationConfig *configModel;
 
-
+@property (nonatomic,weak) ZYSpreadButton *plusBtn;
 
 @end
 
@@ -48,9 +47,79 @@
     [self.configModel drawView];
     [self.view addSubview:self.configModel.view];
     
+
+    
     [self.configModel.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.mas_equalTo(0);
     }];
+    
+    
+    [self setPlusBtn];
+    
+    
+}
+
+-(void)setPlusBtn
+{
+    //我这里设置了底部的加号按钮   所以右上角的要被隐藏掉 不删掉是防止以后需要恢复
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    WeakSelf(self);
+    UIImage *addImage = [UIImage imageNamed:@"add_账号"];
+    addImage = [addImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    ZYSpreadSubButton *addAccount = [[ZYSpreadSubButton alloc]initWithBackgroundImage:addImage highlightImage:nil clickedBlock:^(int index, UIButton *sender) {
+        
+        HTAddItemsViewController *vc = [[HTAddItemsViewController alloc]init];
+        HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+        [weakself presentViewController:nav animated:YES completion:nil];
+    }];
+    addAccount.bounds = CGRectMake(0, 0, 30, 30);
+    addAccount.tintColor = MainRGB;
+    
+    UIImage *memorandumImage = [UIImage imageNamed:@"add_笔记"];
+    memorandumImage = [memorandumImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    ZYSpreadSubButton *addMemorandum = [[ZYSpreadSubButton alloc]initWithBackgroundImage:memorandumImage highlightImage:nil clickedBlock:^(int index, UIButton *sender) {
+        
+        
+        
+    }];
+    addMemorandum.bounds = CGRectMake(0, 0, 30, 30);
+    addMemorandum.tintColor = MainRGB;
+
+    UIImage *plusImage = [UIImage imageNamed:@"add_post_animate"];
+    plusImage = [plusImage imageWithRenderingMode:UIImageRenderingModeAutomatic];
+    ZYSpreadButton *plus = [[ZYSpreadButton alloc]initWithBackgroundImage:plusImage highlightImage:nil position:CGPointMake(IPHONE_WIDTH-30, IPHONE_HEIGHT-30)];
+    [plus setSubButtons:@[addAccount,addMemorandum]];
+    [self.view addSubview:plus];
+    self.plusBtn = plus;
+    
+    plus.direction = SpreadDirectionLeftUp;
+    plus.radius = 80;
+    plus.mode = SpreadModeFlowerSpread;
+    plus.positionMode = SpreadPositionModeFixed;
+    
+    
+    [plus setButtonWillSpreadBlock:^(ZYSpreadButton *spreadButton)
+    {
+        
+    }];
+    
+    [plus setButtonDidSpreadBlock:^(ZYSpreadButton *spreadButton)
+    {
+        
+    }];
+    
+    [plus setButtonWillCloseBlock:^(ZYSpreadButton *spreadButton)
+    {
+        
+    }];
+    
+    [plus setButtonDidCloseBlock:^(ZYSpreadButton *spreadButton)
+    {
+        
+    }];
+    
+    
     
     
 }

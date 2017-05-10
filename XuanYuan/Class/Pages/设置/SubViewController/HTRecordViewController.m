@@ -9,10 +9,11 @@
 #import "HTRecordViewController.h"
 #import "HTCheckPasswordErrorModel.h"
 #import "HTAccessView.h"
+#import "HTDataBaseManager.h"
 
 @interface HTRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,copy) NSArray<HTCheckPasswordErrorModel *> *dataArray;
+@property (nonatomic,copy) NSMutableArray<HTCheckPasswordErrorModel *> *dataArray;
 
 @property (nonatomic,weak) UITableView *tableView;
 
@@ -22,10 +23,11 @@
 
 @implementation HTRecordViewController
 
--(NSArray *)dataArray
+-(NSMutableArray *)dataArray
 {
     if (_dataArray == nil) {
-        _dataArray = [HTCheckPasswordErrorModel getModelArray];
+        NSArray *array = [HTCheckPasswordErrorModel getModelArray];
+        _dataArray = [NSMutableArray arrayWithArray:array];
     }
     return _dataArray;
 }
@@ -88,9 +90,7 @@
     HTCheckPasswordErrorModel *model = self.dataArray[indexPath.row];
     UIImage *image = [HTCheckPasswordErrorModel stringToImage:model.imageString];
     
-    UIImage *newImage = [HTTools ht_returnImage:image BySize:CGSizeMake(40*image.size.width/image.size.height, 40)];
-    
-    cell.imageView.image = newImage;
+    cell.imageView.image = image;
     
     cell.textLabel.text = model.location;
     
@@ -103,9 +103,41 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIImageView *imageView = cell.imageView;
+    [[JJPhotoManeger maneger]showLocalPhotoViewer:@[imageView] selecView:imageView];
 
 }
 
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeakSelf(self);
+    HTCheckPasswordErrorModel *model = self.dataArray[indexPath.row];
+    UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        [weakself deleteRecord:model];
+    }];
+    
+    return @[action];
+    
+}
+
+-(void)deleteRecord:(HTCheckPasswordErrorModel *)model
+{
+    
+    [self.dataArray removeObject:model];
+    [self.tableView cyl_reloadData];
+    
+    HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
+    [manager deleteErrorPasswordWarningListByModel:model];
+    
+
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
