@@ -35,6 +35,8 @@
 #import "CYLTableViewPlaceHolder.h"     //空tableView展示
 #import "ShareActionView.h"
 #import "JJPhotoManeger.h"
+#import "YYText.h"
+
 
 #import "CYTabBarController.h"
 #import "ZYSpreadButton.h"

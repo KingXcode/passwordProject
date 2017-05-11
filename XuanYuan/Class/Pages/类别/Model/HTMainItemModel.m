@@ -100,6 +100,21 @@
     return hint;
 }
 
+-(HTItemCheck)checkNotes
+{
+    BOOL checkRemark  = [HTTools ht_isBlankString:_remarks];
+    
+    if (checkRemark) {
+        
+        return HTItemCheckErrorAll;
+        
+    }else
+    {
+        return HTItemCheckSucceed;
+    }
+    
+}
+
 -(HTItemCheck)checkAccountAndPassWord
 {
     BOOL checkTitle   = [HTTools ht_isBlankString:_accountTitle];

@@ -12,6 +12,7 @@
 @interface ClassificationCell()
 @property (weak, nonatomic) IBOutlet UIImageView *ht_typeIcon;
 @property (weak, nonatomic) IBOutlet UILabel *ht_title;
+
 @property (weak, nonatomic) IBOutlet UILabel *ht_account;
 @property (weak, nonatomic) IBOutlet UIImageView *ht_accountImageView;
 
@@ -61,6 +62,30 @@
 -(void)setModel:(ClassificationModel *)model
 {
     _model = model;
+    
+    NSString *noteTitle;
+    if (model.iconType == 1000) {
+        self.ht_account.hidden = NO;
+        self.ht_accountImageView.hidden = NO;
+        
+        self.ht_password.hidden = YES;
+        self.ht_passwordImageView.hidden = YES;
+        
+        noteTitle = model.account;
+        
+    }else
+    {
+        self.ht_account.hidden = NO;
+        self.ht_accountImageView.hidden = NO;
+        
+        self.ht_password.hidden = NO;
+        self.ht_passwordImageView.hidden = NO;
+        
+        noteTitle = @"备注:";
+
+    }
+    
+    
     self.ht_typeIcon.image = [UIImage imageNamed:[NSString stringWithFormat:@"type_%ld",(long)_model.iconType]];
     self.ht_title.text   = [NSString stringWithFormat:@"%@",_model.accountTitle];
     self.ht_account.text = [NSString stringWithFormat:@"%@",model.account];
@@ -107,7 +132,7 @@
     if (![HTTools ht_isBlankString:model.remarks]) {
         
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(x, flagY, w, h)];
-        label.text = @"备注:";
+        label.text = noteTitle;
         label.textAlignment = NSTextAlignmentLeft;
         label.textColor = MainTextColor;
         label.font = [UIFont boldSystemFontOfSize:15];

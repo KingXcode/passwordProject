@@ -56,6 +56,7 @@ typedef NS_ENUM(NSUInteger, HTItemCheck) {
 /**
  验证输入是否为空
  */
+-(HTItemCheck)checkNotes;
 -(HTItemCheck)checkAccountAndPassWord;
 
 /**

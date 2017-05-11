@@ -736,6 +736,41 @@
             </objects>
             <point key="canvasLocation" x="226" y="-513"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="obA-i9-X3V">
+            <objects>
+                <navigationController storyboardIdentifier="notesHTNavigationController" id="ace-vx-p8C" customClass="HTNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4cc-p1-g2I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eiZ-iC-axM" kind="relationship" relationship="rootViewController" id="xgh-sS-gk9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZ7-e3-Pdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="-1191"/>
+        </scene>
+        <!--Notes View Controller-->
+        <scene sceneID="Qer-94-UaP">
+            <objects>
+                <viewController storyboardIdentifier="HTNotesViewController" id="eiZ-iC-axM" customClass="HTNotesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="20h-F6-747"/>
+                        <viewControllerLayoutGuide type="bottom" id="7id-cE-DyY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2gd-sw-8MC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wMz-Cz-7hC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="poV-xM-qga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1677" y="-1191"/>
+        </scene>
         <!--Collect View Controller-->
         <scene sceneID="AP2-dN-0nW">
             <objects>

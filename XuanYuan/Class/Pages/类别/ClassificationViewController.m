@@ -80,8 +80,9 @@
     memorandumImage = [memorandumImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     ZYSpreadSubButton *addMemorandum = [[ZYSpreadSubButton alloc]initWithBackgroundImage:memorandumImage highlightImage:nil clickedBlock:^(int index, UIButton *sender) {
         
-        
-        
+        HTNavigationController *nav = instantiateStoryboardControllerWithIdentifier(@"notesHTNavigationController");
+        [weakself presentViewController:nav animated:YES completion:nil];
+
     }];
     addMemorandum.bounds = CGRectMake(0, 0, 30, 30);
     addMemorandum.tintColor = MainRGB;
@@ -118,9 +119,6 @@
     {
         
     }];
-    
-    
-    
     
 }
 

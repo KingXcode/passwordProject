@@ -24,7 +24,7 @@
 
     [self setTitleLabel];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back-返回"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_shanchu_nor"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack)];
 
 }
 
@@ -49,6 +49,12 @@
     [super setTitle:title];
     self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

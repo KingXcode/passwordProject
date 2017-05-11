@@ -78,7 +78,7 @@
     
 }
 
-#define kTypeImageCount 9
+#define kTypeImageCount 20
 -(NSMutableArray *)dataArray
 {
     if (_dataArray == nil) {
