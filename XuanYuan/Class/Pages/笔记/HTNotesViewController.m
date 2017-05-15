@@ -7,7 +7,6 @@
 //
 
 #import "HTNotesViewController.h"
-#import "HTMainItemModel.h"
 
 @interface HTNotesViewController ()<YYTextViewDelegate,UITextFieldDelegate>
 @property (nonatomic,weak)YYTextView *textView;
@@ -19,7 +18,6 @@
 @property (nonatomic,strong) UIBarButtonItem *finishBarbutton;
 @property (nonatomic,strong) UIBarButtonItem *saveBarbutton;
 
-@property (nonatomic,strong) HTMainItemModel *model;
 
 
 @end
@@ -59,7 +57,17 @@
 //保存笔记
 -(void)saveNote
 {
-    [self.model saveObject];
+    if ([HTTools ht_isBlankString:self.model.accountTitle]||self.model.accountTitle.length<1) {
+        NSArray *arr = [HTMainItemModel getNotesModelArray];
+        if (arr.count>0) {
+            self.model.accountTitle = [NSString stringWithFormat:@"%@(%lud)",@"新建备忘录",(unsigned long)arr.count];
+        }else
+        {
+            self.model.accountTitle = [NSString stringWithFormat:@"%@",@"新建备忘录"];
+        }
+    }
+    
+    [self.model saveNotes];
     [[NSNotificationCenter defaultCenter]postNotificationName:kReloadClassification_Noti object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -98,7 +106,7 @@
     {
         self.navigationItem.rightBarButtonItem = self.saveBarbutton;
 
-        self.saveBarbutton.enabled = (self.textField.text.length>0)&&(self.textView.text.length>0);
+        self.saveBarbutton.enabled = (self.textView.text.length>0);
 
     }
     
@@ -126,9 +134,8 @@
     }];
     
     [self.toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.textView.mas_bottom);
+        make.top.mas_equalTo(self.textView.mas_bottom).mas_offset(35);
         make.left.right.bottom.equalTo(self.view);
-        
     }];
     
 }
@@ -155,14 +162,20 @@
     textView.scrollIndicatorInsets = textView.contentInset;
     textView.font = [UIFont boldSystemFontOfSize:15];
     textView.tintColor = MainRGB;
-    textView.placeholderText = @"请输入文字";
     textView.placeholderFont = [UIFont systemFontOfSize:15];
     textView.placeholderTextColor = MainTextColor;
-    [textView ht_setBorderWidth:1 Color:MainTextColor];
-    [textView ht_setCornerRadius:8];
+    [textView becomeFirstResponder];
     
     textView.delegate = self;
     self.textView = textView;
+    
+    if (![HTTools ht_isBlankString:self.model.accountTitle]) {
+        self.textField.text = self.model.accountTitle;
+    }
+    
+    if (![HTTools ht_isBlankString:self.model.remarks]) {
+        textView.text = self.model.remarks;
+    }
     
 
     //暂时不需要这个

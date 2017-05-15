@@ -215,6 +215,23 @@
 
 
 
+
+-(void)isDebug:(BOOL)isDebug
+{
+    NSNumber *isDebugMode = [NSNumber numberWithBool:isDebug];
+    [[NSUserDefaults standardUserDefaults] setObject:isDebugMode forKey:kStartDeBugUserDefaults];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+-(BOOL)isDebug
+{
+    NSNumber *isDebugMode = [[NSUserDefaults standardUserDefaults] objectForKey:kStartDeBugUserDefaults];
+    return isDebugMode.boolValue;
+}
+
+
+
+
+
 static HTConfigManager *sharedconfigManager = nil;
 
 + (instancetype)sharedconfigManager

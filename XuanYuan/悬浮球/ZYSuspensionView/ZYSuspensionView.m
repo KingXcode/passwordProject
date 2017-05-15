@@ -11,7 +11,7 @@
 #import "NSObject+ZYSuspensionView.h"
 #import "ZYSuspensionManager.h"
 
-#define kLeanProportion (8/55.0)
+#define kLeanProportion (0/55.0)
 #define kVerticalMargin 15.0
 
 @implementation ZYSuspensionContainer

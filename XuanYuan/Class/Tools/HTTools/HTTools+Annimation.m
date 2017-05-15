@@ -160,4 +160,26 @@ NSString *const kFromBottomDirection    = @"fromBottom";
 }
 
 
+
++(void)CATransform3DScaleVerticalView:(UIView *)view
+{
+    [self CATransform3DScaleVerticalView:view Duration:0.4f];
+}
+
++(void)CATransform3DScaleVerticalView:(UIView *)view Duration:(NSTimeInterval)duration
+{
+    CATransform3D transform = CATransform3DIdentity;
+    transform = CATransform3DScale(transform, 1, 0, 1);
+    view.layer.opacity = 0;
+    view.layer.transform = transform;
+    
+    [UIView animateWithDuration:duration animations:^{
+        view.layer.transform = CATransform3DIdentity;
+        view.layer.opacity = 1;
+    }];
+}
+
+
+
+
 @end

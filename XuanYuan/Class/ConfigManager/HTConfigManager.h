@@ -97,4 +97,12 @@
 
 
 
+/**
+ 启用调试模式
+ */
+-(void)isDebug:(BOOL)isDebug;
+-(BOOL)isDebug;
+
+
+
 @end

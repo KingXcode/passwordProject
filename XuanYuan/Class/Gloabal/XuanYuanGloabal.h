@@ -20,6 +20,8 @@
 #define kStartPasswordUserDefaults @"kStartPasswordUserDefaults"
 //启用touchID @YES--启用   @NO-关闭
 #define kStartTouchIDUserDefaults @"kStartTouchIDUserDefaults"
+//是否启用调试模式  @YES--启用   @NO-关闭
+#define kStartDeBugUserDefaults @"kStartDeBugUserDefaults"
 //启用三方键盘
 #define kAllowThirdKeyboardUserDefaults @"kAllowThirdKeyboardUserDefaults"
 //入侵记录InvadeRecord

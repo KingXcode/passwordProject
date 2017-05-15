@@ -30,22 +30,21 @@
     
     
     
-//    if (DEBUG) {
-//        UIScreenEdgePanGestureRecognizer* screenEdgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(action:)];
-//        screenEdgePan.edges = UIRectEdgeLeft;
-//        [self.view addGestureRecognizer:screenEdgePan];
-//    }
+    UIScreenEdgePanGestureRecognizer* screenEdgePan = [[UIScreenEdgePanGestureRecognizer alloc]initWithTarget:self action:@selector(action:)];
+    screenEdgePan.edges = UIRectEdgeLeft;
+    [self.view addGestureRecognizer:screenEdgePan];
 
 }
 
 
-//-(void)action:(UIScreenEdgePanGestureRecognizer*)sender{
-//    if (sender.edges == UIRectEdgeLeft) {
-//        if ([ZYTestManager shareInstance].isExist == NO) {
-//            [TestManagerConfig setupTestManager];
-//        }
-//    }
-//}
+-(void)action:(UIScreenEdgePanGestureRecognizer*)sender{
+    BOOL isDebug = [MainConfigManager isDebug];
+    if (sender.edges == UIRectEdgeLeft) {
+        if ([ZYTestManager shareInstance].isExist == NO && isDebug) {
+            [TestManagerConfig setupTestManager];
+        }
+    }
+}
 
 
 

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTMainItemModel.h"
+
 
 @interface HTNotesViewController : HTBaseViewController
 
-@property (nonatomic,assign)BOOL isEdit;
+//传入这个值就是编辑
+//不传入就是新建
+@property (nonatomic,strong) HTMainItemModel *model;
 
 @end

@@ -50,6 +50,16 @@
  */
 -(void)clickTopButton
 {
+    
+    BOOL isDebug = [MainConfigManager isDebug];
+    if (isDebug) {
+        [self.view makeToast:@"关闭DebugMode" duration:1 position:[NSValue valueWithCGPoint:CGPointMake(IPHONE_WIDTH*0.5, IPHONE_HEIGHT*0.5)]];
+    }else
+    {
+        [self.view makeToast:@"启用DebugMode" duration:1 position:[NSValue valueWithCGPoint:CGPointMake(IPHONE_WIDTH*0.5, IPHONE_HEIGHT*0.5)]];
+    }
+    [MainConfigManager isDebug:!isDebug];
+
 
 }
 
@@ -73,12 +83,17 @@
     [titleButton setBackgroundImage:[HTTools ht_createImageWithColor:RGBA(34, 34, 34, 0.3)] forState:UIControlStateHighlighted];
     titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     [titleButton setContentEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-    [titleButton addTarget:self action:@selector(clickTopButton) forControlEvents:UIControlEventTouchUpInside];
     titleButton.layer.cornerRadius = 4;
     titleButton.layer.masksToBounds = YES;
     [titleButton sizeToFit];
     self.navigationItem.titleView = titleButton;
     self.titleButton = titleButton;
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickTopButton)];
+    tap.numberOfTapsRequired = 5;
+    [titleButton addGestureRecognizer:tap];
+    
 }
 
 -(void)setTitle:(NSString *)title

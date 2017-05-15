@@ -9,9 +9,23 @@
 #import "ClassificationConfig.h"
 
 #import "XuanYuanGloabal.h"
+#import "HTNotesViewController.h"
+
+#define HeaderHeight 40
+#define FooterHeight 4
 
 
 @interface ClassificationConfig()<UITableViewDelegate,UITableViewDataSource,UIViewControllerPreviewingDelegate>
+
+@property (nonatomic,readonly,copy)NSArray *mainArray;//实例对象始终是空的   我这里只是用到了点语法的get方法
+@property (nonatomic,strong)NSMutableArray<ClassificationModel *> *accountArray;
+@property (nonatomic,strong)NSMutableArray<ClassificationModel *> *notesArray;
+
+@property (nonatomic,strong)UITableView *tableView;
+
+@property (nonatomic,weak)UIViewController *controller;
+
+@property (nonatomic,assign) BOOL isHiddenNotes;
 
 @end
 
@@ -31,6 +45,7 @@
     if (self) {
         
         _controller = controller;
+        _isHiddenNotes = NO;
         
     }
     return self;
@@ -48,8 +63,7 @@
     }];
     
     [self configDataNoRefresh];
-    [self.tableView reloadDataWithDirectionType:ZPReloadAnimationDirectionBottom AnimationTimeNum:0.5 interval:0.05];
-    
+    [self.tableView reloadDataWithDirectionType:ZPReloadAnimationDirectionRight AnimationTimeNum:0.5 interval:0.05];
 }
 
 -(void)removeSubView
@@ -82,22 +96,47 @@
 -(void)configDataNoRefresh
 {
     
-    [_dataArray removeAllObjects];
-    [_dataArray addObjectsFromArray:[ClassificationModel getMainModelArray]];
+    [_accountArray removeAllObjects];
+    [_accountArray addObjectsFromArray:[ClassificationModel getMainModelArray]];
+    
+    [_notesArray removeAllObjects];
+    [_notesArray addObjectsFromArray:[ClassificationModel getNotesModelArray]];
 
 }
-
-
-
-
-
-
--(NSMutableArray *)dataArray
+-(BOOL)isHiddenNotes
 {
-    if (_dataArray == nil) {
-        _dataArray = [NSMutableArray array];
+    if (self.notesArray.count<=0) {
+        _isHiddenNotes = NO;
     }
-    return _dataArray;
+    return _isHiddenNotes;
+}
+-(NSArray *)mainArray
+{
+    
+    if (self.isHiddenNotes) {
+        
+        return @[@[],self.accountArray];
+
+    }else
+    {
+        return @[self.notesArray,self.accountArray];
+    }
+}
+
+-(NSMutableArray<ClassificationModel *> *)notesArray
+{
+    if (_notesArray == nil) {
+        _notesArray = [NSMutableArray array];
+    }
+    return _notesArray;
+}
+
+-(NSMutableArray<ClassificationModel *> *)accountArray
+{
+    if (_accountArray == nil) {
+        _accountArray = [NSMutableArray array];
+    }
+    return _accountArray;
 }
 
 -(UITableView *)tableView
@@ -133,33 +172,100 @@
 
 //MARK: - TableView数据源方法-代理方法
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return;
+    return HeaderHeight;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return FooterHeight;
+}
+//无效
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        
+        return @"备忘录";
+        
+    }else if (section == 1)
+    {
+        return @"账号";
+    }
+    return @"";
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    //这里说实话  我只想乱写  应该是要单独封装一个view的
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor whiteColor];
+    UIImageView *imageView = [[UIImageView alloc]init];
+    UILabel *label = [[UILabel alloc]init];
+    label.font = [UIFont boldSystemFontOfSize:16];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = MainTextColor;
+    [view addSubview:imageView];
+    [view addSubview:label];
+    
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(view);
+        make.right.equalTo(view).mas_offset(-8);
+    }];
+    
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(view);
+        make.left.equalTo(view).mas_offset(8);
+        make.width.height.mas_equalTo(HeaderHeight-8);
+    }];
+    
+    
+
+    if (section == 0) {//add_笔记   备忘录
+        [view addClickBlock:^(id obj) {
+            self.isHiddenNotes = !self.isHiddenNotes;
+            [tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
+                     withRowAnimation:UITableViewRowAnimationNone];
+            
+        }];
+        label.text = @"备忘录";
+        imageView.image = [UIImage imageNamed:@"add_笔记"];
+
+        return view;
+        
+    }else if (section == 1)//add_账号   账号
+    {
+        label.text = @"账号";
+        imageView.image = [UIImage imageNamed:@"add_账号"];
+
+        return view;
+    }
+    return [UIView new];
+}
+
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.mainArray.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArray.count;
+    NSArray *arr = self.mainArray[section];
+    return arr.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ClassificationModel *model = self.dataArray[indexPath.row];
-    
+    NSArray<ClassificationModel *> *arr = self.mainArray[indexPath.section];
+    ClassificationModel *model = arr[indexPath.row];
     return model.cellHeight;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ClassificationModel *model = self.dataArray[indexPath.row];
-    
+    NSArray<ClassificationModel *> *arr = self.mainArray[indexPath.section];
+    ClassificationModel *model = arr[indexPath.row];
     ClassificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     cell.model = model;
@@ -180,39 +286,45 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ClassificationModel *model = self.dataArray[indexPath.row];
+    NSArray<ClassificationModel *> *arr = self.mainArray[indexPath.section];
+    ClassificationModel *model = arr[indexPath.row];
     model.selectState = !model.selectState;
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+             withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ClassificationModel *model = self.dataArray[indexPath.row];
+    NSArray<ClassificationModel *> *arr = self.mainArray[indexPath.section];
+    ClassificationModel *model = arr[indexPath.row];
     if (model.selectState == YES) {
         return NO;
     }else
     {
         return YES;
-        
     }
     
 }
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ClassificationModel *model = self.dataArray[indexPath.row];
+    
+    NSArray<ClassificationModel *> *arr = self.mainArray[indexPath.section];
+
+    ClassificationModel *model = arr[indexPath.row];
     __weak typeof(self) __self = self;
     
     UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
-        [__self deleteAccount:model];
+        [__self deleteAccount:model AtIndexPath:indexPath];
         
         
     }];
     
     UITableViewRowAction *action3 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"编辑" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         
-        [__self editAccount:model];
+        [__self editAccount:model AtIndexPath:indexPath];
         
     }];
     
@@ -220,7 +332,7 @@
         
         UITableViewRowAction *action2 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"取消收藏" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
             model.isCollect = NO;
-            [__self collectAccount:model];
+            [__self collectAccount:model AtIndexPath:indexPath];
             [__self configData];
         }];
         action2.backgroundColor = MainCollectColor;
@@ -231,7 +343,7 @@
     {
         UITableViewRowAction *action1 = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"收藏" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
             model.isCollect = YES;
-            [__self collectAccount:model];
+            [__self collectAccount:model AtIndexPath:indexPath];
             [__self configData];
         }];
         action1.backgroundColor = MainCollectColor;
@@ -243,12 +355,23 @@
 /**
  编辑
  */
--(void)editAccount:(ClassificationModel *)model
+-(void)editAccount:(ClassificationModel *)model AtIndexPath:(NSIndexPath *)indexPath
 {
-    HTEditItemsViewController *vc = [[HTEditItemsViewController alloc]init];
-    vc.MainModel = model;
-    HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
-    [self.controller presentViewController:nav animated:YES completion:nil];
+    if (indexPath.section == 0)
+    {
+        HTNotesViewController *vc = [[HTNotesViewController alloc]init];
+        vc.model = model;
+        HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+        [self.controller presentViewController:nav animated:YES completion:nil];
+    }
+    else if (indexPath.section == 1)
+    {
+        HTEditItemsViewController *vc = [[HTEditItemsViewController alloc]init];
+        vc.MainModel = model;
+        HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+        [self.controller presentViewController:nav animated:YES completion:nil];
+    }
+
 
 }
 
@@ -256,28 +379,52 @@
 /**
  删除
  */
--(void)deleteAccount:(ClassificationModel *)model
+-(void)deleteAccount:(ClassificationModel *)model AtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.dataArray removeObject:model];
-    [self reloadMyTableView];
-    
     HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
-    [manager deleteAccountListByModel:model];
-    
-    if (model.isCollect) {
-        [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+
+    if (indexPath.section == 0) {
+        
+        [self.notesArray removeObject:model];
+        [self reloadMyTableView];
+        [manager deleteNotesListByModel:model];
+        if (model.isCollect) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+        }
+        
     }
+    else if (indexPath.section == 1)
+    {
+        [self.accountArray removeObject:model];
+        [self reloadMyTableView];
+        [manager deleteAccountListByModel:model];
+        if (model.isCollect) {
+            [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+        }
+    }
+    
+
 }
 
 
 /**
  收藏  取消收藏
  */
--(void)collectAccount:(ClassificationModel *)model
+-(void)collectAccount:(ClassificationModel *)model AtIndexPath:(NSIndexPath *)indexPath
 {
     HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
-    [manager updataAccountListByModel:model];
-    [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+
+    if (indexPath.section == 0) {
+        [manager updataNotesListByModel:model];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+
+    }
+    else if (indexPath.section ==1)
+    {
+        [manager updataAccountListByModel:model];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kReloadCollect_Noti object:nil];
+    }
+
 }
 
 

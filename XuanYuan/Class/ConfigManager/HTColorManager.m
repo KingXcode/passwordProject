@@ -45,6 +45,11 @@
     return [UIColor groupTableViewBackgroundColor];
 }
 
+-(UIColor *)mainCoverColor
+{
+    return [UIColor darkGrayColor];
+}
+
 
 
 static HTColorManager *sharedColorManager = nil;

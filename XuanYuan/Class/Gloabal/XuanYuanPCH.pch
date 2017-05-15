@@ -36,6 +36,7 @@
 #import "ShareActionView.h"
 #import "JJPhotoManeger.h"
 #import "YYText.h"
+#import "UIView+Toast.h"
 
 
 #import "CYTabBarController.h"

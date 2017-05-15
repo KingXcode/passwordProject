@@ -73,6 +73,7 @@
         UITableView *tableView = [[UITableView alloc] initWithFrame:[self tableFrame] style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.dataSource = self;
+        tableView.bounces = NO;
         [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         tableView.layer.cornerRadius = 2;
         tableView.clipsToBounds = YES;
@@ -86,10 +87,10 @@
         if (!headerView) {
             UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
             titleLabel.textAlignment = NSTextAlignmentCenter;
-            titleLabel.text = @"快捷操作";
+            titleLabel.text = @"DeBug-Mode";
             titleLabel.font = [UIFont systemFontOfSize:17];
             titleLabel.textColor = [UIColor whiteColor];
-            titleLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:.6];
+            titleLabel.backgroundColor = MainRGB;//[[UIColor blueColor] colorWithAlphaComponent:.6];
             headerView = titleLabel;
         }
         _tableView.tableHeaderView = headerView;

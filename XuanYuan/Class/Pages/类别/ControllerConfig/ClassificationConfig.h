@@ -19,11 +19,9 @@
 
 @interface ClassificationConfig : NSObject
 
-@property (nonatomic,strong)NSMutableArray<ClassificationModel *> *dataArray;
-@property (nonatomic,strong)UITableView *tableView;
-
-@property (nonatomic,weak)UIViewController *controller;
 @property (nonatomic,strong)UIView *view;
+
+
 - (instancetype)initWithController:(UIViewController *)controller;
 
 /**

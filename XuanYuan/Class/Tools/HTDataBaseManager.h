@@ -20,23 +20,27 @@
 //更新/写入数据
 -(void)updataAccountListByModel:(HTMainItemModel *)model;
 -(void)deleteAccountListByModel:(HTMainItemModel *)model;
-
 //获取搜素信息
 -(NSArray*)getAccountList;
 -(NSArray*)getcollectList;
-
 //清空Search表
 -(void)clearAccountList;
 
 
 -(void)updataErrorPasswordWarningListByModel:(HTCheckPasswordErrorModel *)model;
 -(void)deleteErrorPasswordWarningListByModel:(HTCheckPasswordErrorModel *)model;
-
 -(NSArray*)getErrorPasswordWarningList;
 -(void)clearErrorPassword;
 
 
 
+
+
+
+-(void)updataNotesListByModel:(HTMainItemModel *)model;
+-(void)deleteNotesListByModel:(HTMainItemModel *)model;
+-(NSArray*)getNotesList;
+-(void)clearNotesList;
 
 
 @end

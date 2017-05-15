@@ -73,8 +73,8 @@
         HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
         [weakself presentViewController:nav animated:YES completion:nil];
     }];
-    addAccount.bounds = CGRectMake(0, 0, 30, 30);
-    addAccount.tintColor = MainRGB;
+    addAccount.bounds = CGRectMake(0, 0, 34, 34);
+    addAccount.tintColor = MainTextWhiteColor;
     
     UIImage *memorandumImage = [UIImage imageNamed:@"add_笔记"];
     memorandumImage = [memorandumImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -84,21 +84,22 @@
         [weakself presentViewController:nav animated:YES completion:nil];
 
     }];
-    addMemorandum.bounds = CGRectMake(0, 0, 30, 30);
-    addMemorandum.tintColor = MainRGB;
+    addMemorandum.bounds = CGRectMake(0, 0, 34, 34);
+    addMemorandum.tintColor = MainTextWhiteColor;
 
     UIImage *plusImage = [UIImage imageNamed:@"add_post_animate"];
     plusImage = [plusImage imageWithRenderingMode:UIImageRenderingModeAutomatic];
-    ZYSpreadButton *plus = [[ZYSpreadButton alloc]initWithBackgroundImage:plusImage highlightImage:nil position:CGPointMake(IPHONE_WIDTH-30, IPHONE_HEIGHT-30)];
+    ZYSpreadButton *plus = [[ZYSpreadButton alloc]initWithBackgroundImage:plusImage highlightImage:nil position:CGPointMake(IPHONE_WIDTH*0.5, IPHONE_HEIGHT-30)];
     [plus setSubButtons:@[addAccount,addMemorandum]];
     [self.view addSubview:plus];
     self.plusBtn = plus;
     
-    plus.direction = SpreadDirectionLeftUp;
+    plus.direction = SpreadDirectionTop;
     plus.radius = 80;
     plus.mode = SpreadModeFlowerSpread;
     plus.positionMode = SpreadPositionModeFixed;
-    
+    plus.coverColor = [MainColorManager mainCoverColor];
+    plus.coverAlpha = 0.6;
     
     [plus setButtonWillSpreadBlock:^(ZYSpreadButton *spreadButton)
     {

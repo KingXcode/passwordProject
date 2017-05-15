@@ -90,7 +90,7 @@ static ZYTestManager *_instance;
     }
     ZYSuspensionView *sus = [ZYSuspensionView defaultSuspensionViewWithDelegate:[ZYTestManager shareInstance]];
 //    [sus setTitle:@"Test" forState:UIControlStateNormal];
-    [sus setBackgroundImage:[UIImage imageNamed:@"testIcon"] forState:UIControlStateNormal];
+    [sus setBackgroundImage:[UIImage imageNamed:@"add_账号"] forState:UIControlStateNormal];
     [sus show];
     [ZYTestManager shareInstance].susView = sus;
     [ZYTestManager shareInstance].isExist = YES;

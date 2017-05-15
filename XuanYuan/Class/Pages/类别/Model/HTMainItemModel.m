@@ -55,9 +55,16 @@
 {
     HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
     NSArray *list = [manager getcollectList];
-    
     NSArray *newArray = [[self class] mj_objectArrayWithKeyValuesArray:list];
-    
+    return newArray;
+}
+
++(NSArray *)getNotesModelArray
+{
+    HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
+    NSArray *list = [manager getNotesList];
+    NSArray *newArray = [[self class] mj_objectArrayWithKeyValuesArray:list];
+    newArray = [HTTools ht_SortModelArrar:newArray info:@{@"ID.integerValue":[NSNumber numberWithBool:NO]}];
     return newArray;
 }
 
@@ -149,5 +156,13 @@
 
     [manager updataAccountListByModel:self];
 }
+
+-(void)saveNotes
+{
+    HTDataBaseManager *manager = [HTDataBaseManager sharedInstance];
+    [manager updataNotesListByModel:self];
+}
+
+
 
 @end

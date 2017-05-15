@@ -72,10 +72,17 @@ typedef NS_ENUM(NSUInteger, HTItemCheck) {
 
 
 /**
+ 作为备忘录保存
+ */
+-(void)saveNotes;
+
+
+/**
  获取数据库中的所有账号数据,并转化为模型数组
  */
 +(NSArray *)getMainModelArray;
 +(NSArray *)getCollectModelArray;
++(NSArray *)getNotesModelArray;
 
 
 

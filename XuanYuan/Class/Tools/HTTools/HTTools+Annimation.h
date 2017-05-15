@@ -41,6 +41,14 @@ extern NSString *const kFromBottomDirection;
 
 
 /**
+ 竖直缩放
+ */
++(void)CATransform3DScaleVerticalView:(UIView *)view;
++(void)CATransform3DScaleVerticalView:(UIView *)view Duration:(NSTimeInterval)duration;
+
+
+
+/**
  抖动
  */
 +(void)shakeAnnimation:(UIView *)view completion:(void (^)(BOOL finished))completion;

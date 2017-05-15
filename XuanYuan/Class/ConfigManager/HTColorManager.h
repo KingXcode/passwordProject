@@ -17,4 +17,5 @@
 -(UIColor *)mainTextWhiteColor;
 -(UIColor *)mainCollectColor;
 -(UIColor *)mainTableViewBackgroundColor;
+-(UIColor *)mainCoverColor;
 @end

@@ -13,6 +13,9 @@
 #import "HTEditItemsViewController.h"
 #import "DetailCopyViewController.h"
 
+
+#import "HTDatePickerView.h"
+
 @interface CollectViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,weak)UIButton *titleButton;
@@ -121,23 +124,14 @@
  */
 -(void)clickTopButton
 {
+    HTDatePickerView *picker = [HTDatePickerView pickerView];
     
-//    PopoverAction *action = [PopoverAction actionWithTitle:@"全部账号"
-//                                                   handler:^(PopoverAction *action) {
-//                                                       HTTabBarController *tab = MainRootTabbarController;
-//                                                       [tab.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"push" direction:@"fromBottom" time:0.4] forKey:nil];
-//                                                       tab.selectedIndex = 1;
-//                                                   }];
-//    
-//    PopoverView *pop = [PopoverView popoverView];
-//    pop.showShade = YES;
-//    [pop showToView:self.titleButton withActions:@[action]];
+    [picker showSelectYear:2015 AndMonth:5 ToView:self.view position:CGPointMake(IPHONE_WIDTH*0.5, 100)];
 }
 
 -(void)configData
 {
-    [_dataArray removeAllObjects];
-    [_dataArray addObjectsFromArray:[ClassificationModel getCollectModelArray]];
+    [self configDataNoRefresh];
     [self reloadMyTableView];
 }
 

@@ -18,6 +18,9 @@
 
 @property (nonatomic,copy) NSString *accountList;
 
+@property (nonatomic,copy) NSString *notesList;
+
+
 @property (nonatomic,copy) NSString *errorPasswordWarningList;//入侵记录表
 
 
@@ -47,14 +50,16 @@
 -(instancetype)init{
     if (self = [super init]) {
         //创建数据库文件
-//        _store = [[YTKKeyValueStore alloc] initDBWithName:@"xuanyuanData.db"];
-        
         NSString *path = [[HTTools ht_sandbox_getLibrary_Cache] stringByAppendingPathComponent:@"weimiData.db"];
         _store = [[YTKKeyValueStore alloc] initWithDBWithPath:path];
         
         //创建 账号信息表
         _accountList = @"accountList_table";
         [_store createTableWithName:_accountList];
+        
+        //创建 备忘录表
+        _notesList = @"notesList_table";
+        [_store createTableWithName:_notesList];
         
 
         //入侵记录表
@@ -111,19 +116,28 @@
 
 -(NSArray*)getcollectList
 {
-    NSArray *arr = [_store getAllItemsFromTable:_accountList];
-    
+    NSArray *collectArr = [_store getAllItemsFromTable:_accountList];
+    NSArray *notesArr   = [_store getAllItemsFromTable:_notesList];
     NSMutableArray *newList = [NSMutableArray array];
     
-    for (YTKKeyValueItem *item in arr) {
+    for (YTKKeyValueItem *item in collectArr) {
         NSDictionary *dict = item.itemObject;
         NSDictionary *newDict = [HTEncryptionAndDecryption DecryptionDict:dict];
 
         if ([newDict[@"isCollect"] boolValue] == YES) {
             [newList addObject:newDict];
         }
-        
     }
+    
+    for (YTKKeyValueItem *item in notesArr) {
+        NSDictionary *dict = item.itemObject;
+        NSDictionary *newDict = [HTEncryptionAndDecryption DecryptionDict:dict];
+        
+        if ([newDict[@"isCollect"] boolValue] == YES) {
+            [newList addObject:newDict];
+        }
+    }
+    
     return newList;
 }
 
@@ -175,6 +189,58 @@
 {
     [_store clearTable:_errorPasswordWarningList];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+-(void)updataNotesListByModel:(HTMainItemModel *)model
+{
+    NSMutableDictionary *modelDict = model.mj_keyValues;
+    
+    NSDictionary *newModelDict = [HTEncryptionAndDecryption EncryptionDict:modelDict];
+    
+    [_store putObject:newModelDict withId:model.ID intoTable:_notesList];
+}
+
+-(void)deleteNotesListByModel:(HTMainItemModel *)model
+{
+    [_store deleteObjectById:model.ID fromTable:_notesList];
+}
+
+-(NSArray*)getNotesList
+{
+    NSArray *arr = [_store getAllItemsFromTable:_notesList];
+    
+    NSMutableArray *newList = [NSMutableArray array];
+    
+    for (YTKKeyValueItem *item in arr) {
+        if ([item.itemObject isKindOfClass:[NSDictionary class]]) {
+            
+            NSDictionary *dict = item.itemObject;
+            
+            NSDictionary *newDict = [HTEncryptionAndDecryption DecryptionDict:dict];
+            
+            [newList addObject:newDict];
+            
+        }
+        
+    }
+    return newList;
+}
+-(void)clearNotesList
+{
+    [_store clearTable:_notesList];
+}
+
 
 
 

@@ -65,8 +65,8 @@
     
     NSString *noteTitle;
     if (model.iconType == 1000) {
-        self.ht_account.hidden = NO;
-        self.ht_accountImageView.hidden = NO;
+        self.ht_account.hidden = YES;
+        self.ht_accountImageView.hidden = YES;
         
         self.ht_password.hidden = YES;
         self.ht_passwordImageView.hidden = YES;
