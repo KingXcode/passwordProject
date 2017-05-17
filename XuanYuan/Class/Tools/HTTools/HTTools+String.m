@@ -12,6 +12,23 @@
 
 @implementation HTTools (String)
 
+
+//移除最后无效的0 保留两位小数
+-(NSString*)ht_removeFloatAllZeroKeeTwoDecimalPlaces:(NSString*)string
+{
+    NSString * testNumber = [NSString stringWithFormat:@"%.2f",string.floatValue];
+    NSString * outNumber = [NSString stringWithFormat:@"%@",@(testNumber.floatValue)];
+    return outNumber;
+}
+//移除无效的0 有效位有多少 保留多少位
+-(NSString*)ht_removeFloatAllZero:(NSString*)string
+{
+    NSString * testNumber = string;
+    NSString * outNumber = [NSString stringWithFormat:@"%@",@(testNumber.floatValue)];
+    return outNumber;
+}
+
+
 //分词 带标点
 + (NSArray *)stringTokenizerWithWord:(NSString *)word
 {

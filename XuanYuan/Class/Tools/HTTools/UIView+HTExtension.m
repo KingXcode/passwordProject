@@ -144,7 +144,7 @@
     
 }
 
--(void)ht_setBorderWidth:(NSInteger)width Color:(UIColor *)color
+-(void)ht_setBorderWidth:(CGFloat)width Color:(UIColor *)color
 {
     if (width>0) {
         self.layer.borderWidth = width;

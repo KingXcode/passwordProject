@@ -58,11 +58,8 @@
     [self setShortcutIcon];
     [self launchCheck];
     
-    
     return YES;
 }
-
-
 
 //进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application {

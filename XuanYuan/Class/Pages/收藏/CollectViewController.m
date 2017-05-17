@@ -14,7 +14,6 @@
 #import "DetailCopyViewController.h"
 
 
-#import "HTDatePickerView.h"
 
 @interface CollectViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -124,9 +123,7 @@
  */
 -(void)clickTopButton
 {
-    HTDatePickerView *picker = [HTDatePickerView pickerView];
-    
-    [picker showSelectYear:2015 AndMonth:5 ToView:self.view position:CGPointMake(IPHONE_WIDTH*0.5, 100)];
+   
 }
 
 -(void)configData

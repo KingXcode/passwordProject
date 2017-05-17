@@ -165,11 +165,8 @@
 		1C95425F1EBB266F0077B6D1 /* UIView+HTExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C95425E1EBB266F0077B6D1 /* UIView+HTExtension.m */; };
 		1C9542661EBB35650077B6D1 /* HTRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9542651EBB35650077B6D1 /* HTRecordViewController.m */; };
 		1C95426A1EBC2B1E0077B6D1 /* HTAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9542691EBC2B1E0077B6D1 /* HTAccessView.m */; };
-		1CA0B0971EC6E465002953B5 /* HTDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0B0951EC6E465002953B5 /* HTDatePickerCell.m */; };
-		1CA0B0981EC6E465002953B5 /* HTDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA0B0961EC6E465002953B5 /* HTDatePickerCell.xib */; };
 		1CA71B421EADF1B80071312F /* ClassificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA71B411EADF1B80071312F /* ClassificationModel.m */; };
 		1CFC9F1D1EC5973600201BFC /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC9F1C1EC5973600201BFC /* UIView+Toast.m */; };
-		1CFC9F211EC5A80000201BFC /* HTDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFC9F201EC5A80000201BFC /* HTDatePickerView.m */; };
 		3778629A3909E5D08534993F /* libPods-XuanYuan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AFDDB9BCECE9A9F0982FF1 /* libPods-XuanYuan.a */; };
 		A59BD631CEC9ECED47C68E92 /* libPods-XuYuanWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC37F6B2F544A6A59E1D2B8 /* libPods-XuYuanWidget.a */; };
 		CB4981E31EA51447000E0792 /* HTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4981E21EA51447000E0792 /* HTBaseViewController.m */; };
@@ -505,15 +502,10 @@
 		1C9542651EBB35650077B6D1 /* HTRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTRecordViewController.m; sourceTree = "<group>"; };
 		1C9542681EBC2B1E0077B6D1 /* HTAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAccessView.h; sourceTree = "<group>"; };
 		1C9542691EBC2B1E0077B6D1 /* HTAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTAccessView.m; sourceTree = "<group>"; };
-		1CA0B0941EC6E465002953B5 /* HTDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDatePickerCell.h; sourceTree = "<group>"; };
-		1CA0B0951EC6E465002953B5 /* HTDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDatePickerCell.m; sourceTree = "<group>"; };
-		1CA0B0961EC6E465002953B5 /* HTDatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDatePickerCell.xib; sourceTree = "<group>"; };
 		1CA71B401EADF1B80071312F /* ClassificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationModel.h; sourceTree = "<group>"; };
 		1CA71B411EADF1B80071312F /* ClassificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationModel.m; sourceTree = "<group>"; };
 		1CFC9F1B1EC5973600201BFC /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		1CFC9F1C1EC5973600201BFC /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
-		1CFC9F1F1EC5A80000201BFC /* HTDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDatePickerView.h; sourceTree = "<group>"; };
-		1CFC9F201EC5A80000201BFC /* HTDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDatePickerView.m; sourceTree = "<group>"; };
 		5E51657CB977E794FA4051C9 /* Pods-XuYuanWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuYuanWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XuYuanWidget/Pods-XuYuanWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		5E541018E405B0B07F091B83 /* Pods-XuYuanWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuYuanWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-XuYuanWidget/Pods-XuYuanWidget.release.xcconfig"; sourceTree = "<group>"; };
 		68CB27532AE44E81173A081E /* Pods-XuanYuan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XuanYuan.release.xcconfig"; path = "Pods/Target Support Files/Pods-XuanYuan/Pods-XuanYuan.release.xcconfig"; sourceTree = "<group>"; };
@@ -1176,18 +1168,6 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
-		1CFC9F1E1EC5A7BE00201BFC /* MyWorkObjectTest */ = {
-			isa = PBXGroup;
-			children = (
-				1CFC9F1F1EC5A80000201BFC /* HTDatePickerView.h */,
-				1CFC9F201EC5A80000201BFC /* HTDatePickerView.m */,
-				1CA0B0941EC6E465002953B5 /* HTDatePickerCell.h */,
-				1CA0B0951EC6E465002953B5 /* HTDatePickerCell.m */,
-				1CA0B0961EC6E465002953B5 /* HTDatePickerCell.xib */,
-			);
-			path = MyWorkObjectTest;
-			sourceTree = "<group>";
-		};
 		CB4981E71EA61D3F000E0792 /* PopoverView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1477,7 +1457,6 @@
 		CBF588F31EA3AA2900E7327B /* XuanYuan */ = {
 			isa = PBXGroup;
 			children = (
-				1CFC9F1E1EC5A7BE00201BFC /* MyWorkObjectTest */,
 				CB898BDC1EBB804600989106 /* photoShutter2.caf */,
 				1C24D22B1EB96E22009F1592 /* 悬浮球 */,
 				CBF588F71EA3AA2900E7327B /* AppDelegate.h */,
@@ -1605,7 +1584,6 @@
 				CB4981F91EA660A8000E0792 /* ClassificationCell.xib in Resources */,
 				1C895EF61EB5E6D000ACBED0 /* LICENSE in Resources */,
 				1C5EDF001EC3179500002A46 /* none.png in Resources */,
-				1CA0B0981EC6E465002953B5 /* HTDatePickerCell.xib in Resources */,
 				CBF589041EA3AA2900E7327B /* LaunchScreen.storyboard in Resources */,
 				1C8386DE1EB0816C006A8A71 /* HTEditItemsCell.xib in Resources */,
 				1C4EB2D81EA4AEB7009A1B3D /* HTAddItemsCell.xib in Resources */,
@@ -1828,14 +1806,12 @@
 				CB7863B41EA3D3D8006ED01C /* CollectViewController.m in Sources */,
 				CBF588F91EA3AA2900E7327B /* AppDelegate.m in Sources */,
 				1C5EDF521EC4097F00002A46 /* YYTextWeakProxy.m in Sources */,
-				1CA0B0971EC6E465002953B5 /* HTDatePickerCell.m in Sources */,
 				1C4EB2CB1EA4A665009A1B3D /* MinoruTextField.swift in Sources */,
 				1C0639901EB78F050039FEDC /* ClassificationConfig.m in Sources */,
 				1C4EB2831EA455B2009A1B3D /* UIButton+EnlargeEdge.m in Sources */,
 				1C8386C01EB063DB006A8A71 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				1C5EDF431EC4097E00002A46 /* YYTextLine.m in Sources */,
 				1C8809021EBE1161002F4B37 /* HTTools+FileManager.m in Sources */,
-				1CFC9F211EC5A80000201BFC /* HTDatePickerView.m in Sources */,
 				1C5EDF491EC4097E00002A46 /* YYTextRubyAnnotation.m in Sources */,
 				1C8386CF1EB063DB006A8A71 /* DGActivityIndicatorView.m in Sources */,
 				1C8386C61EB063DB006A8A71 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,

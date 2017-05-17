@@ -30,5 +30,5 @@
 
 
 -(void)ht_setCornerRadius:(CGFloat)radius;
--(void)ht_setBorderWidth:(NSInteger)width Color:(UIColor *)color;
+-(void)ht_setBorderWidth:(CGFloat)width Color:(UIColor *)color;
 @end
