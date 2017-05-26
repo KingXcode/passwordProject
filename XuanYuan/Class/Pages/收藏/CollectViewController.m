@@ -12,8 +12,8 @@
 #import "HTDataBaseManager.h"
 #import "HTEditItemsViewController.h"
 #import "DetailCopyViewController.h"
-
-
+#import "HTNotesViewController.h"
+#import "HTNavigationController.h"
 
 @interface CollectViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -237,11 +237,21 @@
  */
 -(void)editAccount:(ClassificationModel *)model
 {
-    HTEditItemsViewController *vc = [[HTEditItemsViewController alloc]init];
-    vc.MainModel = model;
-    vc.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController.view.layer addAnimation:[HTTools createTransitionAnimationWithType:@"moveIn" direction:@"fromTop" time:0.4] forKey:nil];
-    [self.navigationController pushViewController:vc animated:NO];
+    
+    if (model.iconType == 1000)
+    {
+        HTNotesViewController *vc = [[HTNotesViewController alloc]init];
+        vc.model = model;
+        HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+    else
+    {
+        HTEditItemsViewController *vc = [[HTEditItemsViewController alloc]init];
+        vc.MainModel = model;
+        HTNavigationController *nav = [[HTNavigationController alloc]initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
     [self reloadMyTableView];
 }
 
