@@ -60,7 +60,7 @@
     if ([HTTools ht_isBlankString:self.model.accountTitle]||self.model.accountTitle.length<1) {
         NSArray *arr = [HTMainItemModel getNotesModelArray];
         if (arr.count>0) {
-            self.model.accountTitle = [NSString stringWithFormat:@"%@(%lud)",@"新建备忘录",(unsigned long)arr.count];
+            self.model.accountTitle = [NSString stringWithFormat:@"%@(%lu)",@"新建备忘录",(unsigned long)arr.count];
         }else
         {
             self.model.accountTitle = [NSString stringWithFormat:@"%@",@"新建备忘录"];
