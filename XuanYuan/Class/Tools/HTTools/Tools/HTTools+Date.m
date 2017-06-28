@@ -17,7 +17,7 @@
  @param index 字符串原本是 几进制
  @return 转换后的十进制数
  */
-+(NSNumber *)ht_strToulWithStr:(NSString *)str base:(int)index
++(NSNumber *)ht_DateStrToulWithStr:(NSString *)str base:(int)index
 {
     if (index<=1) {
         index = 16;
@@ -55,13 +55,33 @@
     return [dateFormatter stringFromDate:d];
 }
 
++(int)ht_DateCompareDateTime:(NSString *)otherDateString
+{
+    long long time = [otherDateString longLongValue];
+    NSDate *d = [[NSDate alloc]initWithTimeIntervalSince1970:time/1000];
+    NSDate *today = [NSDate date];
+    NSComparisonResult result = [d compare:today];
+    
+    if (result == NSOrderedDescending) {
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+        return -1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+
 
 +(NSString *)ht_DateWithLongTime:(NSString *)timeStr{
     
     return [self ht_DateWithLongTime:timeStr dateFormat:nil];
 }
 
-+(NSString *) ht_compareCurrentTimes:(NSTimeInterval)timeInterval
++(NSString *) ht_DateCompareCurrentTimes:(NSTimeInterval)timeInterval
 {
     timeInterval = -timeInterval;
     long temp = 0;
@@ -91,10 +111,10 @@
     return  result;
 }
 
-+(NSString *) ht_compareCurrentTime:(NSDate*) compareDate  // 几分钟前
++(NSString *) ht_DateCompareCurrentTime:(NSDate*) compareDate  // 几分钟前
 {
     NSTimeInterval  timeInterval = [compareDate timeIntervalSinceNow];
-    return [self ht_compareCurrentTimes:timeInterval];
+    return [self ht_DateCompareCurrentTimes:timeInterval];
 }
 
 

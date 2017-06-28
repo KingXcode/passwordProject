@@ -22,13 +22,22 @@
 /**
  判断几分钟前
  */
-+(NSString *)ht_compareCurrentTime:(NSDate*) compareDate;
-+(NSString *)ht_compareCurrentTimes:(NSTimeInterval)timeInterval;
++(NSString *)ht_DateCompareCurrentTime:(NSDate*) compareDate;
++(NSString *)ht_DateCompareCurrentTimes:(NSTimeInterval)timeInterval;
+
+/*
+ 判断时间与当前时间的大小
+ 1: 未来
+ -1:过去
+ 0:是当前
+ */
++(int)ht_DateCompareDateTime:(NSString *)otherDateString;
+
 /**
  任意进制转换十进制 index为0原字符串默认为十六进制
  @param str 数字字符串
  @param index 字符串原本是 几进制
  @return 转换后的十进制数
  */
-+(NSNumber *)ht_strToulWithStr:(NSString *)str base:(int)index;
++(NSNumber *)ht_DateStrToulWithStr:(NSString *)str base:(int)index;
 @end

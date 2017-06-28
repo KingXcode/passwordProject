@@ -9,7 +9,7 @@
 #import "HTTools.h"
 
 /*
- 所有的操作都在主线程中,如果需要,请自主在子线程中做操作
+    所有的操作都在主线程中,如果需要,请自主在子线程中做操作
  */
 @interface HTTools (FileManager)
 /**
@@ -92,7 +92,6 @@
 /**
  从LibraryCache路径获取二进制文件
  （文件名包括了后缀在内，比如test1和test1.html是两个文件）存在，则将这个文件删除，然后再创建；
- 
  @param path 路径
  @return 如果路径为空  返回nil
  */
@@ -111,9 +110,6 @@
  @return 是否移动成功
  */
 +(BOOL)ht_file_movePath:(NSString *)path toPath:(NSString *)toPath  error:(NSError **)error;
-
-
-
 
 /**
  path文件必须存在，toPath路径所在的中间路径也必须存在，

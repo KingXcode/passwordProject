@@ -8,6 +8,14 @@
 
 #import "UIView+HTExtension.h"
 
+typedef NS_ENUM(NSInteger, EdgeType) {
+    TopBorder = 10000,
+    LeftBorder = 20000,
+    BottomBorder = 30000,
+    RightBorder = 40000
+};
+
+
 @implementation UIView (HTExtension)
 -(CGFloat)ht_x
 {
@@ -54,6 +62,8 @@
     frame.size.height = ht_height;
     self.frame = frame;
 }
+/*******************************************************************************/
+
 
 /*******************************************************************************/
 -(void)ht_setX:(CGFloat)ht_x animated:(BOOL)animated
@@ -153,5 +163,27 @@
         self.layer.borderColor = color.CGColor;
     }
 }
+
+
++ (instancetype)ht_viewFromXib
+{
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].firstObject;
+}
+
+
+- (BOOL)ht_intersectsWithView:(UIView *)view
+{
+    //都先转换为相对于窗口的坐标，然后进行判断是否重合
+    CGRect selfRect = [self convertRect:self.bounds toView:nil];
+    CGRect viewRect = [view convertRect:view.bounds toView:nil];
+    return CGRectIntersectsRect(selfRect, viewRect);
+    
+
+    
+}
+
+
+#pragma -mark- 添加边框线
+
 
 @end

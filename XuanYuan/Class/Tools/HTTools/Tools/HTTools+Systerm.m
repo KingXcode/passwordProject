@@ -49,6 +49,7 @@
 }
 
 
+
 /**
  系统版本
  */
@@ -249,10 +250,6 @@
 
 +(void)enableTouchIDCheck:(void(^)(BOOL success, NSError *error))reply
 {
-    BOOL isStartTouchID = [MainConfigManager isOpenTouchID];
-    if (isStartTouchID == NO) {
-        return;
-    }
     LAContext *context = [LAContext new];
     context.localizedFallbackTitle = @"忘记密码";
     

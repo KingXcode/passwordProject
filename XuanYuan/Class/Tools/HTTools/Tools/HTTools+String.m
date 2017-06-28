@@ -14,20 +14,19 @@
 
 
 //移除最后无效的0 保留两位小数
--(NSString*)ht_removeFloatAllZeroKeeTwoDecimalPlaces:(NSString*)string
++(NSString*)ht_removeFloatAllZeroKeeTwoDecimalPlaces:(NSString*)string
 {
     NSString * testNumber = [NSString stringWithFormat:@"%.2f",string.floatValue];
     NSString * outNumber = [NSString stringWithFormat:@"%@",@(testNumber.floatValue)];
     return outNumber;
 }
 //移除无效的0 有效位有多少 保留多少位
--(NSString*)ht_removeFloatAllZero:(NSString*)string
++(NSString*)ht_removeFloatAllZero:(NSString*)string
 {
     NSString * testNumber = string;
     NSString * outNumber = [NSString stringWithFormat:@"%@",@(testNumber.floatValue)];
     return outNumber;
 }
-
 
 //分词 带标点
 + (NSArray *)stringTokenizerWithWord:(NSString *)word
@@ -459,6 +458,54 @@
         return YES;
     }
     return NO;
+}
+
+
+
+//高精度计算方法
++(NSString *)ht_firstValue:(NSString *)first andLastValue:(NSString *)last andSymbol:(NSInteger)Symbol
+{
+    
+    //安全操作
+    if (!last.length) {
+        last = @"0";
+    }
+    
+    if (!first.length) {
+        first = @"0";
+    }
+    
+    //包含 + 、 - 、 * 、 / 四部分操作
+    NSDecimalNumber *firstNum = [NSDecimalNumber decimalNumberWithString:first];
+    NSDecimalNumber *lastNum = [NSDecimalNumber decimalNumberWithString:last];
+    
+    switch (Symbol) {
+        case 0:
+        {
+            return [[firstNum decimalNumberByAdding:lastNum] stringValue];
+        }
+            break;
+        case 1:
+        {
+            return [[firstNum decimalNumberByMultiplyingBy:lastNum] stringValue];
+        }
+            break;
+        case 2:
+        {
+            //除法的除数不能为0
+            if (lastNum.doubleValue == 0) {
+                return @"ERROR";
+            }
+            return [[firstNum decimalNumberByDividingBy:lastNum] stringValue];
+        }
+            break;
+        default:
+        {
+            return [[firstNum decimalNumberBySubtracting:lastNum] stringValue];
+        }
+            break;
+            
+    }
 }
 
 

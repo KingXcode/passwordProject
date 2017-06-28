@@ -86,38 +86,38 @@ NSString *const kFromBottomDirection    = @"fromBottom";
 
 +(void)shakeAnnimation:(UIView *)view completion:(void (^)(BOOL finished))completion
 {
-    
+    CATransform3D tran = view.layer.transform;
     [UIView animateWithDuration:0.025f animations:^{
         
-        view.layer.transform = CATransform3DTranslate(view.layer.transform, 10, 0.0, 0.0);
+        view.layer.transform = CATransform3DTranslate(tran, 5, 0.0, 0.0);
         
     }completion:^(BOOL finished) {
         
         [UIView animateWithDuration:0.05f animations:^{
             
-            view.layer.transform = CATransform3DTranslate(view.layer.transform, -10, 0.0, 0.0);
+            view.layer.transform = CATransform3DTranslate(tran, -5, 0.0, 0.0);
             
         }completion:^(BOOL finished) {
             
             [UIView animateWithDuration:0.05f animations:^{
                 
-                view.layer.transform = CATransform3DTranslate(view.layer.transform, 10, 0.0, 0.0);
+                view.layer.transform = CATransform3DTranslate(tran, 5, 0.0, 0.0);
                 
             }completion:^(BOOL finished) {
                 
                 [UIView animateWithDuration:0.05f animations:^{
                     
-                    view.layer.transform = CATransform3DTranslate(view.layer.transform, -10, 0.0, 0.0);
+                    view.layer.transform = CATransform3DTranslate(tran, -5, 0.0, 0.0);
                     
                 }completion:^(BOOL finished) {
                     
                     [UIView animateWithDuration:0.05f animations:^{
                         
-                        view.layer.transform = CATransform3DTranslate(view.layer.transform, 10, 0.0, 0.0);
+                        view.layer.transform = CATransform3DTranslate(tran, 5, 0.0, 0.0);
                         
                     }completion:^(BOOL finished) {
                         
-                        [UIView animateWithDuration:0.05f animations:^{
+                        [UIView animateWithDuration:0.025f animations:^{
                             
                             view.layer.transform = CATransform3DIdentity;
                             
@@ -163,7 +163,7 @@ NSString *const kFromBottomDirection    = @"fromBottom";
 
 +(void)CATransform3DScaleVerticalView:(UIView *)view
 {
-    [self CATransform3DScaleVerticalView:view Duration:0.4f];
+    [self CATransform3DScaleVerticalView:view Duration:0.2f];
 }
 
 +(void)CATransform3DScaleVerticalView:(UIView *)view Duration:(NSTimeInterval)duration
@@ -178,7 +178,6 @@ NSString *const kFromBottomDirection    = @"fromBottom";
         view.layer.opacity = 1;
     }];
 }
-
 
 
 

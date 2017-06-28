@@ -71,6 +71,8 @@
     return categoryArray;
 }
 
+
+
 /**
  根据modelArray中的属性 去除重复的元素
  目前我的测试中 NSString 和 int类型是没有问题的,过滤正常.
@@ -100,6 +102,7 @@
     
     return categoryArray;
 }
+
 
 
 @end

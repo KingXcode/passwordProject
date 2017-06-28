@@ -39,13 +39,11 @@ extern NSString *const kFromBottomDirection;
  */
 +(void)CATransform3DScaleView:(UIView *)view;
 
-
 /**
  竖直缩放
  */
 +(void)CATransform3DScaleVerticalView:(UIView *)view;
 +(void)CATransform3DScaleVerticalView:(UIView *)view Duration:(NSTimeInterval)duration;
-
 
 
 /**

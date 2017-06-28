@@ -17,8 +17,6 @@
  根据传入的size讲image的尺寸重置  有一定的压缩能力
  */
 +(UIImage *)ht_returnImage:(UIImage *)image BySize:(CGSize)size;
-
-
 /**
  截图
  */

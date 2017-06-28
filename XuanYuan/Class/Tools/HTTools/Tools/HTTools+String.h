@@ -11,9 +11,9 @@
 @interface HTTools (String)
 
 //移除最后无效的0 保留两位小数
--(NSString*)ht_removeFloatAllZeroKeeTwoDecimalPlaces:(NSString*)string;
++(NSString*)ht_removeFloatAllZeroKeeTwoDecimalPlaces:(NSString*)string;
 //移除无效的0 有效位有多少 保留多少位
--(NSString*)ht_removeFloatAllZero:(NSString*)string;
++(NSString*)ht_removeFloatAllZero:(NSString*)string;
 
 /**
  分词
@@ -38,6 +38,7 @@
  */
 +(NSString *)ht_numberToChinese:(NSInteger)arabicNum;
 +(NSString *)ht_numberToChinese_low:(NSInteger)arabicNum;
+
 /**
  设置行间距
  */
